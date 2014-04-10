@@ -28,7 +28,7 @@ Template.game.events({
 });
 
 startGame = function() {
-  alert("gogogog\n");
+
 };
 
 GameStream = new Meteor.Stream('game_streams');
