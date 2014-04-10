@@ -6,4 +6,10 @@ function reloadEditor() {
     mode: 'python',
     theme: 'mbo'
   });
+
+  editor.setSize(400, 400);
 }
+
+Template.editor.rendered = function () {
+  reloadEditor();
+};
