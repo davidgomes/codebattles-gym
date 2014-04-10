@@ -111,6 +111,13 @@ h1.title{
   background:red;
   z-index: 5;
 }
+#countdown p {
+color:white;
+line-height: 360px;
+font-size:120px;
+}
+
+
 /* Header Style */
 
 #header {

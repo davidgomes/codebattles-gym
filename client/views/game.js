@@ -34,14 +34,20 @@ startGame = function() {
 GameStream = new Meteor.Stream('game_streams');
 
 function countDown (left) {
-  if (left <= 0) {
 
-    $('#countdown').html("");
-    startGame();
+  if (left <= 0) {
+     $( "#countdown" ).fadeTo( "slow" , 0, function() {
+            $('#countdown').toggle();
+            startGame();
+     });
   }
   else {
-    $('#countdown').html(left);
-    setTimeout(countDown, 1000, left - 1);
+    $('#countdown p').fadeTo( 0, 1);
+    $('#countdown p').html(left);
+    $('#countdown p').fadeTo( "slow" , 0, function() {
+      left--;
+      countDown(left);
+  });
   }
 };
 
