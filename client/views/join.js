@@ -10,7 +10,7 @@ var keyEnter = 13;
 preStart = function() {
   joining = false;
   Meteor.call("preStart");
-}
+};
 
 Template.join.events({
   'click .submit-button': function(event) {
@@ -36,21 +36,21 @@ selectRuby = function() {
   $("#ruby").addClass("selected");
   $("#javascript").removeClass("selected");
   $("#python").removeClass("selected");
-}
+};
 
 selectJavascript = function() {
   language = "javascript";
   $("#ruby").removeClass("selected");
   $("#javascript").addClass("selected");
   $("#python").removeClass("selected");
-}
+};
 
 selectPython = function() {
   language = "python";
   $("#ruby").removeClass("selected");
   $("#javascript").removeClass("selected");
   $("#python").addClass("selected");
-}
+};
 
 document.onkeydown = checkKey;
 
