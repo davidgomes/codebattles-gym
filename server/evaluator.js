@@ -10,21 +10,15 @@ var Evaluator = (function() {
       return (str + '').replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
     },
 
-    run: function(code, language, userId, probNum, callback) {
+    run: function(code, language, probNum, callback) {
       var command;
       var input;
       var output;
 
       code = this.escape(code);
 
-      Meteor.call('getProbInputById', probNum, 0, function(error, response) {
-        input = response;
-        console.log(input);
-      });
-
-      Meteor.call('getProbOutputById', probNum, 0, function(error, response) {
-        output = response;
-      });
+      input = getProblemById(probNum).io[0].input;
+      output = getProblemById(probNum).io[0].output;
 
       if (language === 'python3') {
         command = 'python3 -c "' + code + '"';
@@ -42,16 +36,17 @@ var Evaluator = (function() {
         command += ' < ' + userId + '.txt';
       }
 
-      var fcommand = "isolate -t 1 -e --run -- " + command;
-	  child = exec(fcommand, options, function(error, stdout, stderr) {
+      child = exec(command, options, function(error, stdout, stderr) {
         var response;
         if (error) {
           response = stderr.toString();
         } else {
           if (stdout.toString() === output) {
             response = 'Accepted';
+            console.log(response);
           } else {
             response = 'Wrong Answer';
+            console.log(response);
           }
         }
 
@@ -64,7 +59,7 @@ var Evaluator = (function() {
 var Future = Npm.require('fibers/future');
 var exec = Npm.require('child_process').exec;
 
-Meteor.startup(function() {});
+Meteor.startup(function() { });
 
 Meteor.methods({
   runCode: function(code, language, probNum) {

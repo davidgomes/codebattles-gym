@@ -114,10 +114,6 @@ GameStream.on(Meteor.userId() + ":preStart", function() {
 
 submitAnswer = function() {
   Meteor.call('runCode', editor.getValue(), language, 1, function(error, response) {
-    if (error) {
-      console.log("Error: " + error);
-    } else {
-      console.log(response);
-    }
+    console.log(response);
   });
 };
