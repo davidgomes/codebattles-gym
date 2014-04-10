@@ -22,6 +22,7 @@ Template.game.events({
 
     if (confirm("Exit Game?")) {
       Meteor.call("exitGame");
+      joining = true;
     }
   }
 });
