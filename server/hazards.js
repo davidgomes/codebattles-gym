@@ -1,16 +1,14 @@
-var hazards = JSON.parse(Assets.getText("hazards.json"));
-
-//helpers
-
-var threshold = 10;
+treshold = 10;
 
 getHazardByRank = function(rank) {
-  var rhazards = new Array();
-  for (var i = 0; i < hazards.length; i++){
-    if (Math.abs(hazards[i].rank - rank) <= threshold){
+  var rhazards = [];
+
+  for (var i = 0; i < hazards.length; i++) {
+    if (Math.abs(hazards[i].rank - rank) <= threshold) {
       rhazards.push(hazards[i]);
     }
   }
-  var index = Math.floor((Math.random()*rhazards.length));
+
+  var index = Math.floor((Math.random() * rhazards.length));
   return rhazards[index];
-}
+};
