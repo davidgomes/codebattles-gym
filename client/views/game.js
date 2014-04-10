@@ -32,7 +32,15 @@ Template.game.events({
 
   'click .submit-button': function(event) {
     event.preventDefault();
-    submitAnswer();
+    Meteor.call("submit", function(error, result) {
+      if (error) {
+        return;
+      }
+
+      if (result == "Accepted") {
+        alert("Your Code was Accepted");
+      }
+    });
   },
 
   'keydown': function(event) {

@@ -34,5 +34,15 @@ Meteor.methods({
     }
 
     Meteor.users.update(user._id, { $set: { playing: 0 } });
-  }
+  },
+
+  submit: function(code) {
+    var user = Meteor.user();
+
+    if (!user) {
+      throw new Meteor.Error(401, "You need to be logged in to start games");
+    }
+
+    return "Accepted";
+  }    
 });
