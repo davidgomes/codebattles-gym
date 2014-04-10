@@ -17,7 +17,7 @@
           }]
   },
 
-  {"statement": "Problema de rank 3 - 3",
+  {"statement": "Problema de rank 2 - 3",
    "len": "1",
    "comp": "1",
    "hazards": ["1","2"],
@@ -26,7 +26,7 @@
           }]
   },
 
-  {"statement": "Problema de rank 4 - 4",
+  {"statement": "Problema de rank 2 - 4",
    "len": "1",
    "comp": "1",
    "hazards": ["1","2"],

@@ -14,5 +14,3 @@ getHazardByRank = function(rank) {
   var index = Math.floor((Math.random()*rhazards.length));
   return rhazards[index];
 }
-
-console.log(getHazardByRank(20));
