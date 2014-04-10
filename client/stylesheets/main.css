@@ -110,6 +110,7 @@ h1.title{
   height:100%;
   background:red;
   z-index: 5;
+  display: none;
 }
 #countdown p {
 color:white;

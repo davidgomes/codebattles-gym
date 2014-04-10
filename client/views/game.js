@@ -35,15 +35,25 @@ GameStream = new Meteor.Stream('game_streams');
 
 function countDown (left) {
 
-  if (left <= 0) {
+  if (left <= -1) {
      $( "#countdown" ).fadeTo( "slow" , 0, function() {
             $('#countdown').toggle();
             startGame();
      });
   }
   else {
+    if (left == 3) {
+      $('#countdown').show();
+    }
+
     $('#countdown p').fadeTo( 0, 1);
-    $('#countdown p').html(left);
+    if (left > 0) {
+      $('#countdown p').html(left);
+    }
+    else {
+      $('#countdown p').html("Go!");
+    }
+    
     $('#countdown p').fadeTo( "slow" , 0, function() {
       left--;
       countDown(left);
