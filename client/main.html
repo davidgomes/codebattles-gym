@@ -10,10 +10,8 @@
 
 <template name="main">
   {{#if loggedIn}}
-    <div class="container">
-      <div id="game">
-        {{> editor}}
-      </div>
+    <div id="game">
+      {{> editor}}
     </div>
   {{else}}
     <p>Sign Up!</p>
