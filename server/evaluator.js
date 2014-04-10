@@ -20,10 +20,8 @@ var Evaluator = (function() {
       input = getProblemById(probNum).io[0].input;
       output = getProblemById(probNum).io[0].output;
 
-      if (language === 'python3') {
-        command = 'python3 -c "' + code + '"';
-      } else if (language === 'python2') {
-        command = 'python2 -c "' + code + '"';
+      if (language === 'python') {
+        command = 'python -c "' + code + '"';
       } else if (language === 'ruby') {
         command = 'ruby -e "' + code + '"';
       }
