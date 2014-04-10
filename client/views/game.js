@@ -1,3 +1,5 @@
+editor = null;
+
 function reloadEditor() {
   editor = new CodeMirror(document.getElementById('actual-editor'), {
     lineNumbers: true,
