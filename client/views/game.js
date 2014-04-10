@@ -59,7 +59,7 @@ Template.game.events({
 var width = 100;
 
 function gameTick() {
-  $('#progress #bar').animate({ "width": width.toString() + "%" }, 1000);
+  $('#progress #bar').animate({ "width": width.toString() + "%" }, 1000, "linear");
   width--;
   Meteor.setTimeout(gameTick, 1000);
 };
