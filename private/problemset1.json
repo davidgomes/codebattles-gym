@@ -1,37 +1,14 @@
 [
-  {"statement": "Problema de rank 1 - 1",
-   "len": "1",
-   "comp": "1",
-   "hazards": ["1","2"],
-   "io": [{"input": "",
-           "output": ""
-          }]
-  },
-  
-  {"statement": "Problema de rank 1 - 2",
-   "len": "1",
-   "comp": "1",
-   "hazards": ["1","2"],
-   "io": [{"input": "",
-           "output": ""
-          }]
-  },
+  {
+    "statement": "Even numbers from 2 to 100.",
+    "len": "1",
+    "comp": "1",
 
-  {"statement": "Problema de rank 1 - 3",
-   "len": "1",
-   "comp": "1",
-   "hazards": ["1","2"],
-   "io": [{"input": "",
-           "output": ""
-          }]
-  },
+    "hazards": ["1", "2"],
 
-  {"statement": "Problema de rank 1 - 4",
-   "len": "1",
-   "comp": "1",
-   "hazards": ["1","2"],
-   "io": [{"input": "",
-           "output": ""
-          }]
+    "io": [{
+      "input": "",
+      "output": ""
+    }]
   }
 ]

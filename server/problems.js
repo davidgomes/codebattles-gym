@@ -39,17 +39,21 @@ getProblems = function() {
 };
 
 Meteor.methods({
-  getProbInputById: function(id,n) {
+  getProblemStatementById: function(id) {
+    return getProblemById(id).statement;
+  },
+  
+  getProbInputById: function(id, n) {
     console.log("MOTHAFUCKAH");
-    console.log(problems[id - 1].io[n].input);
-    return problems[id - 1].io[n].input;
+    console.log(problems[id].io[n].input);
+    return problems[id].io[n].input;
   },
 
-  getProbOutputById: function(id,n) {
-    return problems[id - 1].io[n].output;
+  getProbOutputById: function(id, n) {
+    return problems[id].io[n].output;
   },
 
   getNTestCases: function(id) {
-    return problems[id - 1].io.length;
+    return problems[id].io.length;
   }
 });

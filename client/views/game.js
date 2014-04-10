@@ -71,6 +71,15 @@ var startGame = function() {
   $('#progress #bar').width("100%");
   $('#progress #bar').animate({ "width": "0%" }, 10000, "linear");
   $('#feedback').hide();
+
+  Meteor.call('getProblemStatementById', 0, function(error, response) {
+    if (error) {
+      console.log("Error: " + error);
+    } else {
+      console.log(response);
+      $('#problem-statement').html(response);
+    }
+  });
   
   Meteor.clearTimeout(gameLoop);
   gameTick();
@@ -115,7 +124,7 @@ GameStream.on(Meteor.userId() + ":preStart", function() {
 });
 
 submitAnswer = function() {
-  Meteor.call('runCode', editor.getValue(), language, 1, function(error, response) {
+  Meteor.call('runCode', editor.getValue(), language, 0, function(error, response) {
     $('#feedback').show();
     $('#feedback-error').html(response);
   });
