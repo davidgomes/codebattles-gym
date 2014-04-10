@@ -1,0 +1,37 @@
+[
+  {"statement": "Problema de rank 2 - 1",
+   "len": "1",
+   "comp": "1",
+   "hazards": ["1","2"],
+   "io": [{"input": "",
+           "output": ""
+          }]
+  },
+  
+  {"statement": "Problema de rank 2 - 2",
+   "len": "1",
+   "comp": "1",
+   "hazards": ["1","2"],
+   "io": [{"input": "",
+           "output": ""
+          }]
+  },
+
+  {"statement": "Problema de rank 3 - 3",
+   "len": "1",
+   "comp": "1",
+   "hazards": ["1","2"],
+   "io": [{"input": "",
+           "output": ""
+          }]
+  },
+
+  {"statement": "Problema de rank 4 - 4",
+   "len": "1",
+   "comp": "1",
+   "hazards": ["1","2"],
+   "io": [{"input": "",
+           "output": ""
+          }]
+  }
+]
