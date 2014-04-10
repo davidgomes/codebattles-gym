@@ -36,15 +36,14 @@ var Evaluator = (function() {
 
       child = exec(command, options, function(error, stdout, stderr) {
         var response;
+
         if (error) {
           response = stderr.toString();
         } else {
           if (stdout.toString() === output) {
             response = 'Accepted';
-            console.log(response);
           } else {
             response = 'Wrong Answer';
-            console.log(response);
           }
         }
 
