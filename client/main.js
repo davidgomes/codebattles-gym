@@ -5,7 +5,7 @@ Template.main.loggedIn = function() {
 Template.main.helpers({
   inGame: function() {
     var user = Meteor.user();
-    return user.playing;
+    return user.playing > 0;
   }
 });
 

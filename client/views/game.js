@@ -25,3 +25,24 @@ Template.game.events({
     }
   }
 });
+
+startGame = function() {
+  alert("gogogog\n");
+};
+
+GameStream = new Meteor.Stream('game_streams');
+
+function countDown (left) {
+  if (left <= 0) {
+    $('#countdown').html("");
+    startGame();
+  }
+  else {
+    $('#countdown').html(left);
+    setTimeout(countDown, 1000, left - 1);
+  }
+};
+
+GameStream.on(Meteor.userId() + ":preStart", function() {
+  setTimeout(countDown, 10, 3);
+});
