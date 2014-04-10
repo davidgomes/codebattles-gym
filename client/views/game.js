@@ -56,12 +56,16 @@ Template.game.events({
   }
 });
 
-gameTick = function() {
-  
+var width = 100;
+
+function gameTick() {
+  $('#progress #bar').animate({"width": width.toString() + "%"}, 1000);
+  width--;
+  Meteor.setTimeout(gameTick, 1000);
 };
 
 startGame = function() {
-  Meteor.setTimeout(gameTick, 1000);
+  gameTick();
 };
 
 GameStream = new Meteor.Stream('game_streams');
