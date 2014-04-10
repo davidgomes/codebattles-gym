@@ -15,3 +15,13 @@ function reloadEditor() {
 Template.game.rendered = function () {
   reloadEditor();
 };
+
+Template.game.events({
+  'click .exit-button': function(event) {
+    event.preventDefault();
+
+    if (confirm("Exit Game?")) {
+      Meteor.call("exitGame");
+    }
+  }
+});

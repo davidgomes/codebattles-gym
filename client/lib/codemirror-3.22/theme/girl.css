@@ -10,4 +10,4 @@
 
 .cm-s-girl .CodeMirror-activeline-background {background: #e8f2ff !important;}
 .cm-s-girl .CodeMirror-matchingbracket {outline:1px solid grey; color:black !important;}
-.cm-s-girl.CodeMirror {background: #ff66cc; color: #ffffe9;}
+.cm-s-girl.CodeMirror { font-family: "Comic Sans MS"; font-size: 18px; background: #ff66cc; color: #ffffe9;}
