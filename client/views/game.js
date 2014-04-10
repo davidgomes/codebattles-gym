@@ -1,5 +1,9 @@
 editor = null;
 
+var altKey = 18;
+var submitKey = 83;
+var hotkey = false;
+
 function reloadEditor() {
   editor = new CodeMirror(document.getElementById('actual-editor'), {
     lineNumbers: true,
@@ -23,6 +27,31 @@ Template.game.events({
     if (confirm("Exit Game?")) {
       Meteor.call("exitGame");
       joining = true;
+    }
+  },
+
+  'click .submit-button': function(event) {
+    event.preventDefault();
+    submitAnswer();
+  },
+
+  'keydown' : function(event) {
+    if (event.keyCode === altKey) {
+      hotkey = true;
+    }
+  },
+
+  'keydown #actual-editor' : function(event) {
+    if (hotkey) {
+      if (event.keyCode === submitKey) {
+        submitAnswer();
+      }
+    }
+  },
+
+  'keyup' : function(event) {
+    if (event.keyCode === altKey) {
+      hotkey = false;
     }
   }
 });
@@ -71,3 +100,7 @@ function countDown (left) {
 GameStream.on(Meteor.userId() + ":preStart", function() {
   setTimeout(countDown, 10, 3);
 });
+
+submitAnswer = function(code){
+  console.log("submit");
+}
