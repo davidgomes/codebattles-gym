@@ -27,8 +27,12 @@ Template.game.events({
   }
 });
 
-startGame = function() {
+gameTick = function() {
+  
+};
 
+startGame = function() {
+  Meteor.setTimeout(gameTick, 1000);
 };
 
 GameStream = new Meteor.Stream('game_streams');
@@ -36,7 +40,7 @@ GameStream = new Meteor.Stream('game_streams');
 function countDown (left) {
 
   if (left <= -1) {
-     $( "#countdown" ).fadeTo( "slow" , 0, function() {
+     $( "#countdown" ).fadeTo(200 , 0, function() {
             $('#countdown').toggle();
             startGame();
      });
@@ -49,15 +53,18 @@ function countDown (left) {
     $('#countdown p').fadeTo( 0, 1);
     if (left > 0) {
       $('#countdown p').html(left);
+      $('#countdown p').fadeTo(1000, 0, function() {
+        left--;
+        countDown(left);
+      });
     }
     else {
       $('#countdown p').html("Go!");
+      $('#countdown p').fadeTo(600, 0, function() {
+        left--;
+        countDown(left);
+      });
     }
-    
-    $('#countdown p').fadeTo( "slow" , 0, function() {
-      left--;
-      countDown(left);
-  });
   }
 };
 
