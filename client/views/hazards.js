@@ -2,7 +2,7 @@ hazards = {
   pitaScript: {
     name: 'pitaScript',
     description: 'You\'re now a 12 years old girl',
-    rank: 10,
+    difficulty: 10,
 
     execute: function() {
       editor.setOption('theme', 'girl');
@@ -12,7 +12,7 @@ hazards = {
   russianRoulette: {
     name: 'russianRoulette',
     description: 'Hello',
-    rank: 20,
+    difficulty: 20,
 
     execute: function() {
       var shot = Math.floor(Math.random() * 3);
