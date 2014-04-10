@@ -73,6 +73,10 @@ function gameTick() {
 };
 
 startGame = function() {
+  Meteor.setTimeout(gameTick, 1000);
+
+  editor.setOption('mode', language);
+
   gameTick();
 };
 
@@ -81,12 +85,11 @@ GameStream = new Meteor.Stream('game_streams');
 function countDown (left) {
 
   if (left <= -1) {
-     $( "#countdown" ).fadeTo(200 , 0, function() {
-            $('#countdown').toggle();
-            startGame();
-     });
-  }
-  else {
+    $( "#countdown" ).fadeTo(200 , 0, function() {
+      $('#countdown').toggle();
+      startGame();
+    });
+  } else {
     if (left == 3) {
       $('#countdown').show();
     }
@@ -115,4 +118,4 @@ GameStream.on(Meteor.userId() + ":preStart", function() {
 
 submitAnswer = function(code){
   console.log("submit");
-}
+};
