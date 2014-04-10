@@ -10,9 +10,15 @@
 
 <template name="main">
   {{#if loggedIn}}
-    <div id="game">
-      {{> editor}}
-    </div>
+    {{#if inGame}}
+      <div id="game">
+        {{> game}}
+      </div>
+    {{else}}
+      <div id="pre-game">
+        {{> join}}
+      </div>
+    {{/if}}
   {{else}}
     <p>Sign Up!</p>
   {{/if}}
