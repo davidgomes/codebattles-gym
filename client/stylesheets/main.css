@@ -1,9 +1,25 @@
 /* Game Style */
-
-#game {
-
+html,body{
+width:100%;
+height:100%;
 }
 
+#game {
+  width:100%;
+  height:100%;
+}
+
+
+#actual-editor{
+  width:50%;
+  height:50%;
+  left:0;right:0;top:0;bottom:0;
+  margin:auto;
+}
+
+.CodeMirror{
+  width:100%;
+}
 /* Header Style */
 #header {
 
