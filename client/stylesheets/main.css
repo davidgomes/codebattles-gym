@@ -38,6 +38,7 @@ h1.title{
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .weapon.selected {
