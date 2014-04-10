@@ -19,7 +19,9 @@ var Evaluator = (function() {
 
       Meteor.call('getProbInputById', probNum, 0, function(error, response) {
         input = response;
+        console.log(input);
       });
+
       Meteor.call('getProbOutputById', probNum, 0, function(error, response) {
         output = response;
       });
@@ -65,10 +67,10 @@ var exec = Npm.require('child_process').exec;
 Meteor.startup(function() {});
 
 Meteor.methods({
-  runCode: function(code, language, userId, probNum) {
+  runCode: function(code, language, probNum) {
     var future = new Future();
 
-    Evaluator.run(code, language, userId, probNum, function(response) {
+    Evaluator.run(code, language, probNum, function(response) {
       future.return(response);
     });
 

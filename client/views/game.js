@@ -32,15 +32,7 @@ Template.game.events({
 
   'click .submit-button': function(event) {
     event.preventDefault();
-    Meteor.call("submit", function(error, result) {
-      if (error) {
-        return;
-      }
-
-      if (result == "Accepted") {
-        alert("Your Code was Accepted");
-      }
-    });
+    submitAnswer();
   },
 
   'keydown': function(event) {
@@ -67,7 +59,7 @@ Template.game.events({
 var width = 100;
 
 function gameTick() {
-  $('#progress #bar').animate({"width": width.toString() + "%"}, 1000);
+  $('#progress #bar').animate({ "width": width.toString() + "%" }, 1000);
   width--;
   Meteor.setTimeout(gameTick, 1000);
 };
@@ -82,8 +74,7 @@ startGame = function() {
 
 GameStream = new Meteor.Stream('game_streams');
 
-function countDown (left) {
-
+function countDown(left) {
   if (left <= -1) {
     $( "#countdown" ).fadeTo(200 , 0, function() {
       $('#countdown').toggle();
@@ -95,14 +86,14 @@ function countDown (left) {
     }
 
     $('#countdown p').fadeTo( 0, 1);
+
     if (left > 0) {
       $('#countdown p').html(left);
       $('#countdown p').fadeTo(1000, 0, function() {
         left--;
         countDown(left);
       });
-    }
-    else {
+    } else {
       $('#countdown p').html("Go!");
       $('#countdown p').fadeTo(600, 0, function() {
         left--;
@@ -116,6 +107,12 @@ GameStream.on(Meteor.userId() + ":preStart", function() {
   setTimeout(countDown, 10, 3);
 });
 
-submitAnswer = function(code){
-  console.log("submit");
+submitAnswer = function() {
+  Meteor.call('runCode', editor.getValue(), language, 1, function(error, response) {
+    if (error) {
+      console.log("Error: " + error);
+    } else {
+      console.log(response);
+    }
+  });
 };
