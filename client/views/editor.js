@@ -7,7 +7,7 @@ function reloadEditor() {
     theme: 'mbo'
   });
 
-  editor.setSize(400, 400);
+  editor.setSize(700, 360);
 }
 
 Template.editor.rendered = function () {
