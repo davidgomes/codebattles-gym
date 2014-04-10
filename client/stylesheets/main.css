@@ -53,21 +53,53 @@ letter-spacing: 2px;
 }
 /* games */
 #actual-editor{
+  position:relative;
 }
 
 #messages{
   font-family: monospace;
   color:rgba(0,0,0,0.5);
   padding:0px 20px;
+  padding-top: 20px;
   width:400px;
   height:360px;
   top:0px;right:0px;
   margin:auto;
   position: absolute;
-}
 
-.CodeMirror{
-  width:100%;
+  border-left: 1px solid rgba(255,255,255,0.1)
+}
+.monospaceHeader{
+  color:rgba(255,255,255,0.9);
+}
+#feedback{
+  position:absolute;
+  bottom:0px;
+  width:700px;
+  color:rgba(231, 76, 60,1.0);
+  font-family: monospace;
+  z-index: 2;
+  padding: 0px 40px;
+  padding-top:10px;
+  background: rgba(0,0,0,0.2);
+}
+#feedback strong{
+  color:white;
+}
+#progress{
+
+  width:700px;
+  height:10px;
+  background:rgba(0,0,0,0.1);
+  top:-40px;
+  left:0px;
+  position: absolute;
+}
+#bar{
+  height:100%;
+  width:60%;
+  background:rgba(0,0,0,0.3);
+
 }
 /* Header Style */
 
