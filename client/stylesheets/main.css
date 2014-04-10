@@ -26,9 +26,14 @@ h1.title{
 .weapon{
   margin:0 auto;
   background:rgba(46, 204, 113,.2);
+  transition: background-color 0.5s ease;
   height:200px;
   width:200px;
   border-radius: 100px;
+}
+
+.weapon:hover{
+  background:rgba(46, 204, 113,.5);
 }
 
 .weapon h1{
@@ -50,6 +55,7 @@ h1.title{
   margin-top: 50px;
   text-align: center;
 }
+
 #submit input[type="button"]{
   font-size: 24px;
   padding:15px 40px;
