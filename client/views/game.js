@@ -10,6 +10,6 @@ function reloadEditor() {
   editor.setSize(700, 360);
 }
 
-Template.editor.rendered = function () {
+Template.game.rendered = function () {
   reloadEditor();
 };
