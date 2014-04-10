@@ -35,6 +35,7 @@ GameStream = new Meteor.Stream('game_streams');
 
 function countDown (left) {
   if (left <= 0) {
+
     $('#countdown').html("");
     startGame();
   }
