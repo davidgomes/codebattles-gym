@@ -5,11 +5,8 @@
 
   <div id="actual-editor">
     <div id="feedback">
-    <p><span class="monospaceHeader">Runtime Error:</span></p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat.</p>
+      <p><span class="monospaceHeader">Runtime Error:</span></p>
+      <p id="feedback-error"></p>
     </div>
   </div>
 
@@ -21,9 +18,8 @@
     <p><span class="monospaceHeader">Hazard:</span> <span> {{ hazardName }} </span></p>
     <p><em>{{ hazardInfo }}</em></p>
 
-      <input type="button" value="Exit Game" class="btn btn-success exit-button"/>
-      <input type="button" value="Submit (Alt+S)" class="btn btn-success submit-button"/>
-
+    <input type="button" value="Exit Game" class="btn btn-success exit-button"/>
+    <input type="button" value="Submit (Alt+S)" class="btn btn-success submit-button"/>
   </div>
 
   <div id="progress">

@@ -70,7 +70,8 @@ var startGame = function() {
   $('#progress #bar').clearQueue();
   $('#progress #bar').width("100%");
   $('#progress #bar').animate({ "width": "0%" }, 10000, "linear");
-
+  $('#feedback').hide();
+  
   Meteor.clearTimeout(gameLoop);
   gameTick();
 };
@@ -115,7 +116,8 @@ GameStream.on(Meteor.userId() + ":preStart", function() {
 
 submitAnswer = function() {
   Meteor.call('runCode', editor.getValue(), language, 1, function(error, response) {
-    console.log(response);
+    $('#feedback').show();
+    $('#feedback-error').html(response);
   });
 };
 
