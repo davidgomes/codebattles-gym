@@ -2,18 +2,56 @@
 html,body{
 width:100%;
 height:100%;
-background:#666;
+background:#2c3e50;
 }
 
-#game {
+#game, #pre-game {
   width:1100px;
   height:50%;
   left:0;right:0;top:0;bottom:0;
   margin:auto;
   position: absolute;
 }
+/* Join */
+#weapons{
+
+}
+ h1.title{
+color:rgba(255,255,255,1);
+text-transform: uppercase;
+font-size: 32px;
+letter-spacing: 3px;
+ }
+
+.weapon{
+ margin:0 auto;
+ background:rgba(142, 68, 173,0.5);
+
+ height:200px;
+ width:200px;
+ border-radius: 100px;
+}
+
+.weapon h1{
+color:rgba(255,255,255,0.5);
+line-height:200px;
+text-align: center;
+font-size: 28px;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
 
 
+#submit{
+  margin-top: 50px;
+  text-align: center;
+}
+#submit input[type="button"]{
+ font-size: 32px;
+ padding:20px 40px;
+ background:  #2ecc71;
+}
+/* games */
 #actual-editor{
 }
 
@@ -32,6 +70,7 @@ background:#666;
   width:100%;
 }
 /* Header Style */
+
 #header {
 
 }
