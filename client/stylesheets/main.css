@@ -16,40 +16,43 @@ background:rgba(236, 240, 241,1.0);
 #weapons{
 
 }
- h1.title{
-color:rgba(255,255,255,1);
-text-transform: uppercase;
-font-size: 32px;
-letter-spacing: 3px;
- }
+h1.title{
+  color:rgba(255,255,255,1);
+  text-transform: uppercase;
+  font-size: 32px;
+  letter-spacing: 3px;
+}
 
 .weapon{
- margin:0 auto;
- background:rgba(142, 68, 173,0.5);
+  margin:0 auto;
+  background:rgba(142, 68, 173,0.5);
 
- height:200px;
- width:200px;
- border-radius: 100px;
+  height:200px;
+  width:200px;
+  border-radius: 100px;
 }
 
 .weapon h1{
-color:rgba(255,255,255,0.5);
-line-height:200px;
-text-align: center;
-font-size: 28px;
-text-transform: uppercase;
-letter-spacing: 2px;
+  color:rgba(255,255,255,0.5);
+  line-height:200px;
+  text-align: center;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
+.weapon.selected {
+  background: #2ecc71;
+}
 
 #submit{
   margin-top: 50px;
   text-align: center;
 }
 #submit input[type="button"]{
- font-size: 32px;
- padding:20px 40px;
- background:  #2ecc71;
+  font-size: 32px;
+  padding:20px 40px;
+  background:  #2ecc71;
 }
 /* games */
 #actual-editor{
@@ -102,11 +105,11 @@ letter-spacing: 2px;
 
 }
 #countdown{
-position: absolute;
-width:100%;
-height:100%;
-background:red;
-z-index: 5;
+  position: absolute;
+  width:100%;
+  height:100%;
+  background:red;
+  z-index: 5;
 }
 /* Header Style */
 
