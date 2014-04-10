@@ -28,6 +28,7 @@ Template.game.events({
     if (confirm("Exit Game?")) {
       Meteor.call("exitGame");
       joining = true;
+      Meteor.clearTimeout(gameLoop);
     }
   },
 
@@ -57,19 +58,20 @@ Template.game.events({
   }
 });
 
-var width = 100;
+var gameLoop;
 
 function gameTick() {
-  $('#progress #bar').animate({ "width": width.toString() + "%" }, 1000, "linear");
-  width--;
-  Meteor.setTimeout(gameTick, 1000);
+  gameLoop = Meteor.setTimeout(gameTick, 1000);
 };
 
-startGame = function() {
-  Meteor.setTimeout(gameTick, 1000);
-
+var startGame = function() {
   editor.setOption('mode', language);
 
+  $('#progress #bar').clearQueue();
+  $('#progress #bar').width("100%");
+  $('#progress #bar').animate({ "width": "0%" }, 10000, "linear");
+
+  Meteor.clearTimeout(gameLoop);
   gameTick();
 };
 
@@ -79,7 +81,6 @@ function countDown(left) {
   if (left <= -1) {
     $( "#countdown" ).fadeTo(200 , 0, function() {
       $('#countdown').toggle();
-      startGame();
     });
   } else {
     if (left == 3) {
@@ -103,6 +104,10 @@ function countDown(left) {
     }
   }
 };
+
+GameStream.on(Meteor.userId() + ":startRound", function() {
+  startGame();
+});
 
 GameStream.on(Meteor.userId() + ":preStart", function() {
   setTimeout(countDown, 10, 3);

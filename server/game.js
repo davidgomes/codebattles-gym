@@ -8,8 +8,14 @@ GameStream.permissions.read(function(eventName) {
   return true;
 });
 
-startGame = function() {
-  
+var sessionHash = {};
+
+function startRound(id) {
+  GameStream.emit(id + ":startRound");
+
+  sessionHash[id] = Meteor.setTimeout(function() {
+    startRound(id);
+  }, 11000);
 };
 
 Meteor.methods({
@@ -23,7 +29,11 @@ Meteor.methods({
     Meteor.users.update(user._id, { $set: { playing: 1 } });
 
     GameStream.emit(user._id + ":preStart");
-    Meteor.setTimeout(startGame, 3000);
+
+    Meteor.clearInterval(sessionHash[user._id]);
+    sessionHash[user._id] = Meteor.setTimeout(function() {
+      startRound(user._id);
+    }, 3700);
   },
 
   exitGame: function() {
@@ -33,6 +43,8 @@ Meteor.methods({
       throw new Meteor.Error(401, "You need to be logged in to start games");
     }
 
+    Meteor.clearTimeout(sessionHash[user._id]);
+    delete sessionHash[user._id];
     Meteor.users.update(user._id, { $set: { playing: 0 } });
   },
 
