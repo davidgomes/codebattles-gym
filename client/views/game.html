@@ -1,4 +1,7 @@
 <template name="game">
+  <div id="countdown">
+  </div>
+
   <div id="actual-editor">
     <div id="feedback">
     <p><span class="monospaceHeader">Runtime Error:</span></p>
@@ -9,16 +12,17 @@
     </div>
   </div>
 
-
   <div id="messages">
     <p><span class="monospaceHeader">Problem Statement:</span></p>
     <p><em>Write a program that prints every even integer between 2 and 100 inclusive. Every integer should be in its own line and there should be an empty line in the end</em>
     </p>
+
     <p><span class="monospaceHeader">Hazard:</span> <span> Pita Script</span></p>
     <p><em>You're now a 12 years old girl</em></p>
 
-      <input type="button" value="Exit Game" class="btn btn-success submit-button"/>
+      <input type="button" value="Exit Game" class="btn btn-success exit-button"/>
       <input type="button" value="Submit (Alt+S)" class="btn btn-success submit-button"/>
+
   </div>
 
   <div id="progress">
