@@ -35,13 +35,13 @@ Template.game.events({
     submitAnswer();
   },
 
-  'keydown' : function(event) {
+  'keydown': function(event) {
     if (event.keyCode === altKey) {
       hotkey = true;
     }
   },
 
-  'keydown #actual-editor' : function(event) {
+  'keydown #actual-editor': function(event) {
     if (hotkey) {
       if (event.keyCode === submitKey) {
         submitAnswer();
@@ -49,7 +49,7 @@ Template.game.events({
     }
   },
 
-  'keyup' : function(event) {
+  'keyup': function(event) {
     if (event.keyCode === altKey) {
       hotkey = false;
     }
