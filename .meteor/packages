@@ -8,4 +8,4 @@ autopublish
 insecure
 bootstrap-3
 accounts-ui
-accounts-base
+accounts-password
