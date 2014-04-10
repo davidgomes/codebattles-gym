@@ -1,4 +1,5 @@
 editor = null;
+hazard = null;
 
 var altKey = 18;
 var submitKey = 83;
@@ -112,3 +113,17 @@ submitAnswer = function() {
     console.log(response);
   });
 };
+
+Template.game.created = function () {
+  hazard = hazards.russianRoulette;
+};
+
+Template.game.helpers({
+  hazardName: function() {
+    return hazard.name;
+  },
+
+  hazardInfo: function() {
+    return hazard.description;
+  }
+});
