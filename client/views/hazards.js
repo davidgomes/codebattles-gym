@@ -1,7 +1,7 @@
 hazards = {
   pitaScript: {
     name: 'Pita Script',
-    description: 'You\'re now a 12 years old girl',
+    description: 'You\'re now a 12 years old girl.',
     difficulty: 10,
 
     execute: function() {
@@ -11,7 +11,7 @@ hazards = {
 
   russianRoulette: {
     name: 'Russian Roulette',
-    description: 'Every 10s - 1/6 chance to delete a random line',
+    description: 'A random line can removed every 10 seconds.',
     difficulty: 20,
 
     execute: function() {
