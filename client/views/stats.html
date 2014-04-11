@@ -1,8 +1,14 @@
 <template name="stats">
   <div id="stat-pane">
     <h3>Game Over!</h3>
-    <p>You held on {{numRounds}} rounds!</p>
-    <p>What a pussy!</p>
+
+    {{#if oneRound}}
+      <p>You only survived 1 round!</p>
+    {{else}}
+      <p>You held on {{numRounds}} rounds!</p>
+    {{/if}}
+    
+    <p>Nice try, mate!</p>
     <div>
       <a href="https://www.facebook.com/dialog/feed?app_id=373250216146661&redirect_uri=http://gym.codebattles.io">Share</a>
     </div>
