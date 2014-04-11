@@ -76,7 +76,7 @@ Template.join.rendered = function() {
 
 var rubyInfo1 = "<p>You choose Ruby! To read input use <em>gets</em> (with <em>.chomp</em> if necessary) and to print output use <em>puts</em>.</p><p>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
-var rubyInfo2 = "<pre>n = gets.to_i<br/><br/>for i in 1..n do<br/>    puts i<br/>end<br/></pre>";
+var rubyInfo2 = "<pre>n = gets.to_i<br/><br/>(1..n).each do |i|<br/>    puts i<br/>end<br/></pre>";
 
 var javascriptInfo1 = "<p>A wise choice, JavaScript. Use <em>readline()</em> to read input and <em>print()</em> to print output.</p><p>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
