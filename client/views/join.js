@@ -88,7 +88,7 @@ var javascriptInfo2 = "<pre>var n = parseInt(readline());<br/>for (var i = 1; i 
 
 var pythonInfo1 = "<p>Your weapon is Python 2. To read input use <em>raw_input()</em> and to print output use <em>print</em>.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
-var pythonInfo2 = "<pre>n = int(raw_input())<br/>for i in range(1, n + 1):</br>    print i<br/><br/></pre>";
+var pythonInfo2 = "<pre>n = int(raw_input())<br/><br/>for i in range(1, n + 1):</br>    print i<br/></pre>";
 
 changeInstructions = function() {
   if (language === "ruby") {
