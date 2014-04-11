@@ -55,12 +55,16 @@ selectPython = function() {
   changeInstructions();
 };
 
+Template.join.rendered = function() {
+  selectJavascript();
+};
+
 var rubyInfo1 = "<p>You choose Ruby! To read input use 'gets' ('.chomp' if necessary) and to print output use 'puts'.</p><p>As an example problem: Given an integer 'N', print the first 'N' natural numbers.</p>"
-var rubyInfo2 = "<pre>n = gets.to_i<br/>for i in 1..n do<br/>\tputs i<br/>end<br/></pre>";
+var rubyInfo2 = "<pre>n = gets.to_i<br/>for i in 1..n do<br/>    puts i<br/>end<br/></pre>";
 var javascriptInfo1 = "<p>A wise choice, JavaScript. To read input use 'readline()' to print output use 'print()'.</p><p>As an example problem: Given an integer 'N', print the first 'N' natural numbers.</p>"
-var javascriptInfo2 = "<pre>var n = parseInt(readline());<br/>for (var i = 1; i <= n; i++) {<br/>\tprint(i);<br/>}<br/></pre>";
+var javascriptInfo2 = "<pre>var n = parseInt(readline());<br/>for (var i = 1; i <= n; i++) {<br/>    print(i);<br/>}<br/></pre>";
 var pythonInfo1 = "<p>Your weapon is Python 2. To read input use 'raw_input()' and to print output use 'print'.</p><p>As an example problem: Given an integer 'N', print the first 'N' natural numbers.</p>"
-var pythonInfo2 = "<pre>n = int(raw_input())<br/>for i in range(1, n + 1):</br>\tprint i<br/><br/></pre>";
+var pythonInfo2 = "<pre>n = int(raw_input())<br/><br/>for i in range(1, n + 1):</br>    print i<br/></pre>";
 
 changeInstructions = function() {
   if (language === "ruby") {
