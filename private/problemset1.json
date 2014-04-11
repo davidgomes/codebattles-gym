@@ -1,6 +1,6 @@
 [
   {
-    "statement": "Print the english alphabet. Eg: 'abc...'",
+    "statement": "Just print the english alphabet. Eg: 'abc...'",
     "difficulty": 1,
 
     "hazards": [0, 1, 3, 4, 5, 8],
@@ -12,10 +12,10 @@
   },
 
   {
-    "statement": "Given an integer print the next number times 2.",
+    "statement": "I'll give you an integer print me the next integer times 2.",
     "difficulty": 1,
 
-    "hazards": [1, 3, 4, 5, 8],
+    "hazards": [0, 1, 3, 4, 5, 8],
 
     "io": [{
       "input": "42\n",
@@ -24,14 +24,51 @@
   },
 
   {
-    "statement": "Print the english alphabet reversed. Eg: 'zyx...'",
+    "statement": "Quick! Calculate: 2324324 + 2323",
+    "difficulty": 1,
+
+    "hazards": [0, 1, 3, 4, 5, 8, 9, 10, 11],
+
+    "io": [{
+      "input": "",
+      "output": "2326647\n"
+    }]
+  },
+  
+  {
+    "statement": "Print this game's name as it showed up on the previous page.",
+    "difficulty": 1,
+
+    "hazards": [0, 1, 3, 4, 5, 8, 9, 10, 11],
+
+    "io": [{
+      "input": "",
+      "output": "The Codebits Gym\n"
+    }]
+  },
+  
+  {
+    "statement": "I'll give you a string. Tell me how long it is.",
     "difficulty": 1,
 
     "hazards": [0, 1, 3, 4, 5, 8],
 
     "io": [{
-      "input": "",
-      "output": "zyxwvutsrqponmlkjihgfedcba\n"
+      "input": "ashfubsuebnseu\n",
+      "output": "14\n"
     }]
-  }
+  },
+  
+  {
+    "statement": "Super Difficult Mega Hard Bonus Problem: I'll give you a super long string (no spaces), print only the first 5 characters.",
+    "difficulty": 1,
+
+    "hazards": [0, 1, 3, 4, 5, 8],
+
+    "io": [{
+      "input": "sefiuafuhWUIRFHESIFHYSAFHSDBFSDBHFjnjksenfnsuifonejfksendvvskdmnvkev\n",
+      "output": "sefiu\n"
+    }]
+  },
+
 ]
