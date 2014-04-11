@@ -1,5 +1,7 @@
 editor = null;
 audio = null;
+cstatement = null;
+
 keyboardHazard1 = false;
 keyboardHazard2 = false;
 
@@ -173,6 +175,7 @@ Deps.autorun(function() {
   });
 
   GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard) {
+    cstatement = statement;
     startGame(time, statement, hazard);
     editor.focus();
   });

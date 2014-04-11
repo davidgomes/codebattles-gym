@@ -287,3 +287,14 @@ clearCubeScript = function() {
   $('.codebits-cube').hide();
   clearInterval(usingInterval);
 };
+
+
+markeeScript = function() {
+  var statementDiv = $('#statement-div');
+  statementDiv.html("<marquee class=\"bomb\" behavior=\"left\" loop=\"infinite\">" + cstatement.toUpperCase() + "</marquee>");
+}
+
+clearMarkeeScript= function() {
+  var statementDiv = $('#statement-div');
+  statementDiv.html("<p><em id=\"problem-statement\"></em></p>");
+}
