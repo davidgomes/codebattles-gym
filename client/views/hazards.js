@@ -6,6 +6,8 @@ hazards = {
 
     execute: function() {
       editor.setOption('theme', 'girl');
+      var audio = new Audio('music/pitascript.mp3');
+      audio.play();
     }
   },
 
@@ -57,8 +59,8 @@ hazards = {
 
   nearSighted: {
     name: 'Near-sighted',
-    description: 'I give one line.',
-    difficulty: 40,
+    description: 'I give you one line.',
+    difficulty: 30,
 
     execute: function() {
     }
