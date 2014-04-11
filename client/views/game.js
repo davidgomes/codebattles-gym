@@ -5,6 +5,8 @@ var altKey = 18;
 var submitKey = 83;
 var hotkey = false;
 
+var countdownAudio = new Audio('fx/startround.mp3');
+
 function reloadEditor() {
   editor = new CodeMirror(document.getElementById('actual-editor'), {
     lineNumbers: true,
@@ -28,6 +30,10 @@ Template.game.events({
     if (confirm("Exit Game?")) {
       Meteor.call("exitGame");
       joining = true;
+      if (audio != null) {
+        audio.pause();
+        audio = null;
+      }
       Meteor.clearTimeout(gameLoop);
     }
   },
@@ -97,17 +103,17 @@ function countDown(left) {
       $('#countdown').show();
     }
 
-    $('#countdown p').fadeTo( 0, 1);
+    $('#countdown p').fadeTo( 0, 0);
 
     if (left > 0) {
       $('#countdown p').html(left);
-      $('#countdown p').fadeTo(1000, 0, function() {
+      $('#countdown p').fadeTo(1000, 1, function() {
         left--;
         countDown(left);
       });
     } else {
       $('#countdown p').html("Go!");
-      $('#countdown p').fadeTo(600, 0, function() {
+      $('#countdown p').fadeTo(600, 1, function() {
         left--;
         countDown(left);
       });
@@ -128,6 +134,7 @@ GameStream.on(Meteor.userId() + ":startRound", function(time) {
 
 GameStream.on(Meteor.userId() + ":preStart", function() {
   setTimeout(countDown, 10, 3);
+  countdownAudio.play();
 });
 
 submitAnswer = function() {

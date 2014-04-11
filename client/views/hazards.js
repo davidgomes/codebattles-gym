@@ -1,3 +1,5 @@
+audio = null;
+
 hazards = {
   pitaScript: {
     name: 'Pita Script',
@@ -6,7 +8,10 @@ hazards = {
 
     execute: function() {
       editor.setOption('theme', 'girl');
-      var audio = new Audio('music/pitascript.mp3');
+      if (audio != null) {
+        audio.pause();
+      }
+      audio = new Audio('music/pitascript.mp3');
       audio.loop = true;
       audio.play();
     }
