@@ -53,5 +53,11 @@ hazards = [
     name: 'Vertigo',
     description: 'IDE is upside down.',
     difficulty: 8
+  },
+
+  { // 9
+    name: 'Drunk',
+    description: 'You\'re drunk.',
+    difficulty: 9
   }
 ];

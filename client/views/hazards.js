@@ -190,14 +190,11 @@ drunkScript = function() {
   usingInterval = Meteor.setInterval(function() {
     if (blurLevel > 3) {
       increasing = false;
-    }
-    else if (blurLevel < blurInterval) {
+    } else if (blurLevel < blurInterval) {
       increasing = true;
-    }
-    if (increasing) {
+    } if (increasing) {
       blurLevel += blurInterval;
-    }
-    else {
+    } else {
       blurLevel -= blurInterval;
     }
     $('.CodeMirror').css("-webkit-filter", "blur(" + blurLevel + "px)");
