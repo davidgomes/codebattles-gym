@@ -229,10 +229,18 @@ text-align: left;
 #submit input[type="button"]{
   font-size: 18px;
   padding:15px 40px;
-  background:  #2ecc71;
+  background:  rgba(46, 204, 113,1.0);
   text-transform: uppercase;
   letter-spacing: 2px;
+  border:0px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
+
+#submit input[type="button"]:hover {
+      background:rgba(46, 204, 113,.75);
+      border:0px;
+}
+
 /* games */
 #actual-editor{
   position:relative;
@@ -299,10 +307,12 @@ text-transform: uppercase;
   height:100%;
   width:60%;
   background:rgba(241, 196, 15,1.0);
+    color:rgba(231, 76, 60,1.0);
+    font-size: 9px;
 }
 #gamescore{
-  width:100px;
-  height:100px;
+  width:90px;
+  height:90px;
   margin: 0 auto;
   position: absolute;
   top:-120px;
@@ -310,13 +320,14 @@ text-transform: uppercase;
 
 }
 #gamescore #time{
-    width:60px;
+  width:200px;
   height:60px;
-  border-radius: 30px;
+  border-radius: 4px;
   background:rgba(231, 76, 60,1.0);
   text-align: center;
   line-height: 60px;
   font-size: 24px;
+  color:rgba(236, 240, 241,1.0);
 }
 
 #countdown{
