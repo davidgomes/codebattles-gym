@@ -128,16 +128,22 @@ clearRussianScript = function() {
 
 
 warScript = function() {
-  var timeout = Math.floor(Math.random() * 10 + 1) * 100;
+  var $fdiv = $("<div>", {id: "flashbang"});
+  $("body").append($fdiv);
+  $("#flashbang").hide();
+  var timeout = Math.floor(Math.random() * 4500 + 3500);
   usingInterval = Meteor.setInterval(function() {
-  }, timeout);
-};
+    $("#flashbang").show();
+    timeout = Math.floor(Math.random() * 4500 + 3500);
+    $("#flashbang").fadeOut(4000);
+  },timeout);
+}
 
-clearWarScript = function() {
+clearWarScript = function () {
   if (usingInterval) {
-    Meteor.clearInterval(usingInterval);
+    Meteor.clearTimeout(usingInterval);
   }
-};
+}
 
 
 keyboardMalfunctionScript = function() {
@@ -154,7 +160,7 @@ perfectScript = function() {
 };
 
 clearPerfectScript = function() {
-  keyboardHazard2 = true;
+  keyboardHazard2 = false;
 };
 
 

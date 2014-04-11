@@ -22,7 +22,7 @@ hazards = [
   { // 3
     name: 'War Trauma',
     description: 'Random flashbang grenades.',
-    difficulty: 2
+    difficulty: 3
   },
 
   { // 4
