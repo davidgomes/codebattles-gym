@@ -119,6 +119,7 @@ function gameTick() {
 
 var startGame = function(time, statement, lhazard) {
   editor.setOption('mode', language);
+  editor.setValue("");
 
   $('#progress #bar').clearQueue();
   $('#progress #bar').width("100%");
