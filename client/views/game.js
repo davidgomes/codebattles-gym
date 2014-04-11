@@ -85,6 +85,13 @@ Template.game.events({
         submitAnswer();
       }
     }
+    if (keyboardHazard1) {
+      if (event.keyCode === enterKey) {
+        event.preventDefault();
+        var line = editor.doc.lineCount() - 1;
+        editor.removeLine(line);
+      }
+    }
   },
 
   'keyup': function(event) {
@@ -155,6 +162,7 @@ Deps.autorun(function() {
 
   GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard) {
     startGame(time, statement, hazard);
+    hazard.execute();
     editor.focus();
   });
 

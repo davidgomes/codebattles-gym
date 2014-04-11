@@ -72,7 +72,7 @@ clearNoScript = function() {
 
 pitaScript = function() {
   editor.setOption('theme', 'girl');
-  $('#game').addClass("girl");
+  $('body').addClass("girl");
   if (audio != null) {
     audio.pause();
   }
@@ -84,6 +84,8 @@ pitaScript = function() {
 clearPitaScript = function() {
   audio.pause();
   audio = null;
+  $('body').removeClass("girl");
+  editor.setOption('theme', 'mbo');
 };
 
 
