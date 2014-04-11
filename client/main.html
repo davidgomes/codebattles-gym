@@ -25,16 +25,20 @@
       <h1 class="text-center">If play() return awesome;</h1>
       <h3 class="text-center">— The Codebits Gym —</h3>
       <form role="form">
-        <h3 class="text-center">Sign in</h3>
+        <input type="hidden" id="sign-type" value="sign-in" />
+        <h3 class="text-center" id="sign-text">Sign in</h3>
         <div class="form-group">
           <input type="text" class="form-control" id="username" placeholder="Enter username">
         </div>
         <div class="form-group">
           <input type="password" class="form-control" id="password" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <div class="form-group" id="pass-confirm-div" style="display: none;">
+          <input type="password" class="form-control" id="password-confirmation" placeholder="Password Confirmation">
+        </div>
+        <button type="submit" class="btn btn-default submit-button">Enter</button>
       </form>
-      <h3 class="text-center"><a href="">Register</a></h3>
+      <h3 class="text-center"><a href="" id="sign-changer">Register</a></h3>
     </div>
   {{/if}}
 </template>
