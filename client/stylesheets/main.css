@@ -250,7 +250,7 @@ text-align: left;
   bottom:0px;
   width:700px;
   color:rgba(231, 76, 60,1.0);
-  font-family: "inconsolata",monospace;
+  font-family: "inconsolata" , monospace;
   z-index: 3;
   padding: 0px 40px;
   padding-top:10px;
@@ -259,6 +259,22 @@ text-align: left;
 
 #feedback strong{
   color:white;
+}
+#exitButton{
+  font-family: "fira", helvetica , arial , sans-serif;
+  position:absolute;
+  right:15px;
+  bottom:15px;
+  letter-spacing: 1px;
+text-transform: uppercase;
+}
+#submitButton{
+  font-family: "fira", helvetica , arial , sans-serif;
+  position:absolute;
+  left:15px;
+  bottom:15px;
+  letter-spacing: 1px;
+text-transform: uppercase;
 }
 
 #progress{
