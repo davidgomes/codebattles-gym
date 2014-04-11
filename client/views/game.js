@@ -214,5 +214,10 @@ Template.game.helpers({
 
   gameOver: function() {
     return Meteor.user().playing == 2;
+  },
+
+  language: function() {
+    return language;
   }
+
 });
