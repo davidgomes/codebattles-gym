@@ -80,7 +80,7 @@ changeInstructions = function() {
   } else if (language === "javascript") {
     $("#instructions").html(javascriptInfo1 + javascriptInfo2);
   } else if (language === "python") {
-    $("#instructions").html(pythonInfo1 + pythonInfo2);d
+    $("#instructions").html(pythonInfo1 + pythonInfo2);
   }
 };
 
