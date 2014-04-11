@@ -170,7 +170,7 @@ h1.title{
 }
 
 #messages{
-  font-family: monospace;
+  font-family: "inconsolata",monospace;
   color:rgba(255,255,255,0.5);
   padding:0px 20px;
   padding-top: 20px;
@@ -190,7 +190,7 @@ h1.title{
   bottom:0px;
   width:700px;
   color:rgba(231, 76, 60,1.0);
-  font-family: monospace;
+  font-family: "inconsolata",monospace;
   z-index: 3;
   padding: 0px 40px;
   padding-top:10px;
