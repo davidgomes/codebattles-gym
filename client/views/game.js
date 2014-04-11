@@ -1,5 +1,4 @@
 editor = null;
-audio = null;
 cstatement = null;
 
 keyboardHazard1 = false;

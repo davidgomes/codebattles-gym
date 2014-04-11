@@ -109,6 +109,7 @@ pitaScript = function() {
   }
   audio = new Audio('music/pitascript.mp3');
   audio.loop = true;
+  audio.volume = 0.55;
   audio.play();
 };
 
