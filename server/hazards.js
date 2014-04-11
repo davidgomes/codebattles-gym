@@ -12,3 +12,7 @@ getHazardByRank = function(rank) {
   var index = Math.floor((Math.random() * rhazards.length));
   return rhazards[index];
 };
+
+getHazardById = function(id) {
+  return hazards[id];
+};

@@ -1,4 +1,4 @@
-var nproblems = 2;
+var nproblems = 1;
 var problems = [];
 
 var current = 0;

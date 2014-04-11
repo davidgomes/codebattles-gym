@@ -1,10 +1,9 @@
 [
   {
     "statement": "Even numbers from 2 to 100.",
-    "len": "1",
-    "comp": "1",
+    "difficulty": 1,
 
-    "hazards": ["1", "2"],
+    "hazards": [0, 2, 3],
 
     "io": [{
       "input": "",
@@ -13,10 +12,9 @@
   },
   {
     "statement": "Even numbers from 2 to 100.2",
-    "len": "1",
-    "comp": "1",
+    "difficulty": 1,
 
-    "hazards": ["1", "2"],
+    "hazards": [0, 2, 3],
 
     "io": [{
       "input": "",
@@ -25,10 +23,9 @@
   },
   {
     "statement": "Even numbers from 2 to 100.3",
-    "len": "1",
-    "comp": "1",
+    "difficulty": 1,
 
-    "hazards": ["1", "2"],
+    "hazards": [0, 1, 2],
 
     "io": [{
       "input": "",
@@ -37,10 +34,9 @@
   },
   {
     "statement": "Even numbers from 2 to 100.4",
-    "len": "1",
-    "comp": "1",
+    "difficulty": 1,
 
-    "hazards": ["1", "2"],
+    "hazards": [0, 1, 2],
 
     "io": [{
       "input": "",
@@ -49,10 +45,9 @@
   },
   {
     "statement": "Even numbers from 2 to 100.5",
-    "len": "1",
-    "comp": "1",
+    "difficulty": 1,
 
-    "hazards": ["1", "2"],
+    "hazards": [0, 1, 2],
 
     "io": [{
       "input": "",

@@ -1,6 +1,9 @@
 editor = null;
-hazard = null;
+audio = null;
 keyboardHazard1 = false;
+
+var _hazard = null;
+var _hazardDeps = new Deps.Dependency;
 
 var altKey = 18;
 var submitKey = 83;
@@ -10,6 +13,19 @@ var enterKey = 13;
 var countdownAudio = new Audio('fx/startround.mp3');
 var rightAnswerAudio = new Audio('fx/rightanswer.mp3');
 var wrongAnswerAudio = new Audio('fx/wronganswer.mp3');
+
+
+var hazard = function() {
+  _hazardDeps.depend();
+  return _hazard;
+};
+
+var setHazard = function(w) {
+  if (_hazard !== w) {
+    _hazard = w;
+    _hazardDeps.changed();
+  }
+};
 
 function reloadEditor() {
   editor = new CodeMirror(document.getElementById('actual-editor'), {
@@ -25,6 +41,7 @@ function reloadEditor() {
 
 Template.game.rendered = function () {
   reloadEditor();
+  setHazard(null);
 };
 
 Template.game.events({
@@ -45,6 +62,14 @@ Template.game.events({
   'click .submit-button': function(event) {
     event.preventDefault();
     submitAnswer();
+
+    if (keyboardHazard1) {
+      if (event.keyCode === enterKey) {
+        event.preventDefault();
+        line = editor.doc.lineCount();
+        editor.removeLine(line-1);
+      }
+    }
   },
 
   'keydown': function(event) {
@@ -58,13 +83,6 @@ Template.game.events({
       if (event.keyCode === submitKey) {
         event.preventDefault();
         submitAnswer();
-      }
-    }
-    if (keyboardHazard1) {
-      if (event.keyCode === enterKey) {
-        event.preventDefault();
-        line = editor.doc.lineCount();
-        editor.removeLine(line-1);
       }
     }
   },
@@ -82,7 +100,7 @@ function gameTick() {
   gameLoop = Meteor.setTimeout(gameTick, 1000);
 };
 
-var startGame = function(time, statement) {
+var startGame = function(time, statement, lhazard) {
   editor.setOption('mode', language);
 
   $('#progress #bar').clearQueue();
@@ -90,7 +108,11 @@ var startGame = function(time, statement) {
   $('#progress #bar').animate({ "width": "0%" }, time * 1000, "linear");
   $('#feedback').hide();
   $('#problem-statement').text(statement);
-  
+
+  clearHazard(hazard());
+  setHazard(lhazard);
+  runHazard(lhazard);
+
   Meteor.clearTimeout(gameLoop);
   gameTick();
 };
@@ -131,8 +153,8 @@ Deps.autorun(function() {
     gameLoop = null;
   });
 
-  GameStream.on(Meteor.userId() + ":startRound", function(time, statement) {
-    startGame(time, statement);
+  GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard) {
+    startGame(time, statement, hazard);
     hazard.execute();
     editor.focus();
   });
@@ -156,17 +178,20 @@ submitAnswer = function() {
   });
 };
 
-Template.game.created = function () {
-  hazard = hazards.russianRoulette;
-};
-
 Template.game.helpers({
   hazardName: function() {
-    return hazard.name;
+    console.log(hazard);
+    if (hazard()) {
+      return hazard().name;
+    }
+    return "";
   },
 
   hazardInfo: function() {
-    return hazard.description;
+    if (hazard()) {
+      return hazard().description;
+    }
+    return "";
   },
 
   gameOver: function() {

@@ -23,20 +23,44 @@ function gameOver(id) {
   GameStream.emit(id + ":gameOver");
 }
 
-function startRound(id) {
+function startRound(id, round) {
   var user = Meteor.users.findOne(id);
 
   if (!user) {
     return;
   }
-  
+
   var time = user.time;
-  var problem = getProblemByRank(1);
+
+  /* Method: Pick random from list */
+  // Best fit so far
+  var problem = null, hazard = null, best = -100, counter = 0;
+
+  while (true) {
+    var rank = Math.max(1, round - Math.floor(Math.random() * 5));
+
+    var lproblem = getProblemByRank(rank);
+    var lhazard = getHazardById(lproblem.hazards[Math.floor(lproblem.hazards.length * Math.random())]);
+    
+    var realRank = parseInt(lhazard.difficulty) + lproblem["difficulty"];
+
+    if (Math.abs(round - realRank) < Math.abs(round - best)) {
+      problem = lproblem;
+      hazard = lhazard;
+      best = realRank;
+    }
+
+    counter++;
+
+    if (best == round || counter >= 10) {
+      break;
+    }
+  }
   
   Meteor.users.update(id, { $inc: { score: 1 } });
   Meteor.users.update(id, { $inc: { time: ADD_TIME } });
   
-  GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement);
+  GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement, hazard);
 
   Meteor.clearTimeout(sessionHash[user._id]);
   sessionHash[id] = Meteor.setTimeout(function() {
@@ -64,7 +88,7 @@ Meteor.methods({
 
     Meteor.clearInterval(sessionHash[user._id]);
     sessionHash[user._id] = Meteor.setTimeout(function() {
-      startRound(user._id);
+      startRound(user._id, 1);
     }, 3700);
   },
 
@@ -101,7 +125,7 @@ Meteor.methods({
       }
 
       if (response == "Accepted") {
-        startRound(user._id);
+        startRound(user._id, user.score + 1);
       }
 
       future.return(response);
