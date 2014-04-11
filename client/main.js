@@ -85,7 +85,7 @@ function changeSignIn() {
   $('#pass-confirm-div').fadeOut("slow");
   $('#sign-text').text("Sign In");
   $('.submit-button').text("Enter");
-  $('#sign-changer').text("Sign Up");
+  $('#sign-changer').text("Sign In");
   $('#sign-changer').attr("id","register-changer");
   $('#sign-type').val("sign-in");
 }
