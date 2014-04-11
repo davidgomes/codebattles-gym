@@ -180,7 +180,6 @@ submitAnswer = function() {
 
 Template.game.helpers({
   hazardName: function() {
-    console.log(hazard);
     if (hazard()) {
       return hazard().name;
     }
