@@ -155,7 +155,6 @@ Deps.autorun(function() {
 
   GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard) {
     startGame(time, statement, hazard);
-    hazard.execute();
     editor.focus();
   });
 

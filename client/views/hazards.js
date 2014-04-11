@@ -99,7 +99,9 @@ russianScript = function() {
 };
 
 clearRussianScript = function() {
-  Meteor.clear(usingInterval);
+  if (usingInterval) {
+    Meteor.clearInterval(usingInterval);
+  }
 };
 
 
@@ -109,7 +111,7 @@ warScript = function() {
 };
 
 clearWarScript = function() {
-  Meteor.clear(usingInterval);
+  Meteor.clearTimeout(usingInterval);
 };
 
 
