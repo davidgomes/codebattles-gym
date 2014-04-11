@@ -131,11 +131,11 @@ warScript = function() {
   var $fdiv = $("<div>", {id: "flashbang"});
   $("body").append($fdiv);
   $("#flashbang").hide();
-  var timeout = Math.floor(Math.random() * 8000 + 5000);
+  var timeout = Math.floor(Math.random() * 4500 + 3500);
   usingInterval = Meteor.setInterval(function() {
     $("#flashbang").show();
-    timeout = Math.floor(Math.random() * 8000 + 5000);
-    $("#flashbang").fadeOut(3000);
+    timeout = Math.floor(Math.random() * 4500 + 3500);
+    $("#flashbang").fadeOut(4000);
   },timeout);
 }
 
@@ -160,7 +160,7 @@ perfectScript = function() {
 };
 
 clearPerfectScript = function() {
-  keyboardHazard2 = true;
+  keyboardHazard2 = false;
 };
 
 
