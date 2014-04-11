@@ -65,5 +65,11 @@ hazards = [
     name: 'Align: center',
     description: 'Align: center.',
     difficulty: 10
+  },
+
+  { //11
+    name: 'Big big text',
+    description: 'Big letters.',
+    difficulty: 11
   }
 ];

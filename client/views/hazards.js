@@ -37,6 +37,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Align: center") {
     clearAlignCenterScript();
   }
+  else if (hazard.name == "Big big text") {
+    clearBigTextScript();
+  }
 };
 
 runHazard = function(hazard) {
@@ -72,6 +75,9 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Align: center") {
     alignCenterScript();
+  }
+  else if (hazard.name == "Big big text") {
+    bigTextScript();
   }
 };
 
@@ -172,6 +178,7 @@ vertigoScript = function() {
 
 
 clearVertigoScript = function() {
+  $(".CodeMirror").removeClass('mirror');
 };
 
 
@@ -223,4 +230,12 @@ alignCenterScript = function() {
 
 clearAlignCenterScript = function() {
   $('.CodeMirror').css("text-align", "left");
+}
+
+bigTextScript = function() {
+  $('.CodeMirror').css("font-size", "64px");
+}
+
+clearBigTextScript = function() {
+  $('.CodeMirror').css("font-size", "14px");
 }
