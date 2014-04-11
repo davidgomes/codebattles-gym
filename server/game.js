@@ -29,8 +29,9 @@ function startRound(id) {
   }
   
   var time = user.time;
+  var problem = getProblemByRank(1);
 
-  GameStream.emit(id + ":startRound", time + ADD_TIME);
+  GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement);
 
   Meteor.clearInterval(sessionHash[user._id]);
   sessionHash[id] = Meteor.setTimeout(function() {
