@@ -7,7 +7,7 @@
 
     "io": [{
       "input": "",
-      "output": ""
+      "output": "1\n"
     }]
   },
   {
@@ -18,7 +18,7 @@
 
     "io": [{
       "input": "",
-      "output": ""
+      "output": "2\n"
     }]
   },
   {
@@ -29,7 +29,7 @@
 
     "io": [{
       "input": "",
-      "output": ""
+      "output": "3\n"
     }]
   },
   {
@@ -40,7 +40,7 @@
 
     "io": [{
       "input": "",
-      "output": ""
+      "output": "4\n"
     }]
   },
   {
@@ -51,7 +51,7 @@
 
     "io": [{
       "input": "",
-      "output": ""
+      "output": "5\n"
     }]
   }
 ]

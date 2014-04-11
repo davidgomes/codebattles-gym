@@ -1,4 +1,4 @@
-var ADD_TIME = 3;
+var ADD_TIME = 60;
 
 var Future = Npm.require('fibers/future');
 
