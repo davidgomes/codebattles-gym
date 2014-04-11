@@ -138,11 +138,14 @@ warScript = function() {
   var $fdiv = $("<div>", {id: "flashbang"});
   $("body").append($fdiv);
   $("#flashbang").hide();
-  var timeout = Math.floor(Math.random() * 4500 + 3500);
+  var flashbangAudio = new Audio('fx/flashbang.mp3');
+  var timeout = 3500;
   usingInterval = Meteor.setInterval(function() {
-    $("#flashbang").show();
+    flashbangAudio.play();
+    setTimeout(function() {
+      $("#flashbang").show().fadeOut(4000);;
+    }, 1700);
     timeout = Math.floor(Math.random() * 4500 + 3500);
-    $("#flashbang").fadeOut(4000);
   },timeout);
 };
 
