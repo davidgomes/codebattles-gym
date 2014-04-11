@@ -82,7 +82,9 @@ pitaScript = function() {
 };
 
 clearPitaScript = function() {
-  audio.pause();
+  if (audio != null) {
+    audio.pause();
+  }
   audio = null;
   $('body').removeClass("girl");
   editor.setOption('theme', 'mbo');
@@ -117,18 +119,21 @@ clearWarScript = function() {
 };
 
 
-keyboardScript = function() {
+keyboardMalfunctionScript = function() {
+  keyboardHazard1 = true;
 };
 
-clearKeyboardScript = function() {
+clearKeyboardMalfunctionScript = function() {
+  keyboardHazard1 = false;
 };
 
 
 perfectScript = function() {
-  keyboardHazard1 = true;
+  keyboardHazard2 = true;
 };
 
 clearPerfectScript = function() {
+  keyboardHazard2 = true;
 };
 
 

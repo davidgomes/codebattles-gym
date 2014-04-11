@@ -1,6 +1,7 @@
 editor = null;
 audio = null;
 keyboardHazard1 = false;
+keyboardHazard2 = false;
 
 var _hazard = null;
 var _hazardDeps = new Deps.Dependency;
@@ -9,6 +10,7 @@ var altKey = 18;
 var submitKey = 83;
 var hotkey = false;
 var enterKey = 13;
+var backspaceKey = 8;
 
 var countdownAudio = new Audio('fx/startround.mp3');
 var rightAnswerAudio = new Audio('fx/rightanswer.mp3');
@@ -55,6 +57,7 @@ Template.game.events({
         audio.pause();
         audio = null;
       }
+      clearHazard(hazard());
       Meteor.clearTimeout(gameLoop);
     }
   },
@@ -92,6 +95,13 @@ Template.game.events({
         editor.removeLine(line);
       }
     }
+    if (keyboardHazard2) {
+      if (event.keyCode === backspaceKey) {
+        event.preventDefault();
+        var line = editor.doc.lineCount() - 1;
+        editor.removeLine(line);
+      }
+    }
   },
 
   'keyup': function(event) {
@@ -116,6 +126,7 @@ var startGame = function(time, statement, lhazard) {
   $('#feedback').hide();
   $('#problem-statement').text(statement);
 
+  console.log(lhazard);
   clearHazard(hazard());
   setHazard(lhazard);
   runHazard(lhazard);
@@ -162,7 +173,6 @@ Deps.autorun(function() {
 
   GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard) {
     startGame(time, statement, hazard);
-    hazard.execute();
     editor.focus();
   });
 
