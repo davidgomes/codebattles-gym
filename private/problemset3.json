@@ -1,0 +1,13 @@
+[
+  {
+    "statement": "Given a string, print only its vowels in order of appearance and one per line.",
+    "difficulty": 1,
+
+    "hazards": [0, 1, 2, 3, 4, 5, 6, 7],
+
+    "io": [{
+      "input": "paddeirerrgfghrhgrjgrhro",
+      "output": "aeieo"
+    }]
+  }
+]
