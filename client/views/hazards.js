@@ -111,7 +111,8 @@ clearRussianScript = function() {
 
 warScript = function() {
   var timeout = Math.floor(Math.random() * 10 + 1) * 100;
-  usingInterval = Meteor.setTimeout(this, timeout);
+  usingInterval = Meteor.setInterval(function() {
+  }, timeout);
 };
 
 clearWarScript = function() {
