@@ -1,9 +1,108 @@
-/* Game Style */
+@font-face
+{
+font-family: fira;
+src: url(fonts/FiraSans-Regular.woff);
+font-weight:400;
+}
+
+@font-face
+{
+font-family: fira;
+src: url(../fonts/FiraSans-Bold.woff);
+font-weight:600;
+}
+
+@font-face
+{
+font-family: fira;
+src: url(../fonts/FiraSans-Light.woff);
+font-weight:300;
+}
+
+@font-face
+{
+font-family: fira;
+src: url(../fonts/FiraSans-Medium.woff);
+font-weight:500;
+}
+
 html,body{
 width:100%;
 height:100%;
-background:rgba(236, 240, 241,1.0);
+background:rgba(46, 204, 113,1.0);
+font-family: "fira", helvetica , arial , sans-serif;
 }
+
+/* Login Style*/
+#loginform{
+      margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  overflow: auto;
+  height:80%;
+  width:100%;
+  color:rgba(0,0,0,0.5);
+  display: block;
+  margin:auto;
+  overflow: none;
+  padding:50px;
+}
+
+#loginform input{
+  background:rgba(255,255,255,1);
+  color:rgba(0,0,0,0.6);
+}
+
+#loginform h1{
+font-family: "Montserrat";
+font-size:72px;
+color:rgba(255,255,255,0.9);
+}
+#loginform h3{
+font-family: "Montserrat";
+font-size:24px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color:rgba(255,255,255,0.9);
+}
+#loginform form{
+  width:300px;
+  margin:0 auto;
+  margin-top:100px;
+
+
+}
+#loginform button{
+  width:100%;
+  background: rgba(155, 89, 182,1.0);
+  border:0px ;
+  color:rgba(255,255,255,0.9);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#loginform button:hover{
+    background: rgba(142, 68, 173,1.0);
+}
+
+#loginform input::-webkit-input-placeholder {
+   color: rgba(0,0,0,0.25);
+}
+
+#loginform input:-moz-placeholder {
+color: rgba(0,0,0,0.25);
+}
+
+#loginform input::-moz-placeholder {  /* Firefox 19+ */
+color: rgba(0,0,0,0.25);
+}
+
+#loginform input:-ms-input-placeholder {
+color: rgba(0,0,0,0.25);
+}
+
+/* Game Style */
+
 
 #game, #pre-game {
   width:1100px;
