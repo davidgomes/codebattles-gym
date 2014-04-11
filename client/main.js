@@ -40,13 +40,17 @@ Template.main.events({
   }
 });
 
+Template.main.rendered = function() {
+  changeSignIn();
+};
+
 Deps.autorun(function() {
   Meteor.subscribe('ownUser');
 });
 
 function signIn() {
-  var password = $("#password").val();
-  var uname = $("#username").val();
+  var password = $('#password').val();
+  var uname = $('#username').val();
 
   Meteor.loginWithPassword(uname, password, function(error) {
     if (error) {
@@ -56,15 +60,15 @@ function signIn() {
 }
 
 function signUp() {
-  var password = $("#password").val();
-  var password_confirmation = $("#password-confirmation").val();
-  var uname = $("#username").val();
+  var password = $('#password').val();
+  var password_confirmation = $('#password-confirmation').val();
+  var uname = $('#username').val();
 
   if (password !== password_confirmation) {
-    throwError("Passwords don't match!");
+    throwError('Passwords don\'t match!');
     return;
   } else if (!password) {
-    throwError("You need to set the password up.");
+    throwError('You need to set the password up.');
     return;
   }
 
@@ -82,19 +86,19 @@ function signUp() {
 }
 
 function changeSignIn() {
-  $('#pass-confirm-div').fadeOut("slow");
-  $('#sign-text').text("Sign In");
-  $('.submit-button').text("Enter");
-  $('#sign-changer').text("Sign Up");
-  $('#sign-changer').attr("id","register-changer");
-  $('#sign-type').val("sign-in");
+  $('#pass-confirm-div').fadeOut('medium');
+  $('#sign-text').text('Sign In');
+  $('.submit-button').text('Enter');
+  $('#sign-changer').text('Sign Up');
+  $('#sign-changer').attr('id','register-changer');
+  $('#sign-type').val('sign-in');
 }
 
 function changeSignUp() {
-  $('#pass-confirm-div').fadeIn("slow");
-  $('#sign-text').text("Sign Up");
-  $('.submit-button').text("Register");
-  $('#register-changer').text("Sign In");
-  $('#register-changer').attr("id","sign-changer");
-  $('#sign-type').val("sign-up");
+  $('#pass-confirm-div').fadeIn('medium');
+  $('#sign-text').text('Sign Up');
+  $('.submit-button').text('Register');
+  $('#register-changer').text('Sign In');
+  $('#register-changer').attr('id','sign-changer');
+  $('#sign-type').val('sign-up');
 }

@@ -35,6 +35,7 @@ function startRound(id, roundL) {
   /* Method: Pick random from list */
   // Best fit so far
   var problem = null, hazard = null, best = -100, counter = 0, round = 1 + Math.round(roundL / 3);
+
   if (round > 7) {
     round = 7;
   }
