@@ -1,5 +1,6 @@
-/* Hazard examples */
+/* Hazards */
 
-.hazard-example {
-
+.mirror {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
