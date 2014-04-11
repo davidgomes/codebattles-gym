@@ -24,13 +24,13 @@ hazards = {
 
     execute: function() {
       setInterval(function() {
-        var shot = Math.floor(Math.random() * 6);
+        var shot = Math.floor(Math.random() * 2);
 
         if (shot === 1) {
           var line = Math.floor(Math.random() * editor.doc.lineCount() + 1);
           editor.removeLine(line);
         }
-      }, 1000);
+      }, 5000);
     }
   },
 

@@ -6,6 +6,8 @@ var submitKey = 83;
 var hotkey = false;
 
 var countdownAudio = new Audio('fx/startround.mp3');
+var rightAnswerAudio = new Audio('fx/rightanswer.mp3');
+var wrongAnswerAudio = new Audio('fx/wronganswer.mp3');
 
 function reloadEditor() {
   editor = new CodeMirror(document.getElementById('actual-editor'), {
@@ -142,6 +144,10 @@ submitAnswer = function() {
     if (result != "Accepted") {
       $('#feedback').show();
       $('#feedback-error').html(result);
+      wrongAnswerAudio.play();
+    }
+    else {
+      rightAnswerAudio.play();
     }
   });
 };
