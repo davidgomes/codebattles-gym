@@ -126,7 +126,6 @@ var startGame = function(time, statement, lhazard) {
   $('#feedback').hide();
   $('#problem-statement').text(statement);
 
-  console.log(lhazard);
   clearHazard(hazard());
   setHazard(lhazard);
   runHazard(lhazard);
