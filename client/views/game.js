@@ -1,9 +1,11 @@
 editor = null;
 hazard = null;
+keyboardHazard1 = false;
 
 var altKey = 18;
 var submitKey = 83;
 var hotkey = false;
+var enterKey = 13;
 
 var countdownAudio = new Audio('fx/startround.mp3');
 var rightAnswerAudio = new Audio('fx/rightanswer.mp3');
@@ -56,6 +58,13 @@ Template.game.events({
       if (event.keyCode === submitKey) {
         event.preventDefault();
         submitAnswer();
+      }
+    }
+    if (keyboardHazard1) {
+      if (event.keyCode === enterKey) {
+        event.preventDefault();
+        line = editor.doc.lineCount();
+        editor.removeLine(line-1);
       }
     }
   },

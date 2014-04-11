@@ -8,6 +8,7 @@ hazards = {
 
     execute: function() {
       editor.setOption('theme', 'girl');
+      $('#game').addClass("girl");
       if (audio != null) {
         audio.pause();
       }
@@ -60,6 +61,7 @@ hazards = {
     difficulty: 20,
 
     execute: function() {
+      keyboardHazard1 = true;
     }
   },
 
@@ -91,3 +93,4 @@ hazards = {
     }
   }
 };
+

@@ -4,3 +4,7 @@
   -webkit-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
+
+.girl {
+  background: url("http://i262.photobucket.com/albums/ii108/lisahahn7/stars_glitter-1.gif?t=1208950319") repeat;
+}
