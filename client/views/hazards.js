@@ -7,6 +7,7 @@ hazards = {
     execute: function() {
       editor.setOption('theme', 'girl');
       var audio = new Audio('music/pitascript.mp3');
+      audio.loop = true;
       audio.play();
     }
   },
