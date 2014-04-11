@@ -31,6 +31,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Vertigo") {
     clearVertigoScript();
   }
+  else if (hazard.name == "Drunk") {
+    clearDrunkScript();
+  }
 };
 
 runHazard = function(hazard) {
@@ -60,6 +63,9 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Vertigo") {
     vertigoScript();
+  }
+  else if (hazard.name == "Drunk") {
+    drunkScript();
   }
 };
 
@@ -92,7 +98,7 @@ clearPitaScript = function() {
 
 
 russianScript = function() {
-  usingInteval = Meteor.setInterval(function() {
+  usingInterval = Meteor.setInterval(function() {
     var shot = Math.floor(Math.random() * 2);
 
     if (shot === 1) {
@@ -161,3 +167,46 @@ vertigoScript = function() {
 
 clearVertigoScript = function() {
 };
+
+epilepsiaScript = function() {
+  var colors = ["red", "green", "yellow", "green", "orange", "blue", "pink", "black"];
+  usingInterval = Meteor.setInterval(function() {
+    var index = Math.floor(Math.random() * colors.length);
+    $('body').css("background-color", colors[index]);
+  }, 30);
+};
+
+clearEpilepsiaScript = function() {
+  if (usingInterval) {
+    Meteor.clearTimeout(usingInterval);
+  }
+  $('body').css("background","rgba(236, 240, 241,1.0)");
+};
+
+drunkScript = function() {
+  blurLevel = 0;
+  blurInterval = 0.5;
+  increasing = true;
+  usingInterval = Meteor.setInterval(function() {
+    if (blurLevel > 3) {
+      increasing = false;
+    }
+    else if (blurLevel < blurInterval) {
+      increasing = true;
+    }
+    if (increasing) {
+      blurLevel += blurInterval;
+    }
+    else {
+      blurLevel -= blurInterval;
+    }
+    $('.CodeMirror').css("-webkit-filter", "blur(" + blurLevel + "px)");
+  }, 20);
+}
+
+clearDrunkScript = function() {
+  if (usingInterval) {
+    Meteor.clearTimeout(usingInterval);
+  }
+  $('.CodeMirror').css("-webkit-filter", "blur(0px)");
+}
