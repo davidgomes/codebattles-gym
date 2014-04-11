@@ -63,23 +63,37 @@ font-family: "Montserrat";
 font-size:72px;
 color:rgba(255,255,255,0.9);
 }
+
 #loginform h3{
 font-family: "Montserrat";
 font-size:24px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color:rgba(255,255,255,0.9);
+color:rgba(255,255,255,0.75);
+line-height: 0px;
+margin-bottom:1em;
 }
+
 #loginform form{
-  width:300px;
+  width:360px;
   margin:0 auto;
-  margin-top:100px;
-
-
+  margin-top:60px;
+  padding:40px;
+  padding-top: 20px;
+  background:rgba(255,255,255,0.2);
+  border-radius: 4px;
+  box-shadow: 0,0,5,5, rgba(0,0,0);
 }
+
+#loginform form h3{
+  color:rgba(255,255,255,0.9);
+  text-transform: uppercase;
+  font-size:24px;
+  margin-bottom: 1.2em;
+  letter-spacing: 2px;
+}
+
 #loginform button{
   width:100%;
-  background: rgba(155, 89, 182,1.0);
+  background: rgba(39, 174, 96,1.0);
   border:0px ;
   color:rgba(255,255,255,0.9);
   text-transform: uppercase;
@@ -87,7 +101,7 @@ color:rgba(255,255,255,0.9);
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 #loginform button:hover{
-    background: rgba(142, 68, 173,1.0);
+    background: rgba(29, 164, 86,1.0);
 }
 
 #loginform input::-webkit-input-placeholder {
