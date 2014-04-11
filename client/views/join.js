@@ -56,11 +56,11 @@ selectPython = function() {
 };
 
 var rubyInfo1 = "<p>You choose Ruby! To read input use 'gets' ('.chomp' if necessary) and to print output use 'puts'.</p>\n<p>As an example problem: Given an integer 'N', print the first 'N' natural numbers."
-var rubyInfo2 = "<pre><br/>n = gets.to_i<br/>\tfor i in 1..n do<br/>\tputs i<br/>end<br/></pre>";
+var rubyInfo2 = "<code><br/>n = gets.to_i<br/>\tfor i in 1..n do<br/>\tputs i<br/>end<br/></code>";
 var javascriptInfo1 = "<p>A wise choice, JavaScript. To read input use 'readline()' to print output use 'print()'.</p>\n<p>As an example problem: Given an integer 'N', print the first 'N' natural numbers.</p>"
-var javascriptInfo2 = "<pre><br/>n = gets.to_i<br/>\tfor i in 1..n do<br/>\tputs i<br/>end<br/></pre>";
+var javascriptInfo2 = "<code><br/>n = gets.to_i<br/>\tfor i in 1..n do<br/>\tputs i<br/>end<br/></code>";
 var pythonInfo1 = "<p>Your weapon is Python 2. To read input use 'raw_input()' and to print output use 'print'.</p>\n<p>As an example problem: Given an integer 'N', print the first 'N' natural numbers.</p>"
-var pythonInfo2 = "<pre><br/>n = gets.to_i<br/>\tfor i in 1..n do<br/>\tputs i<br/>end<br/></pre>";
+var pythonInfo2 = "<code><br/>n = gets.to_i<br/>\tfor i in 1..n do<br/>\tputs i<br/>end<br/></code>";
 
 changeInstructions = function() {
   if (language === "ruby") {
