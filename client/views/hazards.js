@@ -34,6 +34,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Drunk") {
     clearDrunkScript();
   }
+  else if (hazard.name == "Align: center") {
+    clearAlignCenterScript();
+  }
 };
 
 runHazard = function(hazard) {
@@ -66,6 +69,9 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Drunk") {
     drunkScript();
+  }
+  else if (hazard.name == "Align: center") {
+    alignCenterScript();
   }
 };
 
@@ -168,6 +174,7 @@ vertigoScript = function() {
 clearVertigoScript = function() {
 };
 
+
 epilepsiaScript = function() {
   var colors = ["red", "green", "yellow", "green", "orange", "blue", "pink", "black"];
   usingInterval = Meteor.setInterval(function() {
@@ -182,6 +189,7 @@ clearEpilepsiaScript = function() {
   }
   $('body').css("background","rgba(236, 240, 241,1.0)");
 };
+
 
 drunkScript = function() {
   blurLevel = 0;
@@ -206,4 +214,13 @@ clearDrunkScript = function() {
     Meteor.clearTimeout(usingInterval);
   }
   $('.CodeMirror').css("-webkit-filter", "blur(0px)");
+}
+
+
+alignCenterScript = function() {
+  $('.CodeMirror').css("text-align", "center");
+}
+
+clearAlignCenterScript = function() {
+  $('.CodeMirror').css("text-align", "left");
 }
