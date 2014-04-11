@@ -59,6 +59,7 @@ function startRound(id, round) {
   
   Meteor.users.update(id, { $inc: { score: 1 } });
   Meteor.users.update(id, { $inc: { time: ADD_TIME } });
+  Meteor.users.update(id, { $set: { problemId: problem.id } });
   
   GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement, hazard);
 
