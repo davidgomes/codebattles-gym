@@ -23,7 +23,7 @@ function gameOver(id) {
   GameStream.emit(id + ":gameOver");
 }
 
-function startRound(id, round) {
+function startRound(id, roundL) {
   var user = Meteor.users.findOne(id);
 
   if (!user) {
@@ -34,7 +34,7 @@ function startRound(id, round) {
 
   /* Method: Pick random from list */
   // Best fit so far
-  var problem = null, hazard = null, best = -100, counter = 0;
+  var problem = null, hazard = null, best = -100, counter = 0, round = Math.round(roundL / 2);
 
   while (true) {
     var rank = Math.max(1, round - Math.floor(Math.random() * 5));
@@ -52,7 +52,7 @@ function startRound(id, round) {
 
     counter++;
 
-    if (best == round || counter >= 10) {
+    if (best == round || counter >= 15) {
       break;
     }
   }

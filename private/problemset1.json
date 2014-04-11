@@ -3,7 +3,7 @@
     "statement": "Print the english alphabet. Eg: 'abc...'",
     "difficulty": 1,
 
-    "hazards": [1, 3, 4, 5, 8],
+    "hazards": [0, 1, 3, 4, 5, 8],
 
     "io": [{
       "input": "",
@@ -15,7 +15,7 @@
     "statement": "Given an integer print the next number times 2.",
     "difficulty": 1,
 
-    "hazards": [0, 1, 3, 4, 5, 8],
+    "hazards": [1, 3, 4, 5, 8],
 
     "io": [{
       "input": "42",
@@ -27,7 +27,7 @@
     "statement": "Print the english alphabet reversed. Eg: 'zyx...'",
     "difficulty": 1,
 
-    "hazards": [1],
+    "hazards": [0, 1, 3, 4, 5, 8],
 
     "io": [{
       "input": "",
