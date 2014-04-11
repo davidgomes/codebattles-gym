@@ -1,5 +1,5 @@
 Accounts.onCreateUser(function(options, user) {
-  user.playing = false;
+  user.playing = 0;
   user.time = 1;
 
   if (options.username.length > 10) {
@@ -13,6 +13,9 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
+Accounts.onLogin(function(options) {
+  Meteor.users.update(options.user._id, { $set: { playing: 0 } });
+});
 
 Meteor.users.deny({
   update: function(userId) {

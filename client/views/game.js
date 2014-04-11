@@ -116,20 +116,22 @@ function countDown(left) {
   }
 };
 
-GameStream.on(Meteor.userId() + ":gameOver", function() {
-  Meteor.clearInterval(gameLoop);
-  gameLoop = null;
-});
+Deps.autorun(function() {
+  GameStream.on(Meteor.userId() + ":gameOver", function() {
+    Meteor.clearInterval(gameLoop);
+    gameLoop = null;
+  });
 
-GameStream.on(Meteor.userId() + ":startRound", function(time, statement) {
-  startGame(time, statement);
-  hazard.execute();
-  editor.focus();
-});
+  GameStream.on(Meteor.userId() + ":startRound", function(time, statement) {
+    startGame(time, statement);
+    hazard.execute();
+    editor.focus();
+  });
 
-GameStream.on(Meteor.userId() + ":preStart", function() {
-  setTimeout(countDown, 10, 3);
-  countdownAudio.play();
+  GameStream.on(Meteor.userId() + ":preStart", function() {
+    setTimeout(countDown, 10, 3);
+    countdownAudio.play();
+  });
 });
 
 submitAnswer = function() {
