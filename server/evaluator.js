@@ -24,6 +24,8 @@ var Evaluator = (function() {
         command = 'python -c "' + code + '"';
       } else if (language === 'ruby') {
         command = 'ruby -e "' + code + '"';
+      } else if (language === 'javascript') {
+        command = 'js24 -e "' + code + '"';
       }
 
       var options = { encoding: 'utf8', maxBuffer: 100 * 1024, killSignal: 'SIGTERM' };
