@@ -81,6 +81,16 @@ Meteor.methods({
   },
 
   submit: function(input, language) {
+    var user = Meteor.user();
+
+    if (!user) {
+      return "Not in game";
+    }
+
+    if (user.playing != 1) {
+      return "Not in game";
+    }
+    
     var future = new Future();
 
     Meteor.call('runCode', input, language, 0, function(error, response) {
