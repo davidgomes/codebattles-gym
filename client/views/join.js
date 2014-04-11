@@ -64,7 +64,7 @@ selectPython = function() {
 Template.join.rendered = function() {
   audio.play();
   var savedLanguage = localStorage['chosenLanguage'];
-  
+
   if (typeof savedLanguage === 'undefined') {
     selectJavascript();
   } else {
@@ -78,17 +78,17 @@ Template.join.rendered = function() {
   }
 };
 
-var rubyInfo1 = "<p>You choose Ruby! To read input use <em>gets</em> (with <em>.chomp</em> if necessary) and to print output use <em>puts</em>.</p><p>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
+var rubyInfo1 = "<p>You choose Ruby! To read input use <em>gets</em> (with <em>.chomp</em> if necessary) and to print output use <em>puts</em>.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
-var rubyInfo2 = "<pre>n = gets.to_i<br/><br/>(1..n).each do |i|<br/>    puts i<br/>end<br/></pre>";
+var rubyInfo2 = "<pre>n = gets.to_i<br/>(1..n).each do |i|<br/>    puts i<br/>end<br/></pre>";
 
-var javascriptInfo1 = "<p>A wise choice, JavaScript. Use <em>readline()</em> to read input and <em>print()</em> to print output.</p><p>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
+var javascriptInfo1 = "<p>A wise choice, JavaScript. Use <em>readline()</em> to read input and <em>print()</em> to print output.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
-var javascriptInfo2 = "<pre>var n = parseInt(readline());<br/><br/>for (var i = 1; i <= n; i++) {<br/>    print(i);<br/>}<br/></pre>";
+var javascriptInfo2 = "<pre>var n = parseInt(readline());<br/>for (var i = 1; i <= n; i++) {<br/>    print(i);<br/>}<br/></pre>";
 
-var pythonInfo1 = "<p>Your weapon is Python 2. To read input use <em>raw_input()</em> and to print output use <em>print</em>.</p><p>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
+var pythonInfo1 = "<p>Your weapon is Python 2. To read input use <em>raw_input()</em> and to print output use <em>print</em>.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
-var pythonInfo2 = "<pre>n = int(raw_input())<br/><br/>for i in range(1, n + 1):</br>    print i<br/></pre>";
+var pythonInfo2 = "<pre>n = int(raw_input())<br/>for i in range(1, n + 1):</br>    print i<br/><br/></pre>";
 
 changeInstructions = function() {
   if (language === "ruby") {
