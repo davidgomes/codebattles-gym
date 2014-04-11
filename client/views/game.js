@@ -54,6 +54,7 @@ Template.game.events({
   'keydown #actual-editor': function(event) {
     if (hotkey) {
       if (event.keyCode === submitKey) {
+        event.preventDefault();
         submitAnswer();
       }
     }
