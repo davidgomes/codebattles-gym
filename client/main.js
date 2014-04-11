@@ -2,10 +2,17 @@ Template.main.loggedIn = function() {
   return !! Meteor.user();
 };
 
+var slogans = ["If play() return awesome;", "knowledge**fun;", "mind.insert(xp);", "brain++;", "skill<<1;"];
+
 Template.main.helpers({
   inGame: function() {
     var user = Meteor.user();
     return user.playing > 0;
+  },
+
+  slogan: function() {
+    var index = Math.floor(Math.random() * slogans.length);
+    return slogans[index];
   }
 });
 

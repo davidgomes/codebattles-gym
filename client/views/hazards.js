@@ -48,7 +48,7 @@ hazards = {
   keyboardMalfunction: {
     name: 'Keyboard Malfunction',
     description: 'Something is wrong with your keyboard.',
-    difficulty: 40,
+    difficulty: 20,
 
     execute: function() {
     }
@@ -78,6 +78,16 @@ hazards = {
     difficulty: 20,
 
     execute: function() {
+    }
+  },
+
+  vertigo: {
+    name: 'Vertigo',
+    description: 'IDE is upside down.',
+    difficulty: 40,
+
+    execute: function() {
+      $(".CodeMirror").addClass('mirror');
     }
   }
 };
