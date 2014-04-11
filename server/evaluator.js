@@ -29,7 +29,6 @@ var Evaluator = (function() {
       code = this.escape(code);
 
       input = getProblemById(probNum).io[0].input;
-      console.log(input);
       output = getProblemById(probNum).io[0].output;
 
       if (language === 'python') {
