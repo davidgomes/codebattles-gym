@@ -9,6 +9,26 @@ Template.main.helpers({
   }
 });
 
+Template.main.events({
+  'submit #loginform': function(event) {
+    event.preventDefault();
+    sign();
+  }
+});
+
 Deps.autorun(function() {
   Meteor.subscribe('ownUser');
 });
+
+function sign() {
+  var password = $("#password").val();
+  var uname = $("#username").val();
+
+  Meteor.loginWithPassword(uname, password, function(error) {
+    if (error) {
+      throwError(error.reason);
+    } else {
+      $('#signInModal').modal('hide');
+    }
+  });
+}
