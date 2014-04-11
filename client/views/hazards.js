@@ -1,9 +1,17 @@
-usingInteval = null;
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomFloat(min, max) {
+  return min + (max - min) * Math.random();
+}
+
+usingInterval = null;
 
 clearHazard = function(hazard) {
   if (hazard == null)
     return;
-  
+
   if (hazard.name == "No Hazard") {
     clearNoScript();
   }
@@ -39,6 +47,9 @@ clearHazard = function(hazard) {
   }
   else if (hazard.name == "Big big text") {
     clearBigTextScript();
+  }
+  else if (hazard.name == "Cube") {
+    clearCubeScript();
   }
 };
 
@@ -79,6 +90,9 @@ runHazard = function(hazard) {
   else if (hazard.name == "Big big text") {
     bigTextScript();
   }
+  else if (hazard.name == "Cube") {
+    cubeScript();
+  }
 };
 
 noScript = function() {
@@ -86,7 +100,6 @@ noScript = function() {
 
 clearNoScript = function() {
 };
-
 
 pitaScript = function() {
   editor.setOption('theme', 'girl');
@@ -108,7 +121,6 @@ clearPitaScript = function() {
   editor.setOption('theme', 'mbo');
 };
 
-
 russianScript = function() {
   usingInterval = Meteor.setInterval(function() {
     var line = Math.floor(Math.random() * editor.doc.lineCount() + 1);
@@ -122,7 +134,6 @@ clearRussianScript = function() {
   }
 };
 
-
 warScript = function() {
   var $fdiv = $("<div>", {id: "flashbang"});
   $("body").append($fdiv);
@@ -133,14 +144,13 @@ warScript = function() {
     timeout = Math.floor(Math.random() * 4500 + 3500);
     $("#flashbang").fadeOut(4000);
   },timeout);
-}
+};
 
 clearWarScript = function () {
   if (usingInterval) {
     Meteor.clearTimeout(usingInterval);
   }
-}
-
+};
 
 keyboardMalfunctionScript = function() {
   keyboardHazard1 = true;
@@ -240,4 +250,37 @@ bigTextScript = function() {
 
 clearBigTextScript = function() {
   $('.CodeMirror').css("font-size", "14px");
+};
+
+cubeScript = function() {
+  usingInterval = setInterval(function() {
+    var cubeId = getRandomInt(0, 9999);
+    var cubeName = '#cube' + cubeId;
+
+    $('body').append('<div id="cube' + cubeId + '" class="codebits-cube"></div>');
+
+    $(cubeName).css('background', 'url("fx/cube.png")');
+    $(cubeName).css('position', 'fixed');
+    $(cubeName).css('width', '397px');
+    $(cubeName).css('height', '447px');
+    $(cubeName).css('left', getRandomInt(0, 900) + 'px');
+    $(cubeName).css('top', getRandomInt(0, 200) + 'px');
+    $(cubeName).css('z-index', '5');
+
+    var rotateAngle = getRandomInt(0, 360);
+    var scaleLevel = getRandomFloat(0.4, 1.2);
+
+    $(cubeName).css('transform', 'rotate(' + rotateAngle + 'deg) scale(' + scaleLevel + ')');
+    $(cubeName).css('-webkit-transform', 'rotate(' + rotateAngle + 'deg) scale(' + scaleLevel + ')');
+
+    $(cubeName).click(function() {
+      $(this).toggle();
+      editor.focus();
+    });
+  }, 2500);
+};
+
+clearCubeScript = function() {
+  $('.codebits-cube').hide();
+  clearInterval(usingInterval);
 };

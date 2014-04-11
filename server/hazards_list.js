@@ -71,5 +71,11 @@ hazards = [
     name: 'Big big text',
     description: 'Big letters.',
     difficulty: 4
+  },
+
+  { //12
+    name: 'Cube',
+    description: 'The Codebits Cube might just pop up.',
+    difficulty: 3
   }
 ];
