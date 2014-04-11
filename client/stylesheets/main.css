@@ -136,9 +136,7 @@ color: rgba(0,0,0,0.25);
   margin:auto;
 }
 /* Join */
-#weapons{
 
-}
 
 h1.title{
   color:rgba(46, 204, 113,1.0);
@@ -155,9 +153,7 @@ text-align: left;
 }
 
 #weaponRack{
-  background: rgba(245,245,245,1);
-  border:1px solid rgba(204,204,204,1);
-  border-radius: 4px;
+
   height:120px
 }
 .weapon{
@@ -165,27 +161,27 @@ text-align: left;
   background:rgba(46, 204, 113,.2);
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 ;
-  width:160px;
+  width:190px;
   border-radius: 4px;
 }
   .weapon#ruby {
-  background:rgba(231, 76, 60,.33);
+  background:rgba(231, 76, 60,1);
 }
   .weapon#javascript {
-      background:rgba(241, 196, 15,.33);
+      background:rgba(241, 196, 15,1);
 }
   .weapon#python {
-      background:rgba(52, 152, 219,.33);
+      background:rgba(52, 152, 219,1);
 }
 
   .weapon#ruby:hover {
-  background:rgba(231, 76, 60,.66);
+  background:rgba(231, 76, 60,.75);
 }
   .weapon#javascript:hover {
-      background:rgba(241, 196, 15,.66);
+      background:rgba(241, 196, 15,.75);
 }
   .weapon#python:hover {
-      background:rgba(52, 152, 219,.66);
+      background:rgba(52, 152, 219,.75);
 }
 
 
@@ -204,19 +200,19 @@ text-align: left;
   background:rgba(231, 76, 60,1.0);
 
   box-shadow: 0px 0px 0px 5px rgba(231, 76, 60,.5);
-  -webkit-transform: scale(1.1);
+  -webkit-transform: scale(1.2);
 }
   .weapon#javascript.selected {
       background:rgba(241, 196, 15,1.0);
 
   box-shadow: 0px 0px 0px 5px rgba(241, 196, 15,.5);
-  -webkit-transform: scale(1.1);
+  -webkit-transform: scale(1.2);
   }
   .weapon#python.selected {
       background:rgba(52, 152, 219,1.0);
 
       box-shadow: 0px 0px 0px 5px rgba(52, 152, 219,.5);
-      -webkit-transform: scale(1.1);
+      -webkit-transform: scale(1.2);
   }
 
 .weapon.selected {
@@ -231,7 +227,7 @@ text-align: left;
 }
 
 #submit input[type="button"]{
-  font-size: 24px;
+  font-size: 18px;
   padding:15px 40px;
   background:  #2ecc71;
   text-transform: uppercase;
@@ -293,7 +289,7 @@ text-transform: uppercase;
 #progress{
   width:1100px;
   height:10px;
-  background:rgba(149, 165, 166,1.0);
+  background:rgba(231, 76, 60,1.0);
   top:-40px;
   left:0px;
   position: absolute;
@@ -302,7 +298,25 @@ text-transform: uppercase;
 #bar{
   height:100%;
   width:60%;
+  background:rgba(241, 196, 15,1.0);
+}
+#gamescore{
+  width:100px;
+  height:100px;
+  margin: 0 auto;
+  position: absolute;
+  top:-120px;
+  left:0;right:0;
+
+}
+#gamescore #time{
+    width:60px;
+  height:60px;
+  border-radius: 30px;
   background:rgba(231, 76, 60,1.0);
+  text-align: center;
+  line-height: 60px;
+  font-size: 24px;
 }
 
 #countdown{

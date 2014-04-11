@@ -78,15 +78,15 @@ Template.join.rendered = function() {
   }
 };
 
-var rubyInfo1 = "<p>You choose Ruby! To read input use <em>gets</em> (with <em>.chomp</em> if necessary) and to print output use <em>puts</em>.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
+var rubyInfo1 = "<p>You choose Ruby! To read input use <code>gets</code> (with <code>.chomp</code> if necessary) and to print output use <code>puts</code>.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
-var rubyInfo2 = "<pre>n = gets.to_i<br/>(1..n).each do |i|<br/>    puts i<br/>end<br/></pre>";
+var rubyInfo2 = "<pre>n = gets.to_i<br/>(1..n).each do |i|<br/> puts i<br/>end<br/></pre>";
 
-var javascriptInfo1 = "<p>A wise choice, JavaScript. Use <em>readline()</em> to read input and <em>print()</em> to print output.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
+var javascriptInfo1 = "<p>A wise choice, JavaScript. Use <code>readline()</code> to read input and <code>print()</code> to print output.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
 var javascriptInfo2 = "<pre>var n = parseInt(readline());<br/>for (var i = 1; i <= n; i++) {<br/>    print(i);<br/>}<br/></pre>";
 
-var pythonInfo1 = "<p>Your weapon is Python 2. To read input use <em>raw_input()</em> and to print output use <em>print</em>.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
+var pythonInfo1 = "<p>Your weapon is Python 2. To read input use <code>raw_input()</code> and to print output use <code>print</code>.<br/>As an example problem: Given an integer <em>N</em>, print the first <em>N</em> natural numbers, each in its own line.</p>";
 
 var pythonInfo2 = "<pre>n = int(raw_input())<br/><br/>for i in range(1, n + 1):</br>    print i<br/></pre>";
 
