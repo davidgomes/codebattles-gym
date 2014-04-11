@@ -72,22 +72,14 @@ function gameTick() {
   gameLoop = Meteor.setTimeout(gameTick, 1000);
 };
 
-var startGame = function(time) {
+var startGame = function(time, statement) {
   editor.setOption('mode', language);
 
   $('#progress #bar').clearQueue();
   $('#progress #bar').width("100%");
   $('#progress #bar').animate({ "width": "0%" }, time * 1000, "linear");
   $('#feedback').hide();
-
-  Meteor.call('getProblemStatementById', 0, function(error, response) {
-    if (error) {
-      console.log("Error: " + error);
-    } else {
-      console.log(response);
-      $('#problem-statement').html(response);
-    }
-  });
+  $('#problem-statement').text(statement);
   
   Meteor.clearTimeout(gameLoop);
   gameTick();
@@ -128,8 +120,8 @@ GameStream.on(Meteor.userId() + ":gameOver", function() {
   gameLoop = null;
 });
 
-GameStream.on(Meteor.userId() + ":startRound", function(time) {
-  startGame(time);
+GameStream.on(Meteor.userId() + ":startRound", function(time, statement) {
+  startGame(time, statement);
   hazard.execute();
   editor.focus();
 });
