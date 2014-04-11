@@ -129,7 +129,7 @@ var startGame = function(time, statement, lhazard) {
   $('#progress #bar').animate({ "width": "0%" }, time * 1000, "linear");
   $('#feedback').hide();
   $('#problem-statement').text(statement);
-
+  
   clearHazard(hazard());
   setHazard(lhazard);
   runHazard(lhazard);
@@ -152,6 +152,7 @@ function countDown(left) {
   } else {
     if (left == 3) {
       $('#countdown').show();
+      $('#game').show();
     }
 
     $('#countdown p').fadeTo( 0, 0);
