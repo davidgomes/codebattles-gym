@@ -118,7 +118,9 @@ Meteor.methods({
     
     var future = new Future();
 
-    Meteor.call('runCode', input, language, 0, function(error, response) {
+    console.log("problem id: " + user.problemId);
+    console.log(getProblemById(user.problemId));
+    Meteor.call('runCode', input, language, user.problemId, function(error, response) {
       var user = Meteor.user();
 
       if (!user) {

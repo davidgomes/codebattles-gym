@@ -187,8 +187,7 @@ submitAnswer = function() {
       $('#feedback').show();
       $('#feedback-error').html(result);
       wrongAnswerAudio.play();
-    }
-    else {
+    } else {
       rightAnswerAudio.play();
     }
   });

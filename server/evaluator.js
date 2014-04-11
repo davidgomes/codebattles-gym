@@ -1,3 +1,14 @@
+function makeId() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 15; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+
+  return text;
+}
+
 var Evaluator = (function() {
   if (typeof(String.prototype.trim) === 'undefined') {
     String.prototype.trim = function() {
@@ -18,6 +29,7 @@ var Evaluator = (function() {
       code = this.escape(code);
 
       input = getProblemById(probNum).io[0].input;
+      console.log(input);
       output = getProblemById(probNum).io[0].output;
 
       if (language === 'python') {
@@ -30,6 +42,7 @@ var Evaluator = (function() {
 
       var options = { encoding: 'utf8', maxBuffer: 100 * 1024, killSignal: 'SIGTERM' };
 
+      var userId = makeId();
       if (input.length > 0) {
         var tcommand = 'printf "' + input + '" > ' + userId + '.txt';
         var child = exec(tcommand, function(error, stdout, stderr) { });

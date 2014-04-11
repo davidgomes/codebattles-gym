@@ -10,6 +10,7 @@
       "output": "abcdefghijklmnopqrstuvwxyz\n"
     }]
   },
+
   {
     "statement": "Given an integer print the next number times 2.",
     "difficulty": 1,
@@ -17,8 +18,20 @@
     "hazards": [0, 1, 3, 4, 5, 8],
 
     "io": [{
+      "input": "42",
+      "output": "86\n"
+    }]
+  },
+
+  {
+    "statement": "Print the english alphabet reversed. Eg: 'zyx...'",
+    "difficulty": 1,
+
+    "hazards": [1],
+
+    "io": [{
       "input": "",
-      "output": "3\n"
+      "output": "zyxwvutsrqponmlkjihgfedcba\n"
     }]
   }
 ]

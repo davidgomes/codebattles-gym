@@ -7,7 +7,8 @@ for (var i = 0; i < nproblems; i++) {
   problems[i] = JSON.parse(Assets.getText(filename));
 
   for (var j = 0; j < problems[i].length; j++) {
-    problems[i][j].id = current++;
+    problems[i][j].id = current;
+    current++;
   }
 }
 
