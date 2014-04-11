@@ -167,6 +167,7 @@ function countDown(left) {
 
 Deps.autorun(function() {
   GameStream.on(Meteor.userId() + ":gameOver", function() {
+    clearHazard(hazard());
     Meteor.clearInterval(gameLoop);
     gameLoop = null;
   });
