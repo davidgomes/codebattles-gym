@@ -85,7 +85,7 @@ function changeSignIn() {
   $('#pass-confirm-div').fadeOut("slow");
   $('#sign-text').text("Sign In");
   $('.submit-button').text("Enter");
-  $('#sign-changer').text("Register");
+  $('#sign-changer').text("Sign Up");
   $('#sign-changer').attr("id","register-changer");
   $('#sign-type').val("sign-in");
 }
@@ -94,7 +94,7 @@ function changeSignUp() {
   $('#pass-confirm-div').fadeIn("slow");
   $('#sign-text').text("Sign Up");
   $('.submit-button').text("Register");
-  $('#register-changer').text("Sign In");
+  $('#register-changer').text("Sign Up");
   $('#register-changer').attr("id","sign-changer");
   $('#sign-type').val("sign-up");
 }
