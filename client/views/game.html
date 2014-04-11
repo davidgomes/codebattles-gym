@@ -1,8 +1,4 @@
 <template name="game">
-  {{#if gameOver}}
-    {{> stats}}
-  {{/if}}
-  
   <div id="countdown">
     <p class="text-center"></p>
   </div>
@@ -18,10 +14,8 @@
     <p><span class="monospaceHeader">Problem Statement:</span></p>
     <p><em id="problem-statement"></em></p>
 
-    <div id="hazard-div">
-      <p><span class="monospaceHeader">Hazard:</span> <span> {{ hazardName }} </span></p>
-      <p><em>{{ hazardInfo }}</em></p>
-    </div>
+    <p><span class="monospaceHeader">Hazard:</span> <span> {{ hazardName }} </span></p>
+    <p><em>{{ hazardInfo }}</em></p>
 
     <input type="button" value="Exit Game" class="btn btn-success exit-button"/>
     <input type="button" value="Submit (Alt+S)" class="btn btn-success submit-button"/>
@@ -29,5 +23,9 @@
 
   <div id="progress">
     <div id="bar"></div>
+  </div>
+    <div id="gamescore">
+    <div id="score"></div>
+    <div id="time"></div>
   </div>
 </template>
