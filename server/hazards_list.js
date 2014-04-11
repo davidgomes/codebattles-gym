@@ -59,5 +59,11 @@ hazards = [
     name: 'Drunk',
     description: 'You\'re drunk.',
     difficulty: 9
+  },
+
+  { //10
+    name: 'Align: center',
+    description: 'Align: center.',
+    difficulty: 10
   }
 ];
