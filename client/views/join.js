@@ -7,9 +7,6 @@ var keyA = 65;
 var keyD = 68;
 var keyEnter = 13;
 
-audio = new Audio('music/maintheme.mp3');
-audio.volume = 0.5;
-
 preStart = function() {
   joining = false;
   Meteor.call("preStart");
@@ -62,7 +59,6 @@ selectPython = function() {
 };
 
 Template.join.rendered = function() {
-  audio.play();
   var savedLanguage = localStorage['chosenLanguage'];
 
   if (typeof savedLanguage === 'undefined') {
