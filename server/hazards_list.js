@@ -6,7 +6,7 @@ hazards = [
     description: 'Or... Is there?',
     difficulty: 0
   },
-  
+
   { // 1
     name: 'Pita Script',
     description: 'You\'re now a 12 years old girl.',
@@ -15,13 +15,13 @@ hazards = [
 
   { // 2
     name: 'Russian Roulette',
-    description: 'A random line can removed every 10 seconds.',
+    description: 'A random line will be removed every 10 seconds.',
     difficulty: 2
   },
 
   { // 3
     name: 'War Trauma',
-    description: 'Random flashbang grenades.',
+    description: 'Random flashbang grenades might get in the way.',
     difficulty: 3
   },
 
@@ -33,19 +33,19 @@ hazards = [
 
   { // 5
     name: 'Perfectionist',
-    description: 'Think B4 u code.',
+    description: 'Think B4 U Code.',
     difficulty: 3
   },
 
   { // 6
     name: 'Near-sighted',
-    description: 'I give you one line.',
+    description: 'You get one line and one line only..',
     difficulty: 4
   },
 
   { // 7
     name: 'Far-sighted',
-    description: 'You are now a \"visgarolho\".',
+    description: 'It seems to me you need glasses.',
     difficulty: 5
   },
 
@@ -57,13 +57,13 @@ hazards = [
 
   { // 9
     name: 'Drunk',
-    description: 'You\'re drunk.',
+    description: 'You\'re just drunk.',
     difficulty: 5
   },
 
   { //10
-    name: 'Align: center',
-    description: 'Align: center.',
+    name: 'Center Aligned Code',
+    description: 'text-align: center;',
     difficulty: 2
   },
 
