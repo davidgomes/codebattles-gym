@@ -8,3 +8,11 @@
 .girl {
   background: url("http://i262.photobucket.com/albums/ii108/lisahahn7/stars_glitter-1.gif?t=1208950319") repeat;
 }
+
+#flashbang {
+  position: absolute;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
