@@ -1,8 +1,9 @@
 Accounts.onCreateUser(function(options, user) {
   user.playing = false;
+  user.time = 1;
 
-  if (options.username.length > 8) {
-    throw new Meteor.Error(404, "Username should have a maximum of 8 characters.");
+  if (options.username.length > 10) {
+    throw new Meteor.Error(404, "Username should have a maximum of 10 characters.");
   }
 
   if (options.profile) {

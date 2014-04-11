@@ -1,3 +1,5 @@
+var ADD_TIME = 60;
+
 GameStream = new Meteor.Stream('game_streams');
 
 GameStream.permissions.write(function(eventName) {
@@ -10,12 +12,28 @@ GameStream.permissions.read(function(eventName) {
 
 var sessionHash = {};
 
-function startRound(id) {
-  GameStream.emit(id + ":startRound");
+function gameOver(id) {
+  Meteor.clearInterval(sessionHash[id]);
+  sessionHash[id] = null;
 
+  GameStream.emit(id + ":gameOver");
+}
+
+function startRound(id) {
+  var user = Meteor.users.findOne(id);
+
+  if (!user) {
+    return;
+  }
+  
+  var time = user.time;
+
+  GameStream.emit(id + ":startRound", time + ADD_TIME);
+
+  Meteor.clearInterval(sessionHash[user._id]);
   sessionHash[id] = Meteor.setTimeout(function() {
-    startRound(id);
-  }, 11000);
+    gameOver(id);
+  }, time + ADD_TIME);
 };
 
 Meteor.methods({
@@ -26,7 +44,12 @@ Meteor.methods({
       throw new Meteor.Error(401, "You need to be logged in to start games");
     }
 
+    if (user.playing != 0) {
+      throw new Meteor.Error(402, "A game as already started");
+    }
+
     Meteor.users.update(user._id, { $set: { playing: 1 } });
+    Meteor.users.update(user._id, { $set: { time: 0 } });
 
     GameStream.emit(user._id + ":preStart");
 
@@ -46,15 +69,5 @@ Meteor.methods({
     Meteor.clearTimeout(sessionHash[user._id]);
     delete sessionHash[user._id];
     Meteor.users.update(user._id, { $set: { playing: 0 } });
-  },
-
-  submit: function(code) {
-    var user = Meteor.user();
-
-    if (!user) {
-      throw new Meteor.Error(401, "You need to be logged in to start games");
-    }
-
-    return "Accepted";
-  }    
+  }
 });

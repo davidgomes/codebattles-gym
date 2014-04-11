@@ -64,12 +64,12 @@ function gameTick() {
   gameLoop = Meteor.setTimeout(gameTick, 1000);
 };
 
-var startGame = function() {
+var startGame = function(time) {
   editor.setOption('mode', language);
 
   $('#progress #bar').clearQueue();
   $('#progress #bar').width("100%");
-  $('#progress #bar').animate({ "width": "0%" }, 10000, "linear");
+  $('#progress #bar').animate({ "width": "0%" }, time * 1000, "linear");
   $('#feedback').hide();
 
   Meteor.call('getProblemStatementById', 0, function(error, response) {
@@ -115,8 +115,13 @@ function countDown(left) {
   }
 };
 
-GameStream.on(Meteor.userId() + ":startRound", function() {
-  startGame();
+GameStream.on(Meteor.userId() + ":gameOver", function() {
+  Meteor.clearInterval(gameLoop);
+  gameLoop = null;
+});
+
+GameStream.on(Meteor.userId() + ":startRound", function(time) {
+  startGame(time);
 });
 
 GameStream.on(Meteor.userId() + ":preStart", function() {
