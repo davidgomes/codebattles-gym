@@ -22,7 +22,7 @@
       "output": "4\n"
     }]
   },
-  
+
   {
     "statement": "Hello there. Let's chat. I'll give you a list of space separated numbers and for each of them tell me how many divisors it's got (print one per line). For example, 4 has 3 divisors: 1, 2 and 4.",
     "difficulty": 3,

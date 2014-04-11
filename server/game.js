@@ -1,4 +1,4 @@
-var ADD_TIME = 30;
+var ADD_TIME = 5;
 
 var Future = Npm.require('fibers/future');
 
@@ -40,6 +40,10 @@ function startRound(id, roundL) {
     var rank = Math.max(1, round - Math.floor(Math.random() * 5));
 
     var lproblem = getProblemByRank(rank);
+    if (lproblem.id == user.problemId) {
+      continue;
+    }
+    
     var lhazard = getHazardById(lproblem.hazards[Math.floor(lproblem.hazards.length * Math.random())]);
 
     var realRank = parseInt(lhazard.difficulty) + lproblem["difficulty"];
