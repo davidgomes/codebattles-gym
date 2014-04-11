@@ -1,5 +1,7 @@
 var ADD_TIME = 60;
 
+var Future = Npm.require('fibers/future');
+
 GameStream = new Meteor.Stream('game_streams');
 
 GameStream.permissions.write(function(eventName) {
@@ -69,5 +71,25 @@ Meteor.methods({
     Meteor.clearTimeout(sessionHash[user._id]);
     delete sessionHash[user._id];
     Meteor.users.update(user._id, { $set: { playing: 0 } });
+  },
+
+  submit: function(input, language) {
+    var future = new Future();
+
+    Meteor.call('runCode', input, language, 0, function(error, response) {
+      var user = Meteor.user();
+
+      if (!user) {
+        throw new Meteor.Error(401, "You need to be logged in to submit");        
+      }
+
+      if (response == "Accepted") {
+        startRound(user._id);
+      }
+
+      future.return(response);
+    });
+
+    return future.wait();
   }
 });

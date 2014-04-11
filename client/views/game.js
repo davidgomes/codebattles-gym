@@ -131,9 +131,11 @@ GameStream.on(Meteor.userId() + ":preStart", function() {
 });
 
 submitAnswer = function() {
-  Meteor.call('runCode', editor.getValue(), language, 0, function(error, response) {
-    $('#feedback').show();
-    $('#feedback-error').html(response);
+  Meteor.call('submit', editor.getValue(), language, function(error, result) {
+    if (result != "Accepted") {
+      $('#feedback').show();
+      $('#feedback-error').html(result);
+    }
   });
 };
 
