@@ -17,7 +17,7 @@ clearHazard = function(hazard) {
     clearWarScript();
   }
   else if (hazard.name == "Keyboard Malfunction") {
-    clearKeyboardScript();
+    clearKeyboardMalfunctionScript();
   }
   else if (hazard.name == "Perfectionist") {
     clearPerfectScript();
@@ -47,7 +47,7 @@ runHazard = function(hazard) {
     warScript();
   }
   else if (hazard.name == "Keyboard Malfunction") {
-    keyboardScript();
+    keyboardMalfunctionScript();
   }
   else if (hazard.name == "Perfectionist") {
     perfectScript();
