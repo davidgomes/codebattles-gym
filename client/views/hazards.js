@@ -107,9 +107,7 @@ pitaScript = function() {
   if (audio != null) {
     audio.pause();
   }
-  audio = new Audio('music/pitascript.mp3');
-  audio.loop = true;
-  audio.volume = 0.55;
+  gameAudio.pause();
   audio.play();
 };
 
@@ -117,7 +115,7 @@ clearPitaScript = function() {
   if (audio != null) {
     audio.pause();
   }
-  audio = null;
+  gameAudio.play();  
   $('body').removeClass("girl");
   editor.setOption('theme', 'mbo');
 };
@@ -136,7 +134,7 @@ clearRussianScript = function() {
 };
 
 warScript = function() {
-  var $fdiv = $("<div>", {id: "flashbang"});
+/*  var $fdiv = $("<div>", {id: "flashbang"});
   $("body").append($fdiv);
   $("#flashbang").hide();
   var flashbangAudio = new Audio('fx/flashbang.mp3');
@@ -147,13 +145,13 @@ warScript = function() {
       $("#flashbang").show().fadeOut(4000);;
     }, 1700);
     timeout = Math.floor(Math.random() * 4500 + 3500);
-  },timeout);
+  },timeout);*/
 };
 
 clearWarScript = function () {
-  if (usingInterval) {
+  /*if (usingInterval) {
     Meteor.clearTimeout(usingInterval);
-  }
+  }*/
 };
 
 keyboardMalfunctionScript = function() {
@@ -293,9 +291,9 @@ clearCubeScript = function() {
 markeeScript = function() {
   var statementDiv = $('#statement-div');
   statementDiv.html("<marquee class=\"bomb\" behavior=\"left\" loop=\"infinite\">" + cstatement.toUpperCase() + "</marquee>");
-}
+};
 
 clearMarkeeScript= function() {
   var statementDiv = $('#statement-div');
   statementDiv.html("<p><em id=\"problem-statement\"></em></p>");
-}
+};

@@ -16,7 +16,12 @@ var backspaceKey = 8;
 var countdownAudio = new Audio('fx/startround.mp3');
 var rightAnswerAudio = new Audio('fx/rightanswer.mp3');
 var wrongAnswerAudio = new Audio('fx/wronganswer.mp3');
-
+gameAudio = new Audio('music/maintheme.mp3');
+gameAudio.volume = 0.5;
+gameAudio.loop = true;
+audio = new Audio('music/pitascript.mp3');
+audio.loop = true;
+audio.volume = 0.55;
 
 var hazard = function() {
   _hazardDeps.depend();
@@ -54,12 +59,9 @@ Template.game.events({
     if (confirm("Exit Game?")) {
       Meteor.call("exitGame");
       joining = true;
-      if (audio != null) {
-        audio.pause();
-        audio = null;
-      }
       clearHazard(hazard());
       Meteor.clearTimeout(gameLoop);
+      gameAudio.pause();
     }
   },
 
@@ -143,6 +145,10 @@ function countDown(left) {
     $( "#countdown" ).fadeTo(200 , 0, function() {
       $('#countdown').toggle();
     });
+
+    gameAudio.pause();
+    gameAudio.currentTime = 0;
+    gameAudio.play();
   } else {
     if (left == 3) {
       $('#countdown').show();
