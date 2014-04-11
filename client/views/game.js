@@ -147,7 +147,7 @@ submitAnswer = function() {
 };
 
 Template.game.created = function () {
-  hazard = hazards.pitaScript;
+  hazard = hazards.russianRoulette;
 };
 
 Template.game.helpers({

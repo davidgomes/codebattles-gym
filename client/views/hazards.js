@@ -23,14 +23,14 @@ hazards = {
     difficulty: 20,
 
     execute: function() {
-      var shot = Math.floor(Math.random() * 6);
+      setInterval(function() {
+        var shot = Math.floor(Math.random() * 6);
 
-      if (shot === 1) {
-        var line = Math.floor(Math.random() * editor.doc.lineCount() + 1);
-        editor.removeLine(line);
-      }
-
-      setTimeout(this, 10000);
+        if (shot === 1) {
+          var line = Math.floor(Math.random() * editor.doc.lineCount() + 1);
+          editor.removeLine(line);
+        }
+      }, 1000);
     }
   },
 
