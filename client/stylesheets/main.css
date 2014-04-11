@@ -155,19 +155,18 @@ text-align: left;
 }
 
 #weaponRack{
-  margin-bottom: 10px;
-  padding:20px;
   background: rgba(245,245,245,1);
   border:1px solid rgba(204,204,204,1);
   border-radius: 4px;
+  height:120px
 }
 .weapon{
   margin:0 auto;
   background:rgba(46, 204, 113,.2);
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  height:80px;
+;
   width:160px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
   .weapon#ruby {
   background:rgba(231, 76, 60,.33);
@@ -204,19 +203,19 @@ text-align: left;
   .weapon#ruby.selected {
   background:rgba(231, 76, 60,1.0);
 
-  box-shadow: 0px 0px 0px 10px rgba(231, 76, 60,.5);
+  box-shadow: 0px 0px 0px 5px rgba(231, 76, 60,.5);
   -webkit-transform: scale(1.1);
 }
   .weapon#javascript.selected {
       background:rgba(241, 196, 15,1.0);
 
-  box-shadow: 0px 0px 0px 10px rgba(241, 196, 15,.5);
+  box-shadow: 0px 0px 0px 5px rgba(241, 196, 15,.5);
   -webkit-transform: scale(1.1);
   }
   .weapon#python.selected {
       background:rgba(52, 152, 219,1.0);
 
-      box-shadow: 0px 0px 0px 10px rgba(52, 152, 219,.5);
+      box-shadow: 0px 0px 0px 5px rgba(52, 152, 219,.5);
       -webkit-transform: scale(1.1);
   }
 
