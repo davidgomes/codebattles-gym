@@ -156,5 +156,9 @@ Template.game.helpers({
 
   hazardInfo: function() {
     return hazard.description;
+  },
+
+  gameOver: function() {
+    return Meteor.user().playing == 2;
   }
 });

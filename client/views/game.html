@@ -1,4 +1,8 @@
 <template name="game">
+  {{#if gameOver}}
+    {{> stats}}
+  {{/if}}
+  
   <div id="countdown">
     <p class="text-center"></p>
   </div>

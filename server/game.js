@@ -1,4 +1,4 @@
-var ADD_TIME = 60;
+var ADD_TIME = 3;
 
 var Future = Npm.require('fibers/future');
 
@@ -18,6 +18,8 @@ function gameOver(id) {
   Meteor.clearInterval(sessionHash[id]);
   sessionHash[id] = null;
 
+  Meteor.users.update(id, { $set: { playing: 2 } });
+
   GameStream.emit(id + ":gameOver");
 }
 
@@ -30,13 +32,16 @@ function startRound(id) {
   
   var time = user.time;
   var problem = getProblemByRank(1);
-
+  
+  Meteor.users.update(id, { $inc: { score: 1 } });
+  Meteor.users.update(id, { $inc: { time: ADD_TIME } });
+  
   GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement);
 
-  Meteor.clearInterval(sessionHash[user._id]);
+  Meteor.clearTimeout(sessionHash[user._id]);
   sessionHash[id] = Meteor.setTimeout(function() {
     gameOver(id);
-  }, time + ADD_TIME);
+  }, (time + ADD_TIME) * 1000);
 };
 
 Meteor.methods({
@@ -53,6 +58,7 @@ Meteor.methods({
 
     Meteor.users.update(user._id, { $set: { playing: 1 } });
     Meteor.users.update(user._id, { $set: { time: 0 } });
+    Meteor.users.update(user._id, { $set: { score: 0 } });
 
     GameStream.emit(user._id + ":preStart");
 
@@ -75,6 +81,16 @@ Meteor.methods({
   },
 
   submit: function(input, language) {
+    var user = Meteor.user();
+
+    if (!user) {
+      return "Not in game";
+    }
+
+    if (user.playing != 1) {
+      return "Not in game";
+    }
+    
     var future = new Future();
 
     Meteor.call('runCode', input, language, 0, function(error, response) {
