@@ -60,7 +60,6 @@ Meteor.startup(function() { });
 
 Meteor.methods({
   runCode: function(code, language, probNum) {
-    return "Accepted";
     var future = new Future();
 
     Evaluator.run(code, language, probNum, function(response) {
