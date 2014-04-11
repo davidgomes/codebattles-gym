@@ -200,8 +200,8 @@ h1.title{
 #feedback strong{
   color:white;
 }
-#progress{
 
+#progress{
   width:1100px;
   height:10px;
   background:rgba(0,0,0,0.1);
@@ -228,7 +228,7 @@ h1.title{
 }
 
 #countdown p {
-    margin: auto;
+  margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   overflow: auto;
@@ -240,6 +240,14 @@ h1.title{
   margin:auto;
 }
 
+#stat-pane {
+  margin: auto;
+  z-index: 5;
+  position: absolute;
+  top: 100px; left: 0; right: 400px;
+  text-align: center;
+  color: white;
+}
 
 /* Header Style */
 
