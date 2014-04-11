@@ -12,7 +12,7 @@ GameStream.permissions.read(function(eventName) {
   return true;
 });
 
-var sessionHash = {};
+var sessionHash = { };
 
 function gameOver(id) {
   Meteor.clearInterval(sessionHash[id]);
@@ -40,10 +40,11 @@ function startRound(id, roundL) {
     var rank = Math.max(1, round - Math.floor(Math.random() * 5));
 
     var lproblem = getProblemByRank(rank);
+
     if (lproblem.id == user.problemId) {
       continue;
     }
-    
+
     var lhazard = getHazardById(lproblem.hazards[Math.floor(lproblem.hazards.length * Math.random())]);
 
     var realRank = parseInt(lhazard.difficulty) + lproblem["difficulty"];
@@ -68,6 +69,7 @@ function startRound(id, roundL) {
   GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement, hazard);
 
   Meteor.clearTimeout(sessionHash[user._id]);
+
   sessionHash[id] = Meteor.setTimeout(function() {
     gameOver(id);
   }, (time + ADD_TIME) * 1000);
@@ -92,6 +94,7 @@ Meteor.methods({
     GameStream.emit(user._id + ":preStart");
 
     Meteor.clearInterval(sessionHash[user._id]);
+
     sessionHash[user._id] = Meteor.setTimeout(function() {
       startRound(user._id, 1);
     }, 3700);
