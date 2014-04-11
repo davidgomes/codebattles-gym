@@ -28,7 +28,7 @@ hazards = [
   { // 4
     name: 'Keyboard Malfunction',
     description: 'Something is wrong with your keyboard.',
-    difficulty: 2
+    difficulty: 5
   },
 
   { // 5

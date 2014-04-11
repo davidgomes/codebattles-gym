@@ -21,5 +21,53 @@
       "input": "pedro\n",
       "output": "ordep\n"
     }]
+  },
+
+  {
+    "statement": "Just print 42... 42 times!",
+    "difficulty": 2,
+
+    "hazards": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+
+    "io": [{
+      "input": "",
+      "output": "42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n42\n"
+    }]
+  },
+
+  {
+    "statement": "I'll give you a list of space-separated integers. Print only the even ones, one per line.",
+    "difficulty": 2,
+
+    "hazards": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+
+    "io": [{
+      "input": "23 234 346 218 3287 4734 294 2349 3476 673258\n",
+      "output": "234\n346\n218\n\n4734\n294\n3476\n673258\n"
+    }]
+  },
+  
+  {
+    "statement": "I'm bored, so let's do the following: I'll give you an integer and you give me the sum of all of its digits.",
+    "difficulty": 2,
+
+    "hazards": [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11],
+
+    "io": [{
+      "input": "893258974895738789745832\n",
+      "output": "148\n"
+    }]
+  },
+  
+  {
+    "statement": "The Force is strong with this problem. I have a space separated integer list for you and I want to know which one is the Chosen One (AKA, the largest integer). Print it.",
+    "difficulty": 2,
+
+    "hazards": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+
+    "io": [{
+      "input": "3 43432 423 12 4 5 4 45 3634 235 122\n",
+      "output": "43432\n"
+    }]
   }
 ]
