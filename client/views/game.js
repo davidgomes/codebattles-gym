@@ -123,6 +123,7 @@ GameStream.on(Meteor.userId() + ":gameOver", function() {
 GameStream.on(Meteor.userId() + ":startRound", function(time) {
   startGame(time);
   hazard.execute();
+  editor.focus();
 });
 
 GameStream.on(Meteor.userId() + ":preStart", function() {
