@@ -135,7 +135,7 @@ warScript = function() {
 
 clearWarScript = function() {
   if (usingInterval) {
-    Meteor.clearTimeout(usingInterval);
+    Meteor.clearInterval(usingInterval);
   }
 };
 
@@ -214,28 +214,28 @@ drunkScript = function() {
     }
     $('.CodeMirror').css("-webkit-filter", "blur(" + blurLevel + "px)");
   }, 20);
-}
+};
 
 clearDrunkScript = function() {
   if (usingInterval) {
     Meteor.clearTimeout(usingInterval);
   }
   $('.CodeMirror').css("-webkit-filter", "blur(0px)");
-}
+};
 
 
 alignCenterScript = function() {
   $('.CodeMirror').css("text-align", "center");
-}
+};
 
 clearAlignCenterScript = function() {
   $('.CodeMirror').css("text-align", "left");
-}
+};
 
 bigTextScript = function() {
   $('.CodeMirror').css("font-size", "64px");
-}
+};
 
 clearBigTextScript = function() {
   $('.CodeMirror').css("font-size", "14px");
-}
+};

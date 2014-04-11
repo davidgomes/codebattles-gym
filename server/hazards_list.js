@@ -22,54 +22,54 @@ hazards = [
   { // 3
     name: 'War Trauma',
     description: 'Random flashbang grenades.',
-    difficulty: 3
+    difficulty: 2
   },
 
   { // 4
     name: 'Keyboard Malfunction',
     description: 'Something is wrong with your keyboard.',
-    difficulty: 4
+    difficulty: 2
   },
 
   { // 5
     name: 'Perfectionist',
     description: 'Think B4 u code.',
-    difficulty: 5
+    difficulty: 3
   },
 
   { // 6
     name: 'Near-sighted',
     description: 'I give you one line.',
-    difficulty: 6
+    difficulty: 4
   },
 
   { // 7
     name: 'Far-sighted',
     description: 'You are now a \"visgarolho\".',
-    difficulty: 7
+    difficulty: 5
   },
 
   { // 8
     name: 'Vertigo',
     description: 'IDE is upside down.',
-    difficulty: 8
+    difficulty: 5
   },
 
   { // 9
     name: 'Drunk',
     description: 'You\'re drunk.',
-    difficulty: 9
+    difficulty: 5
   },
 
   { //10
     name: 'Align: center',
     description: 'Align: center.',
-    difficulty: 10
+    difficulty: 2
   },
 
   { //11
     name: 'Big big text',
     description: 'Big letters.',
-    difficulty: 11
+    difficulty: 4
   }
 ];
