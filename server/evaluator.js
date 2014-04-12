@@ -26,6 +26,7 @@ var Evaluator = (function() {
       var input;
       var output;
 
+      code = code.replace('\'', '\"');
       code = this.escape(code);
 
       input = getProblemById(probNum).io[0].input;
