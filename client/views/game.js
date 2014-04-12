@@ -124,6 +124,7 @@ Template.game.events({
         submitAnswer();
       }
     }
+
     if (keyboardHazard1) {
       if (event.keyCode === enterKey) {
         event.preventDefault();
@@ -131,6 +132,7 @@ Template.game.events({
         editor.removeLine(line);
       }
     }
+
     if (keyboardHazard2) {
       if (event.keyCode === backspaceKey) {
         event.preventDefault();
@@ -163,7 +165,7 @@ var startGame = function(time, statement, lhazard, round) {
 
   $('#progress #bar').clearQueue();
   $('#progress #bar').width("100%");
-  $('#progress #bar').animate({ "width": "0%" }, time * 1000, "linear");
+  $('#progress #bar').animate({ width: "0%" }, time * 1000, "linear");
   $('#feedback').hide();
   $('#problem-statement').text(statement);
 
@@ -193,9 +195,10 @@ function countDown(left) {
   } else {
     if (left == 3) {
       $('#countdown').show();
+      $('#game').show();
     }
 
-    $('#countdown p').fadeTo( 0, 0);
+    $('#countdown p').fadeTo(0, 0);
 
     if (left > 0) {
       $('#countdown p').html(left);
