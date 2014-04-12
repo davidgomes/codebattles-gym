@@ -43,7 +43,7 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Drunk") {
     clearDrunkScript();
   }
-  else if (hazard.name == "Align: center") {
+  else if (hazard.name == "Center Aligned Code") {
     clearAlignCenterScript();
   }
   else if (hazard.name == "Big big text") {
@@ -100,7 +100,7 @@ runHazard = function(hazard) {
   else if (hazard.name == "Drunk") {
     drunkScript();
   }
-  else if (hazard.name == "Align: center") {
+  else if (hazard.name == "Center Aligned Code") {
     alignCenterScript();
   }
   else if (hazard.name == "Big big text") {
