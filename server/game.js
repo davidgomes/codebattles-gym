@@ -177,8 +177,6 @@ Meteor.methods({
             gameOver(user._id);
           }, (user.endTime - Date.now() - 4.4 * 1000));
         }
-
-        console.log((user.endTime - Date.now()  - 4.4 * 1000) / 1000);
       }
 
       future.return(response);
