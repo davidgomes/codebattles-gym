@@ -17,6 +17,9 @@ var _timeDeps = new Deps.Dependency;
 var _round = null;
 var _roundDeps = new Deps.Dependency;
 
+var upTimeout = null;
+var downTimeout = null;
+
 var endTime = 0;
 
 submitEnabled = true;
@@ -168,12 +171,12 @@ var startGame = function(time, statement, lhazard, round) {
 
   $('#progress #bar').clearQueue();
   $('#progress #bar').stop();
-  $('#progress #bar').width(Math.round(time / 3).toString() + "%");
+  $('#progress #bar').width(Math.floor(time / 3).toString() + "%");
   $('#progress #bar').animate({ width: "0%" }, time * 1000, "linear");
 
   $('#time').clearQueue();
   $('#time').stop();
-  $('#time').css('left', Math.round(time / 3).toString() + "%");
+  $('#time').css('left', Math.floor(time / 3).toString() + "%");
   $('#time').animate({ left: "0%" }, time * 1000, "linear");
 
   $('#feedback').hide();
@@ -240,6 +243,8 @@ Deps.autorun(function() {
     Meteor.clearInterval(gameLoop);
     gameLoop = null;
 
+    setTime(0);
+
     $('#progress #bar').clearQueue();
     $('#progress #bar').stop();
     $('#progress #bar').width("0%");
@@ -279,6 +284,11 @@ submitAnswer = function() {
         $('#progress #bar').clearQueue();
         $('#progress #bar').width(Math.floor(time() / 3).toString() + "%");
         $('#progress #bar').animate({ width: "0%" }, time() * 1000, "linear");
+
+        $('#time').clearQueue();
+        $('#time').stop();
+        $('#time').css('left', Math.floor(time() / 3).toString() + "%");
+        $('#time').animate({ left: "0%" }, time() * 1000, "linear");
       }
 
       if (!mute) {
@@ -300,14 +310,24 @@ submitAnswer = function() {
 changeScore = function(score) {
   if(score > 0) {
     console.log("scoreup");
-    $("#scoreUp").html("score");
-    $("#scoreUp").toggle();
-    Meteor.setTimeout($("#scoreUp").toggle(), 2000);
+    $("#scoreUp").html("+" + score);
+    $("#scoreUp").show();
+    if (upTimeout) {
+      Meteor.clearTimeout(upTimeout);
+    }
+    upTimeout = Meteor.setTimeout(function() {
+      $("#scoreUp").hide();
+    }, 1500);
   }
   else {
-    $("#scoreDown").html("score");
-    $("#scoreDown").toggle();
-    Meteor.setTimeout($("#scoreDown").toggle(), 2000);
+    $("#scoreDown").html(score);
+    $("#scoreDown").show();
+    if (downTimeout) {
+      Meteor.clearTimeout(downTimeout);
+    }
+    downTimeout = Meteor.setTimeout(function() {
+      $("#scoreDown").hide();
+    }, 1500);
   }
 };
 

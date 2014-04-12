@@ -151,13 +151,9 @@ Meteor.methods({
       if (response === "Accepted") {
         startRound(user._id, user.score + 1);
       } else if (response === "Wrong Answer") {
-        console.log("go");
-        console.log(user.endTime);
         Meteor.users.update(user._id, { $inc: { endTime: -(4.5 * 1000) } });
         
         Meteor.clearTimeout(sessionHash[user._id]);
-
-        console.log(user.endTime);
         
         if (user.endTime <= Date.now()) {
           gameOver(user._id);
