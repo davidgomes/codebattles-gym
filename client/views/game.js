@@ -169,6 +169,11 @@ var startGame = function(time, statement, lhazard, round) {
   $('#progress #bar').clearQueue();
   $('#progress #bar').width(Math.round(time / 3).toString() + "%");
   $('#progress #bar').animate({ width: "0%" }, time * 1000, "linear");
+
+  $('#time').clearQueue();
+  $('#time').css('left', Math.round(time / 3).toString() + "%");
+  $('#time').animate({ left: "0%" }, time * 1000, "linear");
+
   $('#feedback').hide();
   $('#problem-statement').text(statement);
 

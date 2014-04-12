@@ -4,11 +4,10 @@
 .cm-s-girl span.cm-builtin { line-height: 1em; font-weight: bold; color: #077; }
 .cm-s-girl span.cm-special { line-height: 1em; font-weight: bold; color: #0aa; }
 .cm-s-girl span.cm-variable { color: rgba(255, 255, 255,1.0); }
-.cm-s-girl span.cm-number, .cm-s-girl span.cm-atom { color: #ff66cc; }
+.cm-s-girl span.cm-number, .cm-s-girl span.cm-atom { color: #fff; }
 .cm-s-girl span.cm-meta {color: #555;}
 .cm-s-girl span.cm-link { color: #3a3; }
 .cm-s-mbo .CodeMirror-linenumber {color: #ff66cc;}
-
 .cm-s-girl .CodeMirror-gutters {background: rgba(142, 68, 173,1.0); border-right: 0px; color:#ff66cc;}
 .cm-s-girl .CodeMirror-activeline-background {background: #e8f2ff !important;}
 .cm-s-girl .CodeMirror-matchingbracket {outline:1px solid grey; color:black !important;}
