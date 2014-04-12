@@ -12,8 +12,5 @@ Template.stats.events({
     
     Meteor.call("exitGame");
     joining = true;
-    clearHazard(hazard());
-    Meteor.clearTimeout(gameLoop);
-    gameAudio.pause();
   }
 });
