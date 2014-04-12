@@ -1,7 +1,7 @@
 <template name="header">
   <div id="header">
     {{#if loggedIn}}
-      {{username}} <button type="submit" class="btn btn-default logout-button">Sign Out</button> <button type="submit" class="btn btn-default mute-button"><span class="glyphicon glyphicon-volume-off"></span> Mute</button>
+      {{username}} <button type="submit" class="btn btn-default logout-button">Sign Out</button> <button type="submit" class="btn btn-default" id="mute-button"><span class="glyphicon glyphicon-volume-off"></span> Mute</button>
     {{/if}}
 
   </div>

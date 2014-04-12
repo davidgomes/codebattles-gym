@@ -113,15 +113,22 @@ pitaScript = function() {
   if (audio != null) {
     audio.pause();
   }
-  gameAudio.pause();
-  audio.play();
+
+  if (!mute) {
+    gameAudio.pause();
+    audio.play();
+  }
 };
 
 clearPitaScript = function() {
   if (audio != null) {
     audio.pause();
   }
-  gameAudio.play();
+
+  if (!mute) {
+    gameAudio.play();
+  }
+  
   $('body').removeClass("girl");
   editor.setOption('theme', 'mbo');
 };
