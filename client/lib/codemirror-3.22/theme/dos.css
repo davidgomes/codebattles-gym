@@ -1,0 +1,14 @@
+.cm-s-dos span.cm-comment { color: #green; }
+.cm-s-dos span.cm-keyword { line-height: 1em;  color: green; }
+.cm-s-dos span.cm-string { color: #green; }
+.cm-s-dos span.cm-builtin { line-height: 1em; font-weight: bold; color: #green; }
+.cm-s-dos span.cm-special { line-height: 1em; font-weight: bold; color: #green; }
+.cm-s-dos span.cm-variable { color: green; }
+.cm-s-dos span.cm-number, .cm-s-girl span.cm-atom { color: #green; }
+.cm-s-dos span.cm-meta {color: #green;}
+.cm-s-dos span.cm-link { color: #green; }
+.cm-s-dos .CodeMirror-linenumber {color: #green;}
+.cm-s-dos .CodeMirror-gutters {background: black; border-right: 0px; color:#green;}
+.cm-s-dos .CodeMirror-activeline-background {background: #black !important;}
+.cm-s-dos .CodeMirror-matchingbracket {outline:1px solid green; color:green !important;}
+.cm-s-dos.CodeMirror { font-family: "dos"; font-size: 16px;  color: green; background:black;}

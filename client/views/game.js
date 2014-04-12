@@ -277,8 +277,10 @@ submitAnswer = function() {
 };
 
 changeScore = function(score) {
+  console.log("scoreup");
     if(score>0)
     {
+      console.log("scoreup");
       $("#scoreUp").html("score");
       $("#scoreUp").toggle();
       Meteor.setTimeout($("#scoreUp").toggle(), 2000);

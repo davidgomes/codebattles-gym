@@ -1,5 +1,11 @@
 @font-face
 {
+font-family: dos;
+src: url(fonts/dos.ttf);
+}
+
+@font-face
+{
 font-family: fira;
 src: url(fonts/FiraSans-Regular.woff);
 font-weight:400;
@@ -351,6 +357,28 @@ text-transform: uppercase;
   color:rgba(236, 240, 241,1.0);
   margin: 0 auto;
 }
+
+#scoreUp{
+  width:100px;
+  height:100px;
+  background-color: red;
+  -webkit-animation: scoreUpAnimation 1s; /* Chrome, Safari, Opera */
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes scoreUpAnimation
+{
+from {opacity: 0; margin-bottom:0px;}
+to {opacity: 1; margin-bottom:20px}
+}
+
+/* Standard syntax */
+@keyframes scoreUpAnimation
+{
+from {opacity: 0; margin-bottom:0px;}
+to {opacity: 1; margin-bottom:20px}
+}
+
 
  #time{
   width:40px;

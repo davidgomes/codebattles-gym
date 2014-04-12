@@ -19,6 +19,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Pita Script") {
     clearPitaScript();
   }
+    else if (hazard.name == "DOS Script") {
+    clearDOSScript();
+  }
   else if (hazard.name == "Russian Roulette") {
     clearRussianScript();
   }
@@ -69,6 +72,9 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Pita Script") {
     pitaScript();
+  }
+  else if (hazard.name == "DOS Script") {
+    DOSScript();
   }
   else if (hazard.name == "Russian Roulette") {
     russianScript();
@@ -145,6 +151,35 @@ clearPitaScript = function() {
   $('body').removeClass("girl");
   editor.setOption('theme', 'mbo');
 };
+
+DOSScript = function() {
+  editor.setOption('theme', 'dos');
+  $('body').addClass("DOS");
+  $('#messages').addClass("DOS");
+  if (audio != null) {
+    audio.pause();
+  }
+
+  if (!mute) {
+    gameAudio.pause();
+    audio.play();
+  }
+};
+
+clearDOSScript = function() {
+  if (audio != null) {
+    audio.pause();
+  }
+
+  if (!mute) {
+    gameAudio.play();
+  }
+
+  $('body').removeClass("DOS");
+    $('#messages').removeClass("DOS");
+  editor.setOption('theme', 'mbo');
+};
+
 
 russianScript = function() {
   usingInterval = Meteor.setInterval(function() {
@@ -388,7 +423,7 @@ spicyScript = function() {
   $('#radioactive').click(function() {
     editor.focus();
   });
-  
+
   editor.focus();
   usingInterval = setInterval(function() {
     var currentOpacity = parseFloat($('#spicy').css('opacity'));
@@ -410,5 +445,5 @@ lsdScript = function() {
 clearLsdScript = function() {
   $('body').css('background', 'rgba(236, 240, 241,1.0)');
   $('body').css('background-position', 'left top');
-  $('#actual-editor').css('opacity', '1');  
+  $('#actual-editor').css('opacity', '1');
 };
