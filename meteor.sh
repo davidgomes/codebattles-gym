@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # IP or URL of the server you want to deploy to
-APP_HOST=176.111.106.70
+APP_HOST=176.111.107.16
 
 # Uncomment this if your host is an EC2 instance
 # EC2_PEM_FILE=path/to/your/file.pem

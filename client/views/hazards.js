@@ -19,7 +19,7 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Pita Script") {
     clearPitaScript();
   }
-    else if (hazard.name == "DOS Script") {
+  else if (hazard.name == "DOS Script") {
     clearDOSScript();
   }
   else if (hazard.name == "Russian Roulette") {
@@ -60,6 +60,12 @@ clearHazard = function(hazard) {
   }
   else if (hazard.name == "LSD") {
     clearLsdScript();
+  }
+  else if (hazard.name == "Spicy") {
+    clearSpicyScript();
+  }
+  else if (hazard.name == "War Trauma") {
+    clearWarScript();
   }
 };
 
@@ -112,6 +118,12 @@ runHazard = function(hazard) {
   else if (hazard.name == "LSD") {
     lsdScript();
   }
+  else if (hazard.name == "Spicy") {
+    spicyScript();
+  }
+  else if (hazard.name == "War Trauma") {
+    warScript();
+  }
 };
 
 noScript = function() {
@@ -144,7 +156,7 @@ clearPitaScript = function() {
   }
 
   $('body').removeClass("girl");
-    $('#messages').removeClass("pink");
+  $('#messages').removeClass("pink");
   editor.setOption('theme', 'mbo');
 };
 
@@ -172,7 +184,7 @@ clearDOSScript = function() {
   }
 
   $('body').removeClass("DOS");
-    $('#messages').removeClass("DOS");
+  $('#messages').removeClass("DOS");
   editor.setOption('theme', 'mbo');
 };
 
@@ -401,4 +413,72 @@ clearLsdScript = function() {
   $('body').css('background', 'rgba(236, 240, 241,1.0)');
   $('body').css('background-position', 'left top');
   $('#actual-editor').css('opacity', '1');
+};
+
+spicyScript = function() {
+  clippyHazard = true;
+
+  $('body').append('<div onselectstart="return false;" ondragstart="return false;" unselectable="on" id="spicy"></div>');
+
+  $('#spicy').css('background', 'red');
+  $('#spicy').css('width', '100%');
+  $('#spicy').css('height', '100%');
+  $('#spicy').css('position', 'fixed');
+  $('#spicy').css('top', '0px');
+  $('#spicy').css('left', '0px');
+  $('#spicy').css('z-index', '7');
+  $('#spicy').css('opacity', '0.05');
+  $('#spicy').css('-webkit-user-select', 'none');
+  $('#spicy').css('user-select', 'none');
+
+  $('#spicy').append('<div id="radioactive"></div>');
+  $('#radioactive').css('background', 'url("fx/spicy.png")');
+  $('#radioactive').css('margin', 'auto');
+  $('#radioactive').css('position', 'absolute');
+  $('#radioactive').css('width', '600px');
+  $('#radioactive').css('height', '525px');
+  $('#radioactive').css('top', '0px');
+  $('#radioactive').css('left', '0px');
+  $('#radioactive').css('right', '0px');
+  $('#radioactive').css('bottom', '0px');
+  $('#radioactive').css('-webkit-user-select', 'none');
+  $('#radioactive').css('user-select', 'none');
+
+  $('#radioactive').click(function() {
+    editor.focus();
+  });
+
+  editor.focus();
+  usingInterval = setInterval(function() {
+    var currentOpacity = parseFloat($('#spicy').css('opacity'));
+    $('#spicy').css('opacity', currentOpacity + 0.01);
+  }, 100);
+};
+
+clearSpicyScript = function() {
+  clearInterval(usingInterval);
+  clippyHazard = false;
+  $('#spicy').remove();
+};
+
+warScript = function() {
+  var $fdiv = $("<div>", {id: "flashbang"});
+  $("body").append($fdiv);
+  $("#flashbang").hide();
+  var flashbangAudio = new Audio('fx/flashbang.mp3');
+  var timeout = 3500;
+
+  usingInterval = Meteor.setInterval(function() {
+    flashbangAudio.play();
+    setTimeout(function() {
+      $("#flashbang").show().fadeOut(4000);;
+    }, 1700);
+    timeout = Math.floor(Math.random() * 4500 + 3500);
+  },timeout);
+};
+
+clearWarScript = function () {
+  if (usingInterval) {
+    Meteor.clearTimeout(usingInterval);
+  }
 };
