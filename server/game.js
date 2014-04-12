@@ -67,10 +67,14 @@ function startRound(id, roundL) {
   }
 
   Meteor.users.update(id, { $inc: { score: 1 } });
-  Meteor.users.update(id, { $inc: { time: ADD_TIME } });
+  
+  if (roundL !== 1) {
+    Meteor.users.update(id, { $set: { time: (user.endTime  - Date.now()) / 1000 + ADD_TIME } });
+    time = (user.endTime  - Date.now()) / 1000;
+  }
   Meteor.users.update(id, { $set: { problemId: problem.id } });
 
-  if (user.time + ADD_TIME > 300) {
+  if (time + ADD_TIME > 300) {
     Meteor.users.update(id, { $set: { time: 300 } });
     time = 300 - ADD_TIME;
   }
