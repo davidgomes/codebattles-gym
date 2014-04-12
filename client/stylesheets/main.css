@@ -350,7 +350,7 @@ h2.title{
   width:140px;
   height:60px;
   border-radius: 4px;
-  background:rgba(0, 0, 0, .5);
+  background:#2c2c2c;
   text-align: center;
   line-height: 60px;
   font-size: 24px;
@@ -372,9 +372,9 @@ h2.title{
   top:0px;
   bottom:0px;
   right:0px;
-  background-color: rgba(231, 76, 60,1.0);
-  -webkit-animation: scoreUpAnimation  0.5s; /* Chrome, Safari, Opera */
-  animation: scoreUpAnimation  0.5s; /* Chrome, Safari, Opera */
+  background-color: rgba(46, 204, 113,1.0);
+  -webkit-animation: scoreUpAnimation  1s; /* Chrome, Safari, Opera */
+  animation: scoreUpAnimation  1s; /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
@@ -406,29 +406,29 @@ h2.title{
   bottom:0px;
   right:0px;
   background-color: rgba(231, 76, 60,1.0);
-  -webkit-animation: scoreDownAnimation  0.5s; /* Chrome, Safari, Opera */
-  animation: scoreDownAnimation  0.5s; /* Chrome, Safari, Opera */
+  -webkit-animation: scoreDownAnimation  1s; /* Chrome, Safari, Opera */
+  animation: scoreDownAnimation  1s; /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes scoreDownAnimation
 {
   from {opacity: 0; margin-bottom:0px;}
-  to {opacity: 1; margin-top:40px}
+  to {opacity: 1; margin-bottom:-40px}
 }
 
 /* Standard syntax */
 @keyframes scoreDownAnimation
 {
   from {opacity: 0; margin-bottom:0px;}
-  to {opacity: 1; margin-top:40px}
+  to {opacity: 1; margin-bottom:-40px}
 }
 
 #time{
   width:40px;
   height:40px;
   border-radius: 20px;
-  background:rgba(231, 76, 60,1.0);
+  background:#2c2c2c;
   text-align: center;
   line-height: 40px;
   font-size: 14px;
