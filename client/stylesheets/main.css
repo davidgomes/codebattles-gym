@@ -424,7 +424,7 @@ width:1100px;
 margin-right: 10px;
 }
 
-button{
+input[type="button"]{
   z-index: 10;
 }
 
