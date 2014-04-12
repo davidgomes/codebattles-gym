@@ -337,7 +337,7 @@ clippyScript = function() {
   $('#actual-editor').append('<div id="clippy-holder"></div>');
   $('#clippy-holder').append('<div id="clippy"></div>');
   $('#clippy-holder').append('<div id="baloon"></div>');
-  hotKey = false;
+  submitEnabled = false;
 
   editor.setOption('readOnly', true);
 
@@ -359,7 +359,7 @@ clippyScript = function() {
   $('#clippy').css('z-index', '6');
 
   $('#clippy-holder').click(function() {
-    hotKey = false;
+    submitEnabled = true;
     $(this).remove();
     editor.setOption('readOnly', false);
     editor.focus();
@@ -369,11 +369,12 @@ clippyScript = function() {
 };
 
 clearClippyScript = function() {
+  submitEnabled = true;
   $("#clippy-holder").remove();
-  hotKey = false;
   editor.setOption('readOnly', false);
   editor.focus();
 };
+
 
 spicyScript = function() {
   clippyHazard = true;
