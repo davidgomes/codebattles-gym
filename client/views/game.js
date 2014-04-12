@@ -19,7 +19,7 @@ var endTime = 0;
 
 var altKey = 18;
 var submitKey = 83;
-var hotkey = false;
+hotKey = false;
 var enterKey = 13;
 var backspaceKey = 8;
 
@@ -69,7 +69,6 @@ var setRound = function(w) {
   }
 };
 
-
 function reloadEditor() {
   editor = new CodeMirror(document.getElementById('actual-editor'), {
     lineNumbers: true,
@@ -112,15 +111,15 @@ Template.game.events({
       }
     }
   },
-  
+
   'keydown': function(event) {
     if (event.keyCode === altKey) {
-      hotkey = true;
+      hotKey = true;
     }
   },
 
   'keydown #actual-editor': function(event) {
-    if (hotkey) {
+    if (hotKey) {
       if (event.keyCode === submitKey) {
         event.preventDefault();
         submitAnswer();
@@ -146,7 +145,7 @@ Template.game.events({
 
   'keyup': function(event) {
     if (event.keyCode === altKey) {
-      hotkey = false;
+      hotKey = false;
     }
   }
 });
@@ -256,7 +255,7 @@ submitAnswer = function() {
         wrongAnswerAudio.play();
       }
     } else {
-      
+
       if (!mute) {
         rightAnswerAudio.pause();
         rightAnswerAudio.currentTime = 0;

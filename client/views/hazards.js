@@ -128,7 +128,7 @@ clearPitaScript = function() {
   if (!mute) {
     gameAudio.play();
   }
-  
+
   $('body').removeClass("girl");
   editor.setOption('theme', 'mbo');
 };
@@ -300,7 +300,6 @@ clearCubeScript = function() {
   clearInterval(usingInterval);
 };
 
-
 markeeScript = function() {
   var statementDiv = $('#statement-div');
   statementDiv.html("<marquee class=\"bomb\" behavior=\"left\" loop=\"infinite\">" + cstatement.toUpperCase() + "</marquee>");
@@ -311,10 +310,19 @@ clearMarkeeScript= function() {
   statementDiv.html("<p><em id=\"problem-statement\"></em></p>");
 };
 
+var clippyMessages = ["Estou aqui para ajudar. Em que posso ser útil?",
+                      "Olá companheiro! Já experimentaste o Ink?",
+                      "Sabias que podes fazer pagamentos com a MEO Wallet?",
+                      "Vem aí o Inverno!",
+                      "Troca euros virtuais por chocolates na vending machine do lobby.",
+                      "Sabias que os pokemon da água são especialmente fortes contra os do fogo?"];
+
+
 clippyScript = function() {
   $('#actual-editor').append('<div id="clippy-holder"></div>');
   $('#clippy-holder').append('<div id="clippy"></div>');
   $('#clippy-holder').append('<div id="baloon"></div>');
+  hotKey = false;
 
   editor.setOption('readOnly', true);
 
@@ -325,7 +333,7 @@ clippyScript = function() {
   $('#baloon').css('right', '410px');
   $('#baloon').css('bottom', '115px');
 
-  $('#baloon').html('<p id="baloon-text">Sabias que os Pokèmons de água são bons contra os Pokèmons de fogo?</p>');
+  $('#baloon').html('<p id="baloon-text">' + clippyMessages[Math.floor(Math.random() * clippyMessages.length)] + '</p>');
 
   $('#clippy').css('background', 'url("fx/clippy.png")');
   $('#clippy').css('position', 'absolute');
@@ -336,14 +344,18 @@ clippyScript = function() {
   $('#clippy').css('z-index', '6');
 
   $('#clippy-holder').click(function() {
+    hotKey = false;
     $(this).remove();
     editor.setOption('readOnly', false);
     editor.focus();
+
+    setTimeout(clippyScript, getRandomInt(5000, 10000));
   });
 };
 
 clearClippyScript = function() {
   $("#clippy-holder").remove();
+  hotKey = false;
   editor.setOption('readOnly', false);
   editor.focus();
 };
