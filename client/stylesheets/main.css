@@ -359,6 +359,7 @@ text-transform: uppercase;
 }
 
 #scoreUp{
+  visibility: none;
   width:100px;
   height:100px;
   background-color: red;
