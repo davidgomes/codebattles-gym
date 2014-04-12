@@ -3,7 +3,6 @@ cstatement = null;
 
 keyboardHazard1 = false;
 keyboardHazard2 = false;
-keyboardHazard3 = false;
 clippyHazard = false;
 
 mute = false;
