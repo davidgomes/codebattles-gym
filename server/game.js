@@ -70,6 +70,11 @@ function startRound(id, roundL) {
   Meteor.users.update(id, { $inc: { time: ADD_TIME } });
   Meteor.users.update(id, { $set: { problemId: problem.id } });
 
+  if (user.time + ADD_TIME > 300) {
+    Meteor.users.update(id, { $set: { time: 300 } });
+    time = 300 - ADD_TIME;
+  }
+
   GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement, hazard, user.score + 1);
 
   Meteor.clearTimeout(sessionHash[user._id]);
