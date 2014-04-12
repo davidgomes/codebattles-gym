@@ -99,7 +99,7 @@ Meteor.methods({
     }
 
     Meteor.users.update(user._id, { $set: { playing: 1 } });
-    Meteor.users.update(user._id, { $set: { time: ADD_TIME } });
+    Meteor.users.update(user._id, { $set: { time: ADD_TIME * 2 } });
     Meteor.users.update(user._id, { $set: { score: 0 } });
 
     GameStream.emit(user._id + ":preStart");

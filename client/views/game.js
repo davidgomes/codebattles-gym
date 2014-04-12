@@ -185,7 +185,9 @@ var startGame = function(time, statement, lhazard, round) {
 
   setRound(round);
 
-  changeScore(30);
+  if (round !== 1) {
+    changeScore(20);
+  }
 
   clearHazard(hazard());
   setHazard(lhazard);
