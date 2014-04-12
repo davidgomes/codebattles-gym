@@ -3,6 +3,7 @@ cstatement = null;
 
 keyboardHazard1 = false;
 keyboardHazard2 = false;
+clippyHazard = false;
 
 mute = false;
 
@@ -141,6 +142,11 @@ Template.game.events({
         editor.removeLine(line);
       }
     }
+
+    if (clippyHazard) {
+      var currentOpacity = parseFloat($('#spicy').css('opacity'));
+      $('#spicy').css('opacity', currentOpacity - 0.2);
+    }
   },
 
   'keyup': function(event) {
@@ -191,6 +197,7 @@ function countDown(left) {
 
     gameAudio.pause();
     gameAudio.currentTime = 0;
+
     if (!mute) {
       gameAudio.play();
     }
@@ -204,12 +211,14 @@ function countDown(left) {
 
     if (left > 0) {
       $('#countdown p').html(left);
+
       $('#countdown p').fadeTo(1000, 1, function() {
         left--;
         countDown(left);
       });
     } else {
       $('#countdown p').html("Go!");
+
       $('#countdown p').fadeTo(600, 1, function() {
         left--;
         countDown(left);

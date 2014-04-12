@@ -54,6 +54,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Clippy") {
     clearClippyScript();
   }
+  else if (hazard.name == "Spicy") {
+    clearSpicyScript();
+  }
 };
 
 runHazard = function(hazard) {
@@ -98,6 +101,9 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Clippy") {
     clippyScript();
+  }
+  else if (hazard.name == "Spicy") {
+    spicyScript();
   }
 };
 
@@ -358,4 +364,44 @@ clearClippyScript = function() {
   hotKey = false;
   editor.setOption('readOnly', false);
   editor.focus();
+};
+
+spicyScript = function() {
+  clippyHazard = true;
+
+  $('body').append('<div onselectstart="return false;" ondragstart="return false;" unselectable="on" id="spicy"></div>');
+
+  $('#spicy').css('background', 'red');
+  $('#spicy').css('width', '100%');
+  $('#spicy').css('height', '100%');
+  $('#spicy').css('position', 'fixed');
+  $('#spicy').css('top', '0px');
+  $('#spicy').css('left', '0px');
+  $('#spicy').css('z-index', '7');
+  $('#spicy').css('opacity', '0.05');
+  $('#spicy').css('-webkit-user-select', 'none');
+  $('#spicy').css('user-select', 'none');
+
+  $('#spicy').append('<div id="radioactive"></div>');
+  $('#radioactive').css('background', 'url("fx/spicy.png")');
+  $('#radioactive').css('margin', 'auto');
+  $('#radioactive').css('position', 'absolute');
+  $('#radioactive').css('width', '600px');
+  $('#radioactive').css('height', '525px');
+  $('#radioactive').css('top', '0px');
+  $('#radioactive').css('left', '0px');
+  $('#radioactive').css('right', '0px');
+  $('#radioactive').css('bottom', '0px');
+
+  editor.focus();
+  usingInterval = setInterval(function() {
+    var currentOpacity = parseFloat($('#spicy').css('opacity'));
+    $('#spicy').css('opacity', currentOpacity + 0.05);
+  }, 1000);
+};
+
+clearSpicyScript = function() {
+  clearInterval(usingInterval);
+  clippyHazard = false;
+  $('#spicy').remove();
 };

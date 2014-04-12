@@ -81,7 +81,7 @@ hazards = [
 
   { //13
     name: 'Markee',
-    description: 'Dat statement.',
+    description: 'The problem statement seems to be out of control!',
     difficulty: 2
   },
 
