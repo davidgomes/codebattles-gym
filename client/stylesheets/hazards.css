@@ -9,6 +9,17 @@
   background: url("http://i262.photobucket.com/albums/ii108/lisahahn7/stars_glitter-1.gif?t=1208950319") repeat;
 }
 
+.DOS {
+  background: black !important;
+  color:green !important;
+  font-family: "dos" !important;
+  font-size: 18px !important;
+  text-transform:  none !important;
+  font-style: normal !important;
+  font-weight:  normal !important;
+  color:green !important;
+}
+
 #flashbang {
   position: absolute;
   z-index: 6;
