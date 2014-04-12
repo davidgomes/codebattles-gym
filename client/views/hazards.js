@@ -123,6 +123,7 @@ clearNoScript = function() {
 pitaScript = function() {
   editor.setOption('theme', 'girl');
   $('body').addClass("girl");
+  $('#messages').addClass("pink");
   if (audio != null) {
     audio.pause();
   }
@@ -143,6 +144,7 @@ clearPitaScript = function() {
   }
 
   $('body').removeClass("girl");
+    $('#messages').removeClass("pink");
   editor.setOption('theme', 'mbo');
 };
 

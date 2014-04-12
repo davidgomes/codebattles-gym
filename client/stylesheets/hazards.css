@@ -8,6 +8,11 @@
 .girl {
   background: url("http://i262.photobucket.com/albums/ii108/lisahahn7/stars_glitter-1.gif?t=1208950319") repeat;
 }
+.pink {
+  background: #ff66cc !important;
+  color: rgba(142, 68, 173,1.0) !important;
+  font-family: "Comic Sans MS", times, serif !important;
+}
 
 .DOS {
   background: black !important;

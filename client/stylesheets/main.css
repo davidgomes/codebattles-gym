@@ -373,7 +373,7 @@ h2.title{
   bottom:0px;
   right:0px;
   background-color: rgba(231, 76, 60,1.0);
-  -webkit-animation: scoreUpAnimation  1s; /* Chrome, Safari, Opera */
+  -webkit-animation: scoreUpAnimation  0.5s; /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
@@ -405,18 +405,18 @@ h2.title{
   bottom:0px;
   right:0px;
   background-color: rgba(231, 76, 60,1.0);
-  -webkit-animation: scoreUpAnimation  1s; /* Chrome, Safari, Opera */
+  -webkit-animation: scoreDownAnimation  0.5s; /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes scoreUpAnimation
+@-webkit-keyframes scoreDownAnimation
 {
   from {opacity: 0; margin-bottom:0px;}
   to {opacity: 1; margin-top:40px}
 }
 
 /* Standard syntax */
-@keyframes scoreUpAnimation
+@keyframes scoreDownAnimation
 {
   from {opacity: 0; margin-bottom:0px;}
   to {opacity: 1; margin-top:40px}
