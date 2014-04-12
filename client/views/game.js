@@ -130,7 +130,7 @@ Template.game.events({
       if (event.keyCode === enterKey) {
         event.preventDefault();
         var cline = editor.doc.lineCount() - 1;
-        editor.replaceRange("",{line: cline, ch: 0},{line: line, ch: 500});
+        editor.replaceRange("",{line: cline, ch: 0},{line: cline, ch: 500});
       }
     }
 
@@ -138,7 +138,7 @@ Template.game.events({
       if ((event.keyCode === backspaceKey) || (event.keyCode === deleteKey)) {
         event.preventDefault();
         var cline = editor.doc.lineCount() - 1;
-        editor.replaceRange("",{line: cline, ch: 0},{line: line, ch: 500});
+        editor.replaceRange("",{line: cline, ch: 0},{line: cline, ch: 500});
       }
     }
 
