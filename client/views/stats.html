@@ -3,12 +3,13 @@
     <h3>Game Over!</h3>
 
     {{#if oneRound}}
-    <p>You only survived 1 round!</p>
+      <p>You only survived 1 round!</p>
     {{else}}
-    <p>You held on {{numRounds}} rounds!</p>
+      <p>You held on {{numRounds}} rounds!</p>
     {{/if}}
 
-    <p>Nice try, mate!</p>
+    <p><img src="fx/cube-level{{effort}}.png" width="80px" height="80px" /> {{effortText}}</p>
+
     <div>
       <p>
         <a href="https://www.facebook.com/dialog/feed?app_id=373250216146661&redirect_uri=http://gym.codebattles.io">Share</a>
