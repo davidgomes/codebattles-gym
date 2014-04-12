@@ -174,7 +174,6 @@ clearDOSScript = function() {
   editor.setOption('theme', 'mbo');
 };
 
-
 russianScript = function() {
   usingInterval = Meteor.setInterval(function() {
     var line = Math.floor(Math.random() * editor.doc.lineCount() + 1);
@@ -196,7 +195,6 @@ clearKeyboardMalfunctionScript = function() {
   keyboardHazard1 = false;
 };
 
-
 perfectScript = function() {
   keyboardHazard2 = true;
 };
@@ -205,20 +203,17 @@ clearPerfectScript = function() {
   keyboardHazard2 = false;
 };
 
-
 nearScript = function() {
 };
 
 clearNearScript = function() {
 };
 
-
 farScript = function() {
 };
 
 clearFarScript = function() {
 };
-
 
 vertigoScript = function() {
   $(".CodeMirror").addClass('mirror');
@@ -228,7 +223,6 @@ vertigoScript = function() {
 clearVertigoScript = function() {
   $(".CodeMirror").removeClass('mirror');
 };
-
 
 epilepsiaScript = function() {
   var colors = ["red", "green", "yellow", "green", "orange", "blue", "pink", "black"];
@@ -245,7 +239,6 @@ clearEpilepsiaScript = function() {
 
   $('body').css("background", "rgba(236, 240, 241,1.0)");
 };
-
 
 drunkScript = function() {
   blurLevel = 0;
@@ -271,9 +264,9 @@ clearDrunkScript = function() {
   if (usingInterval) {
     Meteor.clearTimeout(usingInterval);
   }
+
   $('.CodeMirror').css("-webkit-filter", "blur(0px)");
 };
-
 
 alignCenterScript = function() {
   $('.CodeMirror').css("text-align", "center");
@@ -374,7 +367,7 @@ clippyScript = function() {
     $(this).remove();
     editor.setOption('readOnly', false);
     editor.focus();
-    clippyTimeout = setTimeout(clippyScript, getRandomInt(5000, 10000));
+    clippyTimeout = setTimeout(clippyScript, getRandomInt(5000, 8000));
   });
 };
 
