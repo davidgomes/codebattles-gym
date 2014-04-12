@@ -19,7 +19,7 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Pita Script") {
     clearPitaScript();
   }
-    else if (hazard.name == "DOS Script") {
+  else if (hazard.name == "DOS Script") {
     clearDOSScript();
   }
   else if (hazard.name == "Russian Roulette") {
@@ -63,6 +63,9 @@ clearHazard = function(hazard) {
   }
   else if (hazard.name == "Spicy") {
     clearSpicyScript();
+  }
+  else if (hazard.name == "War Trauma") {
+    clearWarScript();
   }
 };
 
@@ -118,6 +121,9 @@ runHazard = function(hazard) {
   else if (hazard.name == "Spicy") {
     spicyScript();
   }
+  else if (hazard.name == "War Trauma") {
+    warScript();
+  }
 };
 
 noScript = function() {
@@ -150,7 +156,7 @@ clearPitaScript = function() {
   }
 
   $('body').removeClass("girl");
-    $('#messages').removeClass("pink");
+  $('#messages').removeClass("pink");
   editor.setOption('theme', 'mbo');
 };
 
@@ -441,7 +447,7 @@ spicyScript = function() {
   $('#radioactive').click(function() {
     editor.focus();
   });
-  
+
   editor.focus();
   usingInterval = setInterval(function() {
     var currentOpacity = parseFloat($('#spicy').css('opacity'));
@@ -453,4 +459,26 @@ clearSpicyScript = function() {
   clearInterval(usingInterval);
   clippyHazard = false;
   $('#spicy').remove();
+};
+
+warScript = function() {
+  var $fdiv = $("<div>", {id: "flashbang"});
+  $("body").append($fdiv);
+  $("#flashbang").hide();
+  var flashbangAudio = new Audio('fx/flashbang.mp3');
+  var timeout = 3500;
+
+  usingInterval = Meteor.setInterval(function() {
+    flashbangAudio.play();
+    setTimeout(function() {
+      $("#flashbang").show().fadeOut(4000);;
+    }, 1700);
+    timeout = Math.floor(Math.random() * 4500 + 3500);
+  },timeout);
+};
+
+clearWarScript = function () {
+  if (usingInterval) {
+    Meteor.clearTimeout(usingInterval);
+  }
 };
