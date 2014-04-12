@@ -57,6 +57,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Spicy") {
     clearSpicyScript();
   }
+  else if (hazard.name == "Lsd") {
+    clearLsdScript();
+  }
 };
 
 runHazard = function(hazard) {
@@ -104,6 +107,9 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Spicy") {
     spicyScript();
+  }
+  else if (hazard.name == "Lsd") {
+    lsdScript();
   }
 };
 
@@ -413,4 +419,16 @@ clearSpicyScript = function() {
   clearInterval(usingInterval);
   clippyHazard = false;
   $('#spicy').remove();
+};
+
+lsdScript = function() {
+  $('body').css('background', 'url("fx/lsd.gif")');
+  $('body').css('background-position', 'center');
+  $('#actual-editor').css('opacity', '0.85');
+};
+
+clearLsdScript = function() {
+  $('body').css('background', 'rgba(236, 240, 241,1.0)');
+  $('body').css('background-position', 'left top');
+  $('#actual-editor').css('opacity', '1');  
 };

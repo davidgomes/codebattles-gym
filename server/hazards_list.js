@@ -89,5 +89,17 @@ hazards = [
     name: 'Clippy',
     description: 'Prepare for a few visits by MS Clippy.',
     difficulty: 2
+  },
+
+  { // 15
+    name: 'Spicy',
+    description: 'Don\'t let the nuclear tacos get to you!',
+    difficulty: 3
+  },
+
+  { // 16
+    name: 'Lsd',
+    description: 'Mushrooms? Steroids? No, you\'re on LSD!',
+    difficulty: 2
   }
 ];
