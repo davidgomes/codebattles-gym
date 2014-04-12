@@ -123,6 +123,21 @@ Meteor.methods({
     Meteor.users.update(user._id, { $set: { playing: 0 } });
   },
 
+  gameOver: function() {
+    var user = Meteor.user();
+
+    if (!user) {
+      return;
+    }
+
+    if (user.playing !== 1) {
+      return;
+    }
+
+    Meteor.clearTimeout(sessionHash[user._id]);
+    gameOver(user._id);
+  },
+
   submit: function(code, language) {
     var user = Meteor.user();
 

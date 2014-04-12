@@ -162,6 +162,9 @@ function gameTick() {
   setTime(timeLeft);
   Meteor.clearTimeout(gameLoop);
   gameLoop = Meteor.setTimeout(gameTick, 1000);
+  if (timeLeft === 0) {
+    Meteor.call("gameOver");
+  }
 };
 
 var startGame = function(time, statement, lhazard, round) {
@@ -263,6 +266,8 @@ Deps.autorun(function() {
 
   GameStream.on(Meteor.userId() + ":preStart", function() {
     setTimeout(countDown, 10, 3);
+    $("#scoreUp").hide();
+    $("#scoreDown").hide();
 
     if (!mute) {
       countdownAudio.pause();
