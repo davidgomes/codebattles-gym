@@ -19,7 +19,7 @@ hazards = [
     difficulty: 2
   },
 
-  { // 3
+  { // 3 XXX Removed
     name: 'War Trauma',
     description: 'Random flashbang grenades might get in the way.',
     difficulty: 3
@@ -91,7 +91,7 @@ hazards = [
     difficulty: 2
   },
 
-  { // 15
+  { // 15 XXX Removed
     name: 'Spicy',
     description: 'Don\'t let the nuclear tacos get to you!',
     difficulty: 3

@@ -3,7 +3,7 @@
     "statement": "0 1 1 2 3 5 8 13... Print the first 20 numbers of this sequence, one per line.",
     "difficulty": 4,
 
-    "hazards": [3, 4, 5, 6, 7, 9, 13, 14, 15, 16],
+    "hazards": [4, 5, 6, 7, 9, 13, 14, 16],
 
     "io": [{
       "input": "",

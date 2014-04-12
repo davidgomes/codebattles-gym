@@ -3,7 +3,7 @@
     "statement": "I'll give you a string, print only its vowels in order of appearance and one per line.",
     "difficulty": 3,
 
-    "hazards": [1, 2, 3, 5, 6, 7, 12, 14, 15, 16],
+    "hazards": [1, 2, 5, 6, 7, 12, 14, 16],
 
     "io": [{
       "input": "paddeirerrgfghrhgrjgrhro\n",
@@ -15,7 +15,7 @@
     "statement": "Is it prime? I'll give you a list of space separated integers (all greater than 1), you tell me how many are.",
     "difficulty": 3,
 
-    "hazards": [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16],
+    "hazards": [1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16],
 
     "io": [{
       "input": "3 4 9 5 3124314 353 173 177 12\n",
@@ -27,7 +27,7 @@
     "statement": "Hello there. Let's chat. I'll give you a list of space separated numbers and for each of them tell me how many divisors it has (print one per line). For example, 4 has 3 divisors: 1, 2 and 4.",
     "difficulty": 3,
 
-    "hazards": [1, 2, 3, 5, 6, 7, 9, 10, 12, 14, 15, 16],
+    "hazards": [1, 2, 5, 6, 7, 9, 10, 12, 14, 16],
 
     "io": [{
       "input": "213 231 1212 123 22 3444 324441 2133 4623 6788\n",
@@ -39,7 +39,7 @@
     "statement": "I ate some nuclear chili that didn't go in very well. Help me getting over the awful pain by telling how many positive palindromic numbers (numbers that read the same backwards like 2002) are there bellow 3000",
     "difficulty": 3,
 
-    "hazards": [1, 2, 3, 5, 6, 7, 9, 10, 12, 14, 15, 16],
+    "hazards": [1, 2, 5, 6, 7, 9, 10, 12, 14, 16],
 
     "io": [{
       "input": "",
@@ -51,7 +51,7 @@
     "statement": "Things are heating up! I'll give you a list of space separated integers, give me (one per line) the smallest prime number larger than each given integer (for 3 the answer is 5).",
     "difficulty": 3,
 
-    "hazards": [1, 2, 3, 5, 6, 7, 12, 14, 15, 16],
+    "hazards": [1, 2, 5, 6, 7, 12, 14, 16],
 
     "io": [{
       "input": "12 2 3 55 120 156 7\n",
