@@ -302,7 +302,7 @@ markeeScript = function() {
 
 clearMarkeeScript= function() {
   var statementDiv = $('#statement-div');
-  statementDiv.html("<p><em id=\"problem-statement\"></em></p>");
+  statementDiv.html("<p><em id=\"problem-statement\">" + cstatement + "</em></p>");
 };
 
 var clippyMessages = ["Estou aqui para ajudar. Em que posso ser útil?",
