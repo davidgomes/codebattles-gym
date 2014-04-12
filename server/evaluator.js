@@ -26,8 +26,8 @@ var Evaluator = (function() {
       var input;
       var output;
 
-      code = code.replace('\'', '\"');
       code = this.escape(code);
+      code = code.replace('\'', '\"');
 
       input = getProblemById(probNum).io[0].input;
       output = getProblemById(probNum).io[0].output;
@@ -49,7 +49,8 @@ var Evaluator = (function() {
         command += ' < ' + userId + '.txt';
       }
 
-      child = exec(command, options, function(error, stdout, stderr) {
+      var fcommand = "sudo isolate -t 1 -e --run -- " + command;
+      child = exec(fcommand, options, function(error, stdout, stderr) {
         var response;
 
         if (error) {
