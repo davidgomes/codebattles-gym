@@ -359,7 +359,7 @@ h2.title{
 }
 
 #scoreUp{
-  visibility: none;
+  display: none;
   width:40px;
   height:40px;
   border-radius: 20px;
@@ -374,6 +374,7 @@ h2.title{
   right:0px;
   background-color: rgba(231, 76, 60,1.0);
   -webkit-animation: scoreUpAnimation  0.5s; /* Chrome, Safari, Opera */
+  animation: scoreUpAnimation  0.5s; /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
@@ -391,7 +392,7 @@ h2.title{
 }
 
 #scoreDown{
-  visibility: none;
+  display: none;
   width:40px;
   height:40px;
   border-radius: 20px;
@@ -406,6 +407,7 @@ h2.title{
   right:0px;
   background-color: rgba(231, 76, 60,1.0);
   -webkit-animation: scoreDownAnimation  0.5s; /* Chrome, Safari, Opera */
+  animation: scoreDownAnimation  0.5s; /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
@@ -433,8 +435,7 @@ h2.title{
   color:rgba(236, 240, 241,1.0);
   position: absolute;
   margin: auto;
-  top:0px;
-  bottom:0px;
+  top:-15px;
 }
 
 #timeHolder{
