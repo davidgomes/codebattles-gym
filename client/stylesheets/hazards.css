@@ -21,3 +21,13 @@
   color: red;
   font-weight: bold;
 }
+
+#baloon-text {
+  text-align: left;
+  width: 90%;
+  font-family: sans serif;
+  font-size: 18px;
+  color: #111;
+  margin: 0 auto;
+  margin-top: 9px;
+}

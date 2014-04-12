@@ -51,6 +51,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Cube") {
     clearCubeScript();
   }
+  else if (hazard.name == "Clippy") {
+    clearClippyScript();
+  }
 };
 
 runHazard = function(hazard) {
@@ -93,6 +96,9 @@ runHazard = function(hazard) {
   else if (hazard.name == "Cube") {
     cubeScript();
   }
+  else if (hazard.name == "Clippy") {
+    clippyScript();
+  }
 };
 
 noScript = function() {
@@ -115,7 +121,7 @@ clearPitaScript = function() {
   if (audio != null) {
     audio.pause();
   }
-  gameAudio.play();  
+  gameAudio.play();
   $('body').removeClass("girl");
   editor.setOption('theme', 'mbo');
 };
@@ -134,24 +140,24 @@ clearRussianScript = function() {
 };
 
 warScript = function() {
-/*  var $fdiv = $("<div>", {id: "flashbang"});
-  $("body").append($fdiv);
-  $("#flashbang").hide();
-  var flashbangAudio = new Audio('fx/flashbang.mp3');
-  var timeout = 3500;
-  usingInterval = Meteor.setInterval(function() {
-    flashbangAudio.play();
-    setTimeout(function() {
-      $("#flashbang").show().fadeOut(4000);;
-    }, 1700);
-    timeout = Math.floor(Math.random() * 4500 + 3500);
-  },timeout);*/
+  /*  var $fdiv = $("<div>", {id: "flashbang"});
+   $("body").append($fdiv);
+   $("#flashbang").hide();
+   var flashbangAudio = new Audio('fx/flashbang.mp3');
+   var timeout = 3500;
+   usingInterval = Meteor.setInterval(function() {
+   flashbangAudio.play();
+   setTimeout(function() {
+   $("#flashbang").show().fadeOut(4000);;
+   }, 1700);
+   timeout = Math.floor(Math.random() * 4500 + 3500);
+   },timeout);*/
 };
 
 clearWarScript = function () {
   /*if (usingInterval) {
-    Meteor.clearTimeout(usingInterval);
-  }*/
+   Meteor.clearTimeout(usingInterval);
+   }*/
 };
 
 keyboardMalfunctionScript = function() {
@@ -296,4 +302,41 @@ markeeScript = function() {
 clearMarkeeScript= function() {
   var statementDiv = $('#statement-div');
   statementDiv.html("<p><em id=\"problem-statement\"></em></p>");
+};
+
+clippyScript = function() {
+  $('#actual-editor').append('<div id="clippy-holder"></div>');
+  $('#clippy-holder').append('<div id="clippy"></div>');
+  $('#clippy-holder').append('<div id="baloon"></div>');
+
+  editor.setOption('readOnly', true);
+
+  $('#baloon').css('background', 'url("fx/baloon.png")');
+  $('#baloon').css('position', 'absolute');
+  $('#baloon').css('width', '371px');
+  $('#baloon').css('height', '138px');
+  $('#baloon').css('right', '410px');
+  $('#baloon').css('bottom', '115px');
+
+  $('#baloon').html('<p id="baloon-text">Sabias que os Pokèmons de água são bons contra os Pokèmons de fogo?</p>');
+
+  $('#clippy').css('background', 'url("fx/clippy.png")');
+  $('#clippy').css('position', 'absolute');
+  $('#clippy').css('width', '141px');
+  $('#clippy').css('height', '130px');
+  $('#clippy').css('right', '410px');
+  $('#clippy').css('bottom', '10px');
+  $('#clippy').css('z-index', '6');
+
+  $('#clippy-holder').click(function() {
+    $(this).remove();
+    editor.setOption('readOnly', false);
+    editor.focus();
+  });
+};
+
+clearClippyScript = function() {
+  $("#clippy-holder").remove();
+  editor.setOption('readOnly', false);
+  editor.focus();
 };

@@ -83,5 +83,11 @@ hazards = [
     name: 'Markee',
     description: 'Dat statement.',
     difficulty: 2
+  },
+
+  { // 14
+    name: 'Clippy',
+    description: 'Prepare for a few visits by MS Clippy.',
+    difficulty: 2
   }
 ];

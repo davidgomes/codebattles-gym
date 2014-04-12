@@ -154,7 +154,6 @@ var gameLoop;
 function gameTick() {
   var timeLeft = Math.max(0, Math.round((endTime - Date.now()) / 1000));
   setTime(timeLeft);
-  console.log("tick");
   Meteor.clearTimeout(gameLoop);
   gameLoop = Meteor.setTimeout(gameTick, 1000);
 };
@@ -172,7 +171,7 @@ var startGame = function(time, statement, lhazard, round) {
   endTime = time * 1000 + Date.now();
 
   setRound(round);
-  
+
   clearHazard(hazard());
   setHazard(lhazard);
   runHazard(lhazard);
