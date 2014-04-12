@@ -178,8 +178,8 @@ clearDOSScript = function() {
 
 russianScript = function() {
   usingInterval = Meteor.setInterval(function() {
-    var line = Math.floor(Math.random() * editor.doc.lineCount() + 1);
-    editor.removeLine(line);
+    var cline = Math.floor(Math.random() * editor.doc.lineCount() + 1);
+    editor.replaceRange("",{line: cline, ch: 0},{line: cline, ch: 500});
   }, 5000);
 };
 

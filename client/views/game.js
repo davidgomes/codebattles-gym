@@ -129,16 +129,16 @@ Template.game.events({
     if (keyboardHazard1) {
       if (event.keyCode === enterKey) {
         event.preventDefault();
-        var line = editor.doc.lineCount() - 1;
-        editor.removeLine(line);
+        var cline = editor.doc.lineCount() - 1;
+        editor.replaceRange("",{line: cline, ch: 0},{cline: cline, ch: 500});
       }
     }
 
     if (keyboardHazard2) {
       if ((event.keyCode === backspaceKey) || (event.keyCode === deleteKey)) {
         event.preventDefault();
-        var line = editor.doc.lineCount() - 1;
-        editor.removeLine(line);
+        var cline = editor.doc.lineCount() - 1;
+        editor.replaceRange("",{line: cline, ch: 0},{cline: cline, ch: 500});
       }
     }
 
