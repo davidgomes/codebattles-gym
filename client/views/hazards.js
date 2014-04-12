@@ -48,6 +48,9 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Big big text") {
     clearBigTextScript();
   }
+  else if (hazard.name == "Markee") {
+    clearMarkeeScript();
+  }
   else if (hazard.name == "Cube") {
     clearCubeScript();
   }
@@ -98,6 +101,9 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Big big text") {
     bigTextScript();
+  }
+  else if (hazard.name == "Markee") {
+    markeeScript();
   }
   else if (hazard.name == "Cube") {
     cubeScript();
@@ -377,8 +383,6 @@ clearClippyScript = function() {
 
 
 spicyScript = function() {
-  clippyHazard = true;
-
   $('body').append('<div onselectstart="return false;" ondragstart="return false;" unselectable="on" id="spicy"></div>');
 
   $('#spicy').css('background', 'red');
@@ -418,7 +422,6 @@ spicyScript = function() {
 
 clearSpicyScript = function() {
   clearInterval(usingInterval);
-  clippyHazard = false;
   $('#spicy').remove();
 };
 
