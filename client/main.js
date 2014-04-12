@@ -4,6 +4,11 @@ Template.main.loggedIn = function() {
 
 var slogans = ["If play() return awesome;", "knowledge**fun;", "mind.insert(xp);", "brain++;", "skill<<1;"];
 
+function getSlogan() {
+  var index = Math.floor(Math.random() * slogans.length);
+  return slogans[index];
+}
+
 Template.main.helpers({
   inGame: function() {
     var user = Meteor.user();
@@ -11,8 +16,7 @@ Template.main.helpers({
   },
 
   slogan: function() {
-    var index = Math.floor(Math.random() * slogans.length);
-    return slogans[index];
+    return getSlogan();
   }
 });
 
@@ -23,25 +27,37 @@ Template.main.events({
     var sign_type = $("#sign-type").val();
     if (sign_type == "sign-in") {
       signIn();
-    }
-    else {
+    } else {
       signUp();
     }
   },
 
   'click #register-changer': function(event) {
-    event.preventDefault();    
+    event.preventDefault();
     changeSignUp();
   },
 
   'click #sign-changer': function(event) {
-    event.preventDefault();    
+    event.preventDefault();
     changeSignIn();
   }
 });
 
 Template.main.rendered = function() {
   changeSignIn();
+
+  setInterval(function() {
+    var currentSlogan = $('#slogan').text();
+    var newSlogan;
+
+    do {
+      newSlogan = getSlogan();
+    } while (newSlogan == currentSlogan);
+
+    $('#slogan').fadeOut(function() {
+      $(this).text(newSlogan).fadeIn();
+    });
+  }, 2000);
 };
 
 Deps.autorun(function() {
