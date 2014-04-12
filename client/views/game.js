@@ -167,10 +167,12 @@ var startGame = function(time, statement, lhazard, round) {
   editor.setValue("");
 
   $('#progress #bar').clearQueue();
+  $('#progress #bar').stop();
   $('#progress #bar').width(Math.round(time / 3).toString() + "%");
   $('#progress #bar').animate({ width: "0%" }, time * 1000, "linear");
 
   $('#time').clearQueue();
+  $('#time').stop();
   $('#time').css('left', Math.round(time / 3).toString() + "%");
   $('#time').animate({ left: "0%" }, time * 1000, "linear");
 
@@ -180,6 +182,8 @@ var startGame = function(time, statement, lhazard, round) {
   endTime = time * 1000 + Date.now();
 
   setRound(round);
+  
+  changeScore(30);
 
   clearHazard(hazard());
   setHazard(lhazard);
@@ -235,6 +239,14 @@ Deps.autorun(function() {
     clearHazard(hazard());
     Meteor.clearInterval(gameLoop);
     gameLoop = null;
+
+    $('#progress #bar').clearQueue();
+    $('#progress #bar').stop();
+    $('#progress #bar').width("0%");
+
+    $('#time').clearQueue();
+    $('#time').stop();
+    $('#time').css('left', "0%");
   });
 
   GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard, round) {
@@ -260,6 +272,15 @@ submitAnswer = function() {
       $('#feedback').show();
       $('#feedback-error').html(result);
 
+      if (result == "Wrong Answer") {
+        changeScore(-5);
+        setTime(time() - 5);
+        endTime = time() * 1000 + Date.now();
+        $('#progress #bar').clearQueue();
+        $('#progress #bar').width(Math.floor(time() / 3).toString() + "%");
+        $('#progress #bar').animate({ width: "0%" }, time() * 1000, "linear");
+      }
+
       if (!mute) {
         wrongAnswerAudio.pause();
         wrongAnswerAudio.currentTime = 0;
@@ -277,18 +298,15 @@ submitAnswer = function() {
 };
 
 changeScore = function(score) {
-    if(score>0)
-    {
-      $("#scoreUp").html("score");
-      $("#scoreUp").toggle();
-      Meteor.setTimeout($("#scoreUp").toggle(), 2000);
-    }
-    else
-    {
-      $("#scoreDown").html("score");
-      $("#scoreDown").toggle();
-      Meteor.setTimeout($("#scoreDown").toggle(), 2000);
-    }
+  if(score > 0) {
+    $("#scoreUp").html(score);
+    $("#scoreUp").toggle();
+    Meteor.setTimeout($("#scoreUp").toggle, 2000);
+  } else {
+    $("#scoreDown").html(score);
+    $("#scoreDown").toggle();
+    Meteor.setTimeout($("#scoreDown").toggle, 2000);
+  }
 };
 
 Template.game.helpers({
@@ -321,8 +339,4 @@ Template.game.helpers({
   score: function() {
     return round();
   }
-
-
-
-
 });

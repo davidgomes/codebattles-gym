@@ -1,4 +1,4 @@
-var ADD_TIME = 30;
+var ADD_TIME = 20;
 
 var Future = Npm.require('fibers/future');
 
@@ -75,13 +75,15 @@ function startRound(id, roundL) {
     time = 300 - ADD_TIME;
   }
 
-  GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement, hazard, user.score + 1);
+  Meteor.users.update(id, { $set: { endTime: (Date.now() + (ADD_TIME + time) * 1000) } });
 
   Meteor.clearTimeout(sessionHash[user._id]);
 
   sessionHash[id] = Meteor.setTimeout(function() {
     gameOver(id);
   }, (time + ADD_TIME) * 1000);
+
+  GameStream.emit(id + ":startRound", time + ADD_TIME, problem.statement, hazard, user.score + 1);
 };
 
 Meteor.methods({
@@ -97,7 +99,7 @@ Meteor.methods({
     }
 
     Meteor.users.update(user._id, { $set: { playing: 1 } });
-    Meteor.users.update(user._id, { $set: { time: ADD_TIME / 2 } });
+    Meteor.users.update(user._id, { $set: { time: ADD_TIME } });
     Meteor.users.update(user._id, { $set: { score: 0 } });
 
     GameStream.emit(user._id + ":preStart");
@@ -146,8 +148,26 @@ Meteor.methods({
         throw new Meteor.Error(401, "You need to be logged in to submit");
       }
 
-      if (response == "Accepted") {
+      if (response === "Accepted") {
         startRound(user._id, user.score + 1);
+      } else if (response === "Wrong Answer") {
+        console.log("go");
+        console.log(user.endTime);
+        Meteor.users.update(user._id, { $inc: { endTime: -(4.5 * 1000) } });
+        
+        Meteor.clearTimeout(sessionHash[user._id]);
+
+        console.log(user.endTime);
+        
+        if (user.endTime <= Date.now()) {
+          gameOver(user._id);
+        } else {
+          sessionHash[user._id] = Meteor.setTimeout(function() {
+            gameOver(user._id);
+          }, (user.endTime - Date.now() - 4.4 * 1000));
+        }
+
+        console.log((user.endTime - Date.now()  - 4.4 * 1000) / 1000);
       }
 
       future.return(response);
