@@ -7,6 +7,14 @@ keyboardHazard2 = false;
 var _hazard = null;
 var _hazardDeps = new Deps.Dependency;
 
+var _time = null;
+var _timeDeps = new Deps.Dependency;
+
+var _round = null;
+var _roundDeps = new Deps.Dependency;
+
+var endTime = 0;
+
 var altKey = 18;
 var submitKey = 83;
 var hotkey = false;
@@ -34,6 +42,31 @@ var setHazard = function(w) {
     _hazardDeps.changed();
   }
 };
+
+var time = function() {
+  _timeDeps.depend();
+  return _time;
+};
+
+var setTime = function(w) {
+  if (_time !== w) {
+    _time = w;
+    _timeDeps.changed();
+  }
+};
+
+var round = function() {
+  _roundDeps.depend();
+  return _round;
+};
+
+var setRound = function(w) {
+  if (_round !== w) {
+    _round = w;
+    _roundDeps.changed();
+  }
+};
+
 
 function reloadEditor() {
   editor = new CodeMirror(document.getElementById('actual-editor'), {
@@ -117,10 +150,14 @@ Template.game.events({
 var gameLoop;
 
 function gameTick() {
+  var timeLeft = Math.max(0, Math.round((endTime - Date.now()) / 1000));
+  setTime(timeLeft);
+  console.log("tick");
+  Meteor.clearTimeout(gameLoop);
   gameLoop = Meteor.setTimeout(gameTick, 1000);
 };
 
-var startGame = function(time, statement, lhazard) {
+var startGame = function(time, statement, lhazard, round) {
   editor.setOption('mode', language);
   editor.setValue("");
 
@@ -130,6 +167,10 @@ var startGame = function(time, statement, lhazard) {
   $('#feedback').hide();
   $('#problem-statement').text(statement);
 
+  endTime = time * 1000 + Date.now();
+
+  setRound(round);
+  
   clearHazard(hazard());
   setHazard(lhazard);
   runHazard(lhazard);
@@ -174,14 +215,15 @@ function countDown(left) {
 
 Deps.autorun(function() {
   GameStream.on(Meteor.userId() + ":gameOver", function() {
+    gameAudio.pause();
     clearHazard(hazard());
     Meteor.clearInterval(gameLoop);
     gameLoop = null;
   });
 
-  GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard) {
+  GameStream.on(Meteor.userId() + ":startRound", function(time, statement, hazard, round) {
     cstatement = statement;
-    startGame(time, statement, hazard);
+    startGame(time, statement, hazard, round);
     editor.focus();
   });
 
@@ -224,6 +266,13 @@ Template.game.helpers({
 
   language: function() {
     return language;
-  }
+  },
 
+  time: function() {
+    return time();
+  },
+
+  score: function() {
+    return round();
+  }
 });
