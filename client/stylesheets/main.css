@@ -360,26 +360,67 @@ h2.title{
 
 #scoreUp{
   visibility: none;
-  width:100px;
-  height:100px;
-  background-color: red;
-  -webkit-animation: scoreUpAnimation 1s; /* Chrome, Safari, Opera */
+  width:40px;
+  height:40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 14px;
+  color:rgba(236, 240, 241,1.0);
+  position: absolute;
+  margin: auto;
+  top:0px;
+  bottom:0px;
+  right:0px;
+  background-color: rgba(231, 76, 60,1.0);
+  -webkit-animation: scoreUpAnimation  1s; /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes scoreUpAnimation
 {
   from {opacity: 0; margin-bottom:0px;}
-  to {opacity: 1; margin-bottom:20px}
+  to {opacity: 1; margin-bottom:40px}
 }
 
 /* Standard syntax */
 @keyframes scoreUpAnimation
 {
   from {opacity: 0; margin-bottom:0px;}
-  to {opacity: 1; margin-bottom:20px}
+  to {opacity: 1; margin-bottom:40px}
 }
 
+#scoreDown{
+  visibility: none;
+  width:40px;
+  height:40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 14px;
+  color:rgba(236, 240, 241,1.0);
+  position: absolute;
+  margin: auto;
+  top:0px;
+  bottom:0px;
+  right:0px;
+  background-color: rgba(231, 76, 60,1.0);
+  -webkit-animation: scoreUpAnimation  1s; /* Chrome, Safari, Opera */
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes scoreUpAnimation
+{
+  from {opacity: 0; margin-bottom:0px;}
+  to {opacity: 1; margin-top:40px}
+}
+
+/* Standard syntax */
+@keyframes scoreUpAnimation
+{
+  from {opacity: 0; margin-bottom:0px;}
+  to {opacity: 1; margin-top:40px}
+}
 
 #time{
   width:40px;

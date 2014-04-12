@@ -184,7 +184,7 @@ var startGame = function(time, statement, lhazard, round) {
   endTime = time * 1000 + Date.now();
 
   setRound(round);
-  
+
   changeScore(30);
 
   clearHazard(hazard());
@@ -316,7 +316,7 @@ changeScore = function(score) {
     }
     upTimeout = Meteor.setTimeout(function() {
       $("#scoreUp").hide();
-    }, 1500);
+    }, 1000);
   }
   else {
     $("#scoreDown").html(score);
@@ -326,7 +326,7 @@ changeScore = function(score) {
     }
     downTimeout = Meteor.setTimeout(function() {
       $("#scoreDown").hide();
-    }, 1500);
+    }, 1000);
   }
 };
 
