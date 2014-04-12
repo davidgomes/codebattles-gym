@@ -408,6 +408,8 @@ margin-top:50px;
   color: white;
   -webkit-animation: stats 1s; /* Chrome, Safari, Opera */
 animation: stats 1s;
+background-image: url("fx/dead.png");
+background-position: 0px 100px;
 }
 #stat-pane:after {
   content:"";
