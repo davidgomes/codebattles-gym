@@ -27,7 +27,7 @@
     "statement": "Quick! Calculate: 2324324 + 2323",
     "difficulty": 1,
 
-    "hazards": [12, 13, 14],
+    "hazards": [13],
 
     "io": [{
       "input": "",

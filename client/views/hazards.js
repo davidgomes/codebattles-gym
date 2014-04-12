@@ -22,9 +22,6 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Russian Roulette") {
     clearRussianScript();
   }
-  else if (hazard.name == "War Trauma") {
-    clearWarScript();
-  }
   else if (hazard.name == "Keyboard Malfunction") {
     clearKeyboardMalfunctionScript();
   }
@@ -75,9 +72,6 @@ runHazard = function(hazard) {
   }
   else if (hazard.name == "Russian Roulette") {
     russianScript();
-  }
-  else if (hazard.name == "War Trauma") {
-    warScript();
   }
   else if (hazard.name == "Keyboard Malfunction") {
     keyboardMalfunctionScript();
@@ -163,27 +157,6 @@ clearRussianScript = function() {
   if (usingInterval) {
     Meteor.clearInterval(usingInterval);
   }
-};
-
-warScript = function() {
-  /*  var $fdiv = $("<div>", {id: "flashbang"});
-   $("body").append($fdiv);
-   $("#flashbang").hide();
-   var flashbangAudio = new Audio('fx/flashbang.mp3');
-   var timeout = 3500;
-   usingInterval = Meteor.setInterval(function() {
-   flashbangAudio.play();
-   setTimeout(function() {
-   $("#flashbang").show().fadeOut(4000);;
-   }, 1700);
-   timeout = Math.floor(Math.random() * 4500 + 3500);
-   },timeout);*/
-};
-
-clearWarScript = function () {
-  /*if (usingInterval) {
-   Meteor.clearTimeout(usingInterval);
-   }*/
 };
 
 keyboardMalfunctionScript = function() {
@@ -336,6 +309,8 @@ var clippyMessages = ["Estou aqui para ajudar. Em que posso ser útil?",
                       "Olá companheiro! Já experimentaste o Ink?",
                       "Sabias que podes fazer pagamentos com a MEO Wallet?",
                       "Vem aí o Inverno!",
+                      "10 BADGES NA COZINHA, VÃO RÁPIDO!",
+                      "Também quero 1000€ no MEO Cloud",
                       "Troca euros virtuais por chocolates na vending machine do lobby.",
                       "Sabias que os pokemon da água são especialmente fortes contra os do fogo?"];
 
