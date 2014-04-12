@@ -204,15 +204,25 @@ clearPerfectScript = function() {
 };
 
 nearScript = function() {
+  editor.on("cursorActivity", function() {
+    $(".CodeMirror pre").css("opacity","0");
+    $(".CodeMirror-activeline pre").css("opacity","1");
+  });
 };
 
 clearNearScript = function() {
+  $(".CodeMirror pre").css("opacity","1");
 };
 
 farScript = function() {
+  editor.on("cursorActivity", function() {
+    $(".CodeMirror pre").css("opacity","1");
+    $(".CodeMirror-activeline pre").css("opacity","0");
+  });
 };
 
 clearFarScript = function() {
+  $(".CodeMirror-activeline").css("opacity","1");
 };
 
 vertigoScript = function() {
