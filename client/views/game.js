@@ -4,6 +4,8 @@ cstatement = null;
 keyboardHazard1 = false;
 keyboardHazard2 = false;
 
+mute = false;
+
 var _hazard = null;
 var _hazardDeps = new Deps.Dependency;
 
@@ -31,7 +33,7 @@ audio = new Audio('music/pitascript.mp3');
 audio.loop = true;
 audio.volume = 0.55;
 
-var hazard = function() {
+hazard = function() {
   _hazardDeps.depend();
   return _hazard;
 };
@@ -110,7 +112,7 @@ Template.game.events({
       }
     }
   },
-
+  
   'keydown': function(event) {
     if (event.keyCode === altKey) {
       hotkey = true;
@@ -154,7 +156,6 @@ var gameLoop;
 function gameTick() {
   var timeLeft = Math.max(0, Math.round((endTime - Date.now()) / 1000));
   setTime(timeLeft);
-  console.log("tick");
   Meteor.clearTimeout(gameLoop);
   gameLoop = Meteor.setTimeout(gameTick, 1000);
 };
@@ -191,7 +192,9 @@ function countDown(left) {
 
     gameAudio.pause();
     gameAudio.currentTime = 0;
-    gameAudio.play();
+    if (!mute) {
+      gameAudio.play();
+    }
   } else {
     if (left == 3) {
       $('#countdown').show();
@@ -232,7 +235,12 @@ Deps.autorun(function() {
 
   GameStream.on(Meteor.userId() + ":preStart", function() {
     setTimeout(countDown, 10, 3);
-    countdownAudio.play();
+
+    if (!mute) {
+      countdownAudio.pause();
+      countdownAudio.currentTime = 0;
+      countdownAudio.play();
+    }
   });
 });
 
@@ -241,9 +249,19 @@ submitAnswer = function() {
     if (result != "Accepted") {
       $('#feedback').show();
       $('#feedback-error').html(result);
-      wrongAnswerAudio.play();
+
+      if (!mute) {
+        wrongAnswerAudio.pause();
+        wrongAnswerAudio.currentTime = 0;
+        wrongAnswerAudio.play();
+      }
     } else {
-      rightAnswerAudio.play();
+      
+      if (!mute) {
+        rightAnswerAudio.pause();
+        rightAnswerAudio.currentTime = 0;
+        rightAnswerAudio.play();
+      }
     }
   });
 };
