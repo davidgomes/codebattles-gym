@@ -57,7 +57,7 @@ Template.main.rendered = function() {
     $('#slogan').fadeOut(function() {
       $(this).text(newSlogan).fadeIn();
     });
-  }, 2000);
+  }, 3000);
 };
 
 Deps.autorun(function() {
@@ -104,8 +104,8 @@ function signUp() {
 function changeSignIn() {
   $('#pass-confirm-div').fadeOut('medium');
   $('#sign-text').text('Sign In');
-  $('.submit-button').text('Enter');
-  $('#sign-changer').text('Sign Up');
+  $('.submit-button').text('Sign In');
+  $('#sign-changer').text('Register');
   $('#sign-changer').attr('id','register-changer');
   $('#sign-type').val('sign-in');
 }
