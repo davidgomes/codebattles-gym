@@ -166,7 +166,6 @@ function gameTick() {
   gameLoop = Meteor.setTimeout(gameTick, 1000);
   if (timeLeft === 0) {
     Meteor.call("gameOver");
-    gameOverAudio.play();
   }
 };
 
@@ -245,8 +244,9 @@ function countDown(left) {
 
 Deps.autorun(function() {
   GameStream.on(Meteor.userId() + ":gameOver", function() {
-    gameAudio.pause();
+    gameAudio.pause()
     clearHazard(hazard());
+    gameOverAudio.play();
     Meteor.clearInterval(gameLoop);
     gameLoop = null;
 
