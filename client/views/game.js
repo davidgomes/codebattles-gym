@@ -265,6 +265,21 @@ submitAnswer = function() {
   });
 };
 
+changeScore = function(score) {
+    if(score>0)
+    {
+      $("#scoreUp").html("score");
+      $("#scoreUp").toggle();
+      Meteor.setTimeout($("#scoreUp").toggle(), 2000);
+    }
+    else
+    {
+      $("#scoreDown").html("score");
+      $("#scoreDown").toggle();
+      Meteor.setTimeout($("#scoreDown").toggle(), 2000);
+    }
+};
+
 Template.game.helpers({
   hazardName: function() {
     if (hazard()) {
@@ -295,4 +310,8 @@ Template.game.helpers({
   score: function() {
     return round();
   }
+
+
+
+
 });
