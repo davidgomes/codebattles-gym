@@ -61,7 +61,7 @@ clearHazard = function(hazard) {
   else if (hazard.name == "Spicy") {
     clearSpicyScript();
   }
-  else if (hazard.name == "Lsd") {
+  else if (hazard.name == "LSD") {
     clearLsdScript();
   }
 };
@@ -115,7 +115,7 @@ runHazard = function(hazard) {
   else if (hazard.name == "Spicy") {
     spicyScript();
   }
-  else if (hazard.name == "Lsd") {
+  else if (hazard.name == "LSD") {
     lsdScript();
   }
 };

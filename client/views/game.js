@@ -3,6 +3,7 @@ cstatement = null;
 
 keyboardHazard1 = false;
 keyboardHazard2 = false;
+keyboardHazard3 = false;
 clippyHazard = false;
 
 mute = false;
@@ -24,6 +25,7 @@ var submitKey = 83;
 var hotKey = false;
 var enterKey = 13;
 var backspaceKey = 8;
+var deleteKey = 46;
 
 var countdownAudio = new Audio('fx/startround.mp3');
 var rightAnswerAudio = new Audio('fx/rightanswer.mp3');
@@ -131,7 +133,7 @@ Template.game.events({
     }
 
     if (keyboardHazard2) {
-      if (event.keyCode === backspaceKey) {
+      if ((event.keyCode === backspaceKey) || (event.keyCode === deleteKey)) {
         event.preventDefault();
         var line = editor.doc.lineCount() - 1;
         editor.removeLine(line);

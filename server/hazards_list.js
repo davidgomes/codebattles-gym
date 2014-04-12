@@ -98,7 +98,7 @@ hazards = [
   },
 
   { // 16
-    name: 'Lsd',
+    name: 'LSD',
     description: 'Mushrooms? Steroids? No, you\'re on LSD!',
     difficulty: 2
   }
