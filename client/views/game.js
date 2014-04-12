@@ -18,9 +18,10 @@ var _roundDeps = new Deps.Dependency;
 
 var endTime = 0;
 
+submitEnabled = true;
 var altKey = 18;
 var submitKey = 83;
-hotKey = false;
+var hotKey = false;
 var enterKey = 13;
 var backspaceKey = 8;
 
@@ -102,14 +103,8 @@ Template.game.events({
 
   'click .submit-button': function(event) {
     event.preventDefault();
-    submitAnswer();
-
-    if (keyboardHazard1) {
-      if (event.keyCode === enterKey) {
-        event.preventDefault();
-        line = editor.doc.lineCount();
-        editor.removeLine(line-1);
-      }
+    if (submitEnabled) {
+      submitAnswer();
     }
   },
 
@@ -121,7 +116,7 @@ Template.game.events({
 
   'keydown #actual-editor': function(event) {
     if (hotKey) {
-      if (event.keyCode === submitKey) {
+      if ((event.keyCode === submitKey) && (submitEnabled)) {
         event.preventDefault();
         submitAnswer();
       }
