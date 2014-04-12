@@ -227,7 +227,8 @@ clearEpilepsiaScript = function() {
   if (usingInterval) {
     Meteor.clearTimeout(usingInterval);
   }
-  $('body').css("background","rgba(236, 240, 241,1.0)");
+
+  $('body').css("background", "rgba(236, 240, 241,1.0)");
 };
 
 
@@ -235,6 +236,7 @@ drunkScript = function() {
   blurLevel = 0;
   blurInterval = 0.5;
   increasing = true;
+
   usingInterval = Meteor.setInterval(function() {
     if (blurLevel > 3) {
       increasing = false;
@@ -245,6 +247,7 @@ drunkScript = function() {
     } else {
       blurLevel -= blurInterval;
     }
+
     $('.CodeMirror').css("-webkit-filter", "blur(" + blurLevel + "px)");
   }, 20);
 };
@@ -392,12 +395,18 @@ spicyScript = function() {
   $('#radioactive').css('left', '0px');
   $('#radioactive').css('right', '0px');
   $('#radioactive').css('bottom', '0px');
+  $('#radioactive').css('-webkit-user-select', 'none');
+  $('#radioactive').css('user-select', 'none');
 
+  $('#radioactive').click(function() {
+    editor.focus();
+  });
+  
   editor.focus();
   usingInterval = setInterval(function() {
     var currentOpacity = parseFloat($('#spicy').css('opacity'));
-    $('#spicy').css('opacity', currentOpacity + 0.05);
-  }, 1000);
+    $('#spicy').css('opacity', currentOpacity + 0.01);
+  }, 100);
 };
 
 clearSpicyScript = function() {
