@@ -7,6 +7,7 @@ function getRandomFloat(min, max) {
 }
 
 usingInterval = null;
+clippyClear = false;
 
 clearHazard = function(hazard) {
   if (hazard == null)
@@ -369,14 +370,16 @@ clippyScript = function() {
     $(this).remove();
     editor.setOption('readOnly', false);
     editor.focus();
-
-    setTimeout(clippyScript, getRandomInt(5000, 10000));
+    if (!clippyClear){
+      setTimeout(clippyScript, getRandomInt(5000, 10000));
+    }
   });
 };
 
 clearClippyScript = function() {
-  submitEnabled = true;
   $("#clippy-holder").remove();
+  submitEnabled = true;
+  clippyClear = true;
   editor.setOption('readOnly', false);
   editor.focus();
 };
