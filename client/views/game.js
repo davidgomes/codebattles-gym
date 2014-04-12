@@ -32,6 +32,7 @@ var deleteKey = 46;
 var countdownAudio = new Audio('fx/startround.mp3');
 var rightAnswerAudio = new Audio('fx/rightanswer.mp3');
 var wrongAnswerAudio = new Audio('fx/wronganswer.mp3');
+var gameOverAudio = new Audio('fx/gameover.mp3');
 gameAudio = new Audio('music/maintheme.mp3');
 gameAudio.volume = 0.5;
 gameAudio.loop = true;
@@ -156,6 +157,7 @@ Template.game.events({
 });
 
 var gameLoop;
+var gameOver = false;
 
 function gameTick() {
   var timeLeft = Math.max(0, Math.round((endTime - Date.now()) / 1000));
@@ -164,6 +166,7 @@ function gameTick() {
   gameLoop = Meteor.setTimeout(gameTick, 1000);
   if (timeLeft === 0) {
     Meteor.call("gameOver");
+    gameOverAudio.play();
   }
 };
 

@@ -7,6 +7,29 @@ var keyA = 65;
 var keyD = 68;
 var keyEnter = 13;
 
+document.onkeydown = checkKey;
+
+function checkKey(event) {
+  if (joining) {
+    event = event || window.event;
+    if (event.keyCode === keyEnter) {
+      preStart();
+    } else if ((event.keyCode === keyRight) || (event.keyCode === keyD)) {
+      if (language === "ruby") {
+        selectJavascript();
+      } else if (language === "javascript") {
+        selectPython();
+      }
+    } else if ((event.keyCode === keyLeft) || (event.keyCode === keyA)) {
+      if (language === "python") {
+        selectJavascript();
+      } else if (language === "javascript") {
+        selectRuby();
+      }
+    }
+  }
+}
+
 preStart = function() {
   joining = false;
   Meteor.call("preStart");
@@ -95,28 +118,5 @@ changeInstructions = function() {
     $("#instructions").html(pythonInfo1 + pythonInfo2);
   }
 };
-
-document.onkeydown = checkKey;
-
-function checkKey(event) {
-  if (joining) {
-    event = event || window.event;
-    if (event.keyCode === keyEnter) {
-      preStart();
-    } else if ((event.keyCode === keyRight) || (event.keyCode === keyD)) {
-      if (language === "ruby") {
-        selectJavascript();
-      } else if (language === "javascript") {
-        selectPython();
-      }
-    } else if ((event.keyCode === keyLeft) || (event.keyCode === keyA)) {
-      if (language === "python") {
-        selectJavascript();
-      } else if (language === "javascript") {
-        selectRuby();
-      }
-    }
-  }
-}
 
 changeInstructions();

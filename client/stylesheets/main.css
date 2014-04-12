@@ -474,7 +474,7 @@ h2.title{
   position: absolute;
   top:0;
   left:0;right:0;
-  margin-top:50px;
+  margin-top:0px;
   text-align: center;
   color: white;
   -webkit-animation: stats 1s; /* Chrome, Safari, Opera */
