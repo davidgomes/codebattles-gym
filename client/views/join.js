@@ -119,4 +119,27 @@ changeInstructions = function() {
   }
 };
 
+document.onkeydown = checkKey;
+
+function checkKey(event) {
+  if (joining) {
+    event = event || window.event;
+    if (event.keyCode === keyEnter) {
+      preStart();
+    } else if ((event.keyCode === keyRight) || (event.keyCode === keyD)) {
+      if (language === "ruby") {
+        selectJavascript();
+      } else if (language === "javascript") {
+        selectPython();
+      }
+    } else if ((event.keyCode === keyLeft) || (event.keyCode === keyA)) {
+      if (language === "python") {
+        selectJavascript();
+      } else if (language === "javascript") {
+        selectRuby();
+      }
+    }
+  }
+}
+
 changeInstructions();
