@@ -48,14 +48,14 @@
   },
 
   {
-    "statement": "Things are heating up! I'll give you a list of space separated integers, give me (one per line) the smallest prime number larger than each given integer (for 12 the answer is 15).",
+    "statement": "Things are heating up! I'll give you a list of space separated integers, give me (one per line) the smallest prime number larger than each given integer (for 3 the answer is 5).",
     "difficulty": 3,
 
     "hazards": [1, 2, 5, 6, 7, 12, 14, 16],
 
     "io": [{
       "input": "12 2 3 55 120 156 7\n",
-      "output": "13\n2\n3\n59\n127\n157\n7\n"
+      "output": "13\n3\n5\n59\n127\n157\n11\n"
     }]
   }
 ]
